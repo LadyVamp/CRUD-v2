@@ -1,0 +1,13 @@
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\CRUD v2.exe.config
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD v2.csprojResolveAssemblyReference.cache
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD_v2.Form1.resources
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD_v2.Properties.Resources.resources
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD v2.csproj.GenerateResource.Cache
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\CRUD v2.exe
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\CRUD v2.pdb
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\Domain.dll
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\Session.dll
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\Domain.pdb
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\Session.pdb
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD v2.exe
+c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD v2.pdb
