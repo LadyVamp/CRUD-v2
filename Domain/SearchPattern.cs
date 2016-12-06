@@ -11,14 +11,13 @@ namespace Domain
     public class SearchPattern
     {
         int id;
-
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
-        string regularExpression;
 
+        string regularExpression;
         public string RegularExpression
         {
             get { return regularExpression; }
@@ -26,7 +25,6 @@ namespace Domain
         }
 
         string compareWith;
-
         public string CompareWith
         {
             get { return compareWith; }
@@ -34,21 +32,19 @@ namespace Domain
         }
 
         string action;
-
         public string Action
         {
             get { return action; }
             set { action = value; }
         }
 
-
+        //Вывод в Combobox cmbPatterns
         public override string ToString()
         {
             return RegularExpression + " | " + CompareWith + " | " + Action;
         }
 
-        //соединение с БД
-
+        //Соединение с БД
         OleDbConnection connection;
         OleDbCommand command;
 
@@ -58,7 +54,7 @@ namespace Domain
             command = connection.CreateCommand();
         }
 
-        //методы CRUD
+        //Методы CRUD
         public void Insert(SearchPattern sp)
         {
             try
@@ -128,7 +124,6 @@ namespace Domain
 
         public void Update(SearchPattern oldPattern, SearchPattern newPattern)
         {
-
             try
             {
                 command.CommandText = "UPDATE TSearchPattern SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.Id;
