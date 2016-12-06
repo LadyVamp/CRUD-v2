@@ -16,6 +16,7 @@ namespace CRUD_v2
     {
 
         Broker b = new Broker();
+        //SearchPattern sp = new SearchPattern();
 
         public Form1()
         {

@@ -2,3 +2,4 @@ c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\bin\Debug\Do
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\bin\Debug\Domain.pdb
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.dll
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.pdb
+C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache

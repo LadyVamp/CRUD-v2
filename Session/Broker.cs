@@ -29,7 +29,7 @@ namespace Session
             try
             {
                 command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + sp.RegularExpression + "', '" + sp.CompareWith + "', '" + sp.Action + "')";
-                
+
                 command.CommandType = System.Data.CommandType.Text;
                 connection.Open();
 
