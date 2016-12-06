@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbAction = new System.Windows.Forms.ComboBox();
@@ -47,8 +48,18 @@
             this.btnFillCombobox = new System.Windows.Forms.Button();
             this.cmbPatterns = new System.Windows.Forms.ComboBox();
             this.txtNewRegExp = new System.Windows.Forms.TextBox();
+            this.searchBaseDataSet = new CRUD_v2.SearchBaseDataSet();
+            this.searchBaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tCompareBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
+            this.tActionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,19 +89,27 @@
             // 
             // cmbAction
             // 
+            this.cmbAction.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tActionBindingSource, "actionName", true));
+            this.cmbAction.DataSource = this.tActionBindingSource;
+            this.cmbAction.DisplayMember = "actionName";
             this.cmbAction.FormattingEnabled = true;
             this.cmbAction.Location = new System.Drawing.Point(190, 83);
             this.cmbAction.Name = "cmbAction";
             this.cmbAction.Size = new System.Drawing.Size(121, 21);
             this.cmbAction.TabIndex = 9;
+            this.cmbAction.ValueMember = "actionName";
             // 
             // cmbCompare
             // 
+            this.cmbCompare.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tCompareBindingSource, "compareName", true));
+            this.cmbCompare.DataSource = this.tCompareBindingSource;
+            this.cmbCompare.DisplayMember = "compareName";
             this.cmbCompare.FormattingEnabled = true;
             this.cmbCompare.Location = new System.Drawing.Point(190, 51);
             this.cmbCompare.Name = "cmbCompare";
             this.cmbCompare.Size = new System.Drawing.Size(121, 21);
             this.cmbCompare.TabIndex = 8;
+            this.cmbCompare.ValueMember = "compareName";
             // 
             // btnInsert
             // 
@@ -157,11 +176,15 @@
             // 
             // cmbNewAction
             // 
+            this.cmbNewAction.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tActionBindingSource, "actionName", true));
+            this.cmbNewAction.DataSource = this.tActionBindingSource;
+            this.cmbNewAction.DisplayMember = "actionName";
             this.cmbNewAction.FormattingEnabled = true;
             this.cmbNewAction.Location = new System.Drawing.Point(227, 141);
             this.cmbNewAction.Name = "cmbNewAction";
             this.cmbNewAction.Size = new System.Drawing.Size(121, 21);
             this.cmbNewAction.TabIndex = 13;
+            this.cmbNewAction.ValueMember = "actionName";
             // 
             // label6
             // 
@@ -174,11 +197,15 @@
             // 
             // cmbNewCompare
             // 
+            this.cmbNewCompare.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tCompareBindingSource, "compareName", true));
+            this.cmbNewCompare.DataSource = this.tCompareBindingSource;
+            this.cmbNewCompare.DisplayMember = "compareName";
             this.cmbNewCompare.FormattingEnabled = true;
             this.cmbNewCompare.Location = new System.Drawing.Point(227, 109);
             this.cmbNewCompare.Name = "cmbNewCompare";
             this.cmbNewCompare.Size = new System.Drawing.Size(121, 21);
             this.cmbNewCompare.TabIndex = 12;
+            this.cmbNewCompare.ValueMember = "compareName";
             // 
             // btnDelete
             // 
@@ -211,7 +238,7 @@
             // 
             // btnFillCombobox
             // 
-            this.btnFillCombobox.Location = new System.Drawing.Point(273, 17);
+            this.btnFillCombobox.Location = new System.Drawing.Point(273, 46);
             this.btnFillCombobox.Name = "btnFillCombobox";
             this.btnFillCombobox.Size = new System.Drawing.Size(75, 23);
             this.btnFillCombobox.TabIndex = 6;
@@ -224,7 +251,7 @@
             this.cmbPatterns.FormattingEnabled = true;
             this.cmbPatterns.Location = new System.Drawing.Point(13, 19);
             this.cmbPatterns.Name = "cmbPatterns";
-            this.cmbPatterns.Size = new System.Drawing.Size(254, 21);
+            this.cmbPatterns.Size = new System.Drawing.Size(335, 21);
             this.cmbPatterns.TabIndex = 5;
             // 
             // txtNewRegExp
@@ -233,6 +260,34 @@
             this.txtNewRegExp.Name = "txtNewRegExp";
             this.txtNewRegExp.Size = new System.Drawing.Size(121, 20);
             this.txtNewRegExp.TabIndex = 2;
+            // 
+            // searchBaseDataSet
+            // 
+            this.searchBaseDataSet.DataSetName = "SearchBaseDataSet";
+            this.searchBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // searchBaseDataSetBindingSource
+            // 
+            this.searchBaseDataSetBindingSource.DataSource = this.searchBaseDataSet;
+            this.searchBaseDataSetBindingSource.Position = 0;
+            // 
+            // tCompareBindingSource
+            // 
+            this.tCompareBindingSource.DataMember = "TCompare";
+            this.tCompareBindingSource.DataSource = this.searchBaseDataSetBindingSource;
+            // 
+            // tCompareTableAdapter
+            // 
+            this.tCompareTableAdapter.ClearBeforeFill = true;
+            // 
+            // tActionBindingSource
+            // 
+            this.tActionBindingSource.DataMember = "TAction";
+            this.tActionBindingSource.DataSource = this.searchBaseDataSetBindingSource;
+            // 
+            // tActionTableAdapter
+            // 
+            this.tActionTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -243,10 +298,15 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,6 +332,12 @@
         private System.Windows.Forms.ComboBox cmbNewAction;
         private System.Windows.Forms.ComboBox cmbNewCompare;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.BindingSource searchBaseDataSetBindingSource;
+        private SearchBaseDataSet searchBaseDataSet;
+        private System.Windows.Forms.BindingSource tCompareBindingSource;
+        private SearchBaseDataSetTableAdapters.TCompareTableAdapter tCompareTableAdapter;
+        private System.Windows.Forms.BindingSource tActionBindingSource;
+        private SearchBaseDataSetTableAdapters.TActionTableAdapter tActionTableAdapter;
     }
 }
 

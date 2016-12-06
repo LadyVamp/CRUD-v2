@@ -22,13 +22,7 @@ namespace Domain
             get { return regularExpression; }
             set { regularExpression = value; }
         }
-        string action;
 
-        public string Action
-        {
-            get { return action; }
-            set { action = value; }
-        }
         string compareWith;
 
         public string CompareWith
@@ -37,9 +31,18 @@ namespace Domain
             set { compareWith = value; }
         }
 
+        string action;
+
+        public string Action
+        {
+            get { return action; }
+            set { action = value; }
+        }
+
+
         public override string ToString()
         {
-            return RegularExpression + " " + CompareWith + " " + Action;
+            return RegularExpression + " | " + CompareWith + " | " + Action;
         }
 
     }
