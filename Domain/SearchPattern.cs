@@ -6,11 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using System.Data.SqlClient;
-
+/*
+ * Шаблон Active Record охватывает и данные и поведение. Большая часть его данных является постоянной 
+ * и должна храниться в базе данных. В типовом решении активная запись используется наиболее очевидный
+ * подход, при котором логика доступа к данным включается в объект домена. 
+ * Класс SearchPattern содержит поля таблицы и методы CRUD.
+ * 
+ * В основе типового решения активная запись лежит модель предметной области (Domain Model), 
+ * классы которой повторяют структуру записей используемой базы данных. Каждая активная запись отвечает
+ * за сохранение и загрузку информации в БД, а так же за логику домена, применяемую к данным. 
+ * Это может быть вся бизнес-логика приложения.
+ */
 namespace Domain
 {
     public class SearchPattern
     {
+       //Поля таблицы
         int id;
         public int ID
         {
@@ -55,17 +66,6 @@ namespace Domain
             Action = action;
         }
 
-        public void PatternRecord() //Active Record
-        {
-            SearchPattern arsp = new SearchPattern();
-            arsp.RegularExpression = "XYZ";
-            arsp.CompareWith = "XYZ1";
-            arsp.Action = "XYZ2";
-            Insert(arsp);
-        }
-        
-
-
         //Вывод в Combobox cmbPatterns
         public override string ToString()
         {
@@ -75,18 +75,17 @@ namespace Domain
         //Соединение с БД
         OleDbConnection connection;
         OleDbCommand command;
-
         private void ConnectTo()
         {
             connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
             command = connection.CreateCommand();
         }
 
-        //Методы CRUD
         private const string CONNECTION_STRING =
    "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
-
-        //Insert
+        
+        //  Методы CRUD
+        //  Insert
         public void Insert(SearchPattern arsp)
         {
             using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
@@ -97,14 +96,13 @@ namespace Domain
                 {
                     command.CommandType = System.Data.CommandType.Text;
                     command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
-                    //command1.Parameters.AddWithValue("@ID", ID);
                     command.ExecuteNonQuery();
                 }
             }
 
         }
 
-        //FillCombobox
+        //  Read (FillCombobox)
         public List<SearchPattern> FillCombobox()
         {
             List<SearchPattern> spList = new List<SearchPattern>();
@@ -146,7 +144,7 @@ namespace Domain
             }
         }
 
-        //Update
+        //  Update
         public void Update(SearchPattern oldPattern, SearchPattern newPattern)
         {
             using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
@@ -157,14 +155,12 @@ namespace Domain
                 {
                     command.CommandType = System.Data.CommandType.Text;
                     command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.ID;
-                    //command.Parameters.AddWithValue("@ID", ID);
-
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        //Delete
+        //  Delete
         public void Delete(SearchPattern sp)
         {
             using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))

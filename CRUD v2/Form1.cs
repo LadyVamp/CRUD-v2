@@ -77,6 +77,17 @@ namespace CRUD_v2
 
         }
 
+        private void btnInsertXYZ_Click(object sender, EventArgs e)
+        {
+            SearchPattern sp = new SearchPattern();
+            sp.RegularExpression = "XYZ";
+            sp.Action = "XYZ";
+            sp.CompareWith = "XYZ";
+            b.Insert(sp);
+            //MessageBox.Show("Запись успешно добавлена");
+            MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
+        }
+
 
 
 

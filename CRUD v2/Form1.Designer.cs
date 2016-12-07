@@ -32,7 +32,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbAction = new System.Windows.Forms.ComboBox();
+            this.tActionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBaseDataSet = new CRUD_v2.SearchBaseDataSet();
             this.cmbCompare = new System.Windows.Forms.ComboBox();
+            this.tCompareBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtRegExp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,22 +52,20 @@
             this.btnFillCombobox = new System.Windows.Forms.Button();
             this.cmbPatterns = new System.Windows.Forms.ComboBox();
             this.txtNewRegExp = new System.Windows.Forms.TextBox();
-            this.searchBaseDataSet = new CRUD_v2.SearchBaseDataSet();
-            this.searchBaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tCompareBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
-            this.tActionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
+            this.btnInsertXYZ = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnInsertXYZ);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbAction);
             this.groupBox1.Controls.Add(this.cmbCompare);
@@ -99,6 +101,21 @@
             this.cmbAction.TabIndex = 9;
             this.cmbAction.ValueMember = "actionName";
             // 
+            // tActionBindingSource
+            // 
+            this.tActionBindingSource.DataMember = "TAction";
+            this.tActionBindingSource.DataSource = this.searchBaseDataSetBindingSource;
+            // 
+            // searchBaseDataSetBindingSource
+            // 
+            this.searchBaseDataSetBindingSource.DataSource = this.searchBaseDataSet;
+            this.searchBaseDataSetBindingSource.Position = 0;
+            // 
+            // searchBaseDataSet
+            // 
+            this.searchBaseDataSet.DataSetName = "SearchBaseDataSet";
+            this.searchBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cmbCompare
             // 
             this.cmbCompare.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tCompareBindingSource, "compareName", true));
@@ -110,6 +127,11 @@
             this.cmbCompare.Size = new System.Drawing.Size(121, 21);
             this.cmbCompare.TabIndex = 8;
             this.cmbCompare.ValueMember = "compareName";
+            // 
+            // tCompareBindingSource
+            // 
+            this.tCompareBindingSource.DataMember = "TCompare";
+            this.tCompareBindingSource.DataSource = this.searchBaseDataSetBindingSource;
             // 
             // btnInsert
             // 
@@ -261,39 +283,29 @@
             this.txtNewRegExp.Size = new System.Drawing.Size(121, 20);
             this.txtNewRegExp.TabIndex = 2;
             // 
-            // searchBaseDataSet
-            // 
-            this.searchBaseDataSet.DataSetName = "SearchBaseDataSet";
-            this.searchBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // searchBaseDataSetBindingSource
-            // 
-            this.searchBaseDataSetBindingSource.DataSource = this.searchBaseDataSet;
-            this.searchBaseDataSetBindingSource.Position = 0;
-            // 
-            // tCompareBindingSource
-            // 
-            this.tCompareBindingSource.DataMember = "TCompare";
-            this.tCompareBindingSource.DataSource = this.searchBaseDataSetBindingSource;
-            // 
             // tCompareTableAdapter
             // 
             this.tCompareTableAdapter.ClearBeforeFill = true;
-            // 
-            // tActionBindingSource
-            // 
-            this.tActionBindingSource.DataMember = "TAction";
-            this.tActionBindingSource.DataSource = this.searchBaseDataSetBindingSource;
             // 
             // tActionTableAdapter
             // 
             this.tActionTableAdapter.ClearBeforeFill = true;
             // 
+            // btnInsertXYZ
+            // 
+            this.btnInsertXYZ.Location = new System.Drawing.Point(266, 123);
+            this.btnInsertXYZ.Name = "btnInsertXYZ";
+            this.btnInsertXYZ.Size = new System.Drawing.Size(102, 23);
+            this.btnInsertXYZ.TabIndex = 11;
+            this.btnInsertXYZ.Text = "Добавить XYZ";
+            this.btnInsertXYZ.UseVisualStyleBackColor = true;
+            this.btnInsertXYZ.Click += new System.EventHandler(this.btnInsertXYZ_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 403);
+            this.ClientSize = new System.Drawing.Size(404, 403);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
@@ -301,12 +313,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,6 +350,7 @@
         private SearchBaseDataSetTableAdapters.TCompareTableAdapter tCompareTableAdapter;
         private System.Windows.Forms.BindingSource tActionBindingSource;
         private SearchBaseDataSetTableAdapters.TActionTableAdapter tActionTableAdapter;
+        private System.Windows.Forms.Button btnInsertXYZ;
     }
 }
 
