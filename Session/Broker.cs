@@ -9,6 +9,8 @@ using Domain;
 using System.Data;
 using System.Data.SqlClient;
 
+
+
 namespace Session
 {
     public class Broker
@@ -150,6 +152,36 @@ namespace Session
         //}
 
 
+        int id;
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        string regularExpression;
+        public string RegularExpression
+        {
+            get { return regularExpression; }
+            set { regularExpression = value; }
+        }
+
+        string compareWith;
+        public string CompareWith
+        {
+            get { return compareWith; }
+            set { compareWith = value; }
+        }
+
+        string action;
+        public string Action
+        {
+            get { return action; }
+            set { action = value; }
+        }
+
+
+
         private const string CONNECTION_STRING =
     "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
 
@@ -166,11 +198,109 @@ namespace Session
 
                     command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
                     //command.Parameters.AddWithValue("@ID", ID);
+                    
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            
+        }
+
+        public void Delete()
+        {
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+
+                    command.CommandText = "DELETE FROM [TSearchPattern] WHERE [ID] = @ID";
+                    // This method uses the ID value from this object's property.
+                    // This function didn't need to receive that value from a parameter.
+                    command.Parameters.AddWithValue("@ID", ID);
 
                     command.ExecuteNonQuery();
                 }
             }
         }
+
+        //public List<SearchPattern> FillCombobox()
+        //{
+        //    using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+        //    {
+        //        connection.Open();
+
+        //        using (SqlCommand command = connection.CreateCommand())
+        //        {
+        //            command.CommandType = CommandType.Text;
+
+        //            command.CommandText = "SELECT * FROM TSearchPattern";
+        //            //command.Parameters.AddWithValue("@ID", ID);
+
+        //            command.ExecuteNonQuery();
+
+        //            //OleDbDataReader reader = command.ExecuteReader();
+        //            SqlDataReader reader = command.ExecuteReader();
+
+        //            //while (reader.Read())
+        //            //{
+        //            //    SearchPattern sp = new SearchPattern();
+
+        //            //    sp.Id = Convert.ToInt32(reader["ID"].ToString());
+        //            //    sp.RegularExpression = reader["regularExpression"].ToString();
+        //            //    sp.CompareWith = reader["compareWith"].ToString();
+        //            //    sp.Action = reader["action"].ToString();
+
+        //            //    spList.Add(sp);
+        //            //}
+        //            //return spList;
+        //        }
+        //    }
+        //}
+
+
+        //public List<SearchPattern> FillCombobox()
+        //{
+        //    List<SearchPattern> spList = new List<SearchPattern>();
+
+        //    try
+        //    {
+        //        command.CommandText = "SELECT * FROM TSearchPattern";
+        //        command.CommandType = System.Data.CommandType.Text;
+        //        connection.Open();
+
+        //        OleDbDataReader reader = command.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            SearchPattern sp = new SearchPattern();
+
+        //            sp.Id = Convert.ToInt32(reader["ID"].ToString());
+        //            sp.RegularExpression = reader["regularExpression"].ToString();
+        //            sp.CompareWith = reader["compareWith"].ToString();
+        //            sp.Action = reader["action"].ToString();
+
+        //            spList.Add(sp);
+        //        }
+        //        return spList;
+
+        //    }
+
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+
+        //    finally
+        //    {
+        //        if (connection != null)
+        //        {
+        //            connection.Close();
+        //        }
+        //    }
+        //}
 
 
     }

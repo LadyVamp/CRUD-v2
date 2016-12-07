@@ -271,7 +271,10 @@ namespace Domain
                 arsp.Action = "XYZ2";
                 Insert(arsp);
 
+                //===TODO. Сделать такой же метод, но чтобы считывал значения с textbox
             }
+
+            
 
             // This static method acts like an object factory for Customer objects,
             // reading the values from the database and creating the object.
