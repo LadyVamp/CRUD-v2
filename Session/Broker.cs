@@ -28,7 +28,7 @@ namespace Session
         {
             try
             {
-                command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + sp.RegularExpression + "', '" + sp.CompareWith + "', '" + sp.Action + "')";
+                //command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + sp.RegularExpression + "', '" + sp.CompareWith + "', '" + sp.Action + "')";
 
                 command.CommandType = System.Data.CommandType.Text;
                 connection.Open();
@@ -65,14 +65,14 @@ namespace Session
 
                 while (reader.Read())
                 {
-                    SearchPattern sp = new SearchPattern();
+                    //SearchPattern sp = new SearchPattern();
 
-                    sp.Id = Convert.ToInt32(reader["ID"].ToString());
-                    sp.RegularExpression = reader["regularExpression"].ToString();
-                    sp.CompareWith = reader["compareWith"].ToString();
-                    sp.Action = reader["action"].ToString();
+                    //sp.Id = Convert.ToInt32(reader["ID"].ToString());
+                    //sp.RegularExpression = reader["regularExpression"].ToString();
+                    //sp.CompareWith = reader["compareWith"].ToString();
+                    //sp.Action = reader["action"].ToString();
 
-                    spList.Add(sp);
+                    //spList.Add(sp);
                 }
                 return spList;
 
@@ -97,7 +97,7 @@ namespace Session
 
             try
             {
-                command.CommandText = "UPDATE TSearchPattern SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.Id;
+                //command.CommandText = "UPDATE TSearchPattern SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.Id;
                 command.CommandType = System.Data.CommandType.Text;
                 connection.Open();
 
@@ -122,7 +122,7 @@ namespace Session
         {
             try
             {
-                command.CommandText = "DELETE FROM TSearchPattern WHERE ID= " + sp.Id;
+                //command.CommandText = "DELETE FROM TSearchPattern WHERE ID= " + sp.Id;
                 command.CommandType = System.Data.CommandType.Text;
                 connection.Open();
 

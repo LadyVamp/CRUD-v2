@@ -25,20 +25,20 @@ namespace CRUD_v2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            SearchPattern sp = new SearchPattern();
-            sp = cmbPatterns.SelectedItem as SearchPattern;
+            //SearchPattern sp = new SearchPattern();
+            //sp = cmbPatterns.SelectedItem as SearchPattern;
 
-            b.Delete(sp);
+            //b.Delete(sp);
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            SearchPattern sp = new SearchPattern();
-            sp.RegularExpression = txtRegExp.Text;
-            sp.Action = cmbCompare.Text;
-            sp.CompareWith = cmbAction.Text;
+            //SearchPattern sp = new SearchPattern();
+            //sp.RegularExpression = txtRegExp.Text;
+            //sp.Action = cmbCompare.Text;
+            //sp.CompareWith = cmbAction.Text;
 
-            b.Insert(sp);
+            //b.Insert(sp);
 
         }
 
@@ -50,16 +50,16 @@ namespace CRUD_v2
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            SearchPattern oldPattern = new SearchPattern();
-            SearchPattern newPattern = new SearchPattern();
+            //SearchPattern oldPattern = new SearchPattern();
+            //SearchPattern newPattern = new SearchPattern();
 
-            oldPattern = cmbPatterns.SelectedItem as SearchPattern;
+            //oldPattern = cmbPatterns.SelectedItem as SearchPattern;
 
-            newPattern.RegularExpression = txtNewRegExp.Text;
-            newPattern.CompareWith = cmbNewCompare.Text;
-            newPattern.Action = cmbNewAction.Text;
+            //newPattern.RegularExpression = txtNewRegExp.Text;
+            //newPattern.CompareWith = cmbNewCompare.Text;
+            //newPattern.Action = cmbNewAction.Text;
 
-            b.Update(oldPattern, newPattern);
+            //b.Update(oldPattern, newPattern);
         }
 
         private void Form1_Load(object sender, EventArgs e)
