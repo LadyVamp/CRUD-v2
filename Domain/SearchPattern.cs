@@ -172,5 +172,21 @@ namespace Domain
             }
         }
 
+
+        ////active record
+        //public static SearchPattern GetSearchPattern 
+        //{ 
+        //    get="SELECT * FROM TSearchPattern";
+        //    SearchPattern rsp = new SearchPattern();
+        //    return rsp;
+        //}
+
+        ////active record
+        //SearchPattern rsp = new SearchPattern();
+        //rsp.RegularExpression = "*\.doc";
+        //rsp.CompareWith = "Имя файла";
+        //rsp.Action = "Включить";
+
+
     }
 }
