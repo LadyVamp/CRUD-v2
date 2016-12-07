@@ -40,11 +40,25 @@ namespace CRUD_v2
 
             //b.Insert(sp);
 
+            //active record
+            //SearchPattern rsp = new SearchPattern();
+            //SearchPattern rsp = new SearchPattern(string RegularExpression, string CompareWith, string Action);
+            //rsp.RegularExpression = "LR";
+            //rsp.CompareWith = "Имя файла";
+            //rsp.Action = "Включить";
+
+            SearchPattern arsp = new SearchPattern();
+            arsp.RegularExpression = txtRegExp.Text;
+            arsp.Action = cmbCompare.Text;
+            arsp.CompareWith = cmbAction.Text;
+            b.Insert(arsp);
+
         }
+
 
         private void btnFillCombobox_Click(object sender, EventArgs e)
         {
-            cmbPatterns.DataSource = b.FillCombobox();
+            //cmbPatterns.DataSource = b.FillCombobox();
 
         }
 

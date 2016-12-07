@@ -212,21 +212,65 @@ namespace Domain
             //public int ID { get; set; }
             //public string Name { get; set; }
             //public bool IsPremiumMember { get; set; }
-            public int ID { get; set; }
-            public string RegularExpression { get; set; }
-            public string CompareWith { get; set; }
-            public string Action { get; set; }
-            
+
+            //public int ID { get; set; }
+            //public string RegularExpression { get; set; }
+            //public string CompareWith { get; set; }
+            //public string Action { get; set; }
+
+            int id;
+            public int ID
+            {
+                get { return id; }
+                set { id = value; }
+            }
+
+            string regularExpression;
+            public string RegularExpression
+            {
+                get { return regularExpression; }
+                set { regularExpression = value; }
+            }
+
+            string compareWith;
+            public string CompareWith
+            {
+                get { return compareWith; }
+                set { compareWith = value; }
+            }
+
+            string action;
+            public string Action
+            {
+                get { return action; }
+                set { action = value; }
+            }
+
 
             public SearchPattern(int id, string regularExpression, string compareWith, string action)
             {
-                //ID = id;
-                //Name = name;
-                //IsPremiumMember = isPremiumMember;
                 ID = id;
                 RegularExpression = regularExpression;
                 CompareWith = compareWith;
                 Action = action; 
+            }
+
+            public SearchPattern() //конструктор с 0 аргументов
+            {
+                ID = id;
+                RegularExpression = regularExpression;
+                CompareWith = compareWith;
+                Action = action;
+            }
+
+            public void PatternRecord() //Active Record
+            {
+                SearchPattern arsp = new SearchPattern();
+                arsp.RegularExpression = "XYZ";
+                arsp.CompareWith = "XYZ1";
+                arsp.Action = "XYZ2";
+                Insert(arsp);
+
             }
 
             // This static method acts like an object factory for Customer objects,
@@ -280,6 +324,46 @@ namespace Domain
 
                 // Pretend there is code here to do the insert and/or update to the database.
             }
+            //command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + sp.RegularExpression + "', '" + sp.CompareWith + "', '" + sp.Action + "')";
+
+            public void Insert(SearchPattern sp)
+            {
+                using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandType = CommandType.Text;
+
+                        command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + sp.RegularExpression + "', '" + sp.CompareWith + "', '" + sp.Action + "')";
+                        command.Parameters.AddWithValue("@ID", ID);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+
+
+            public void Update(SearchPattern oldPattern, SearchPattern newPattern)
+            {
+                using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.ID;
+                        command.Parameters.AddWithValue("@ID", ID);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            
+
 
 
             public void Delete()
