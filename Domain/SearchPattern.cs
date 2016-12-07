@@ -192,31 +192,8 @@ namespace Domain
 
         public class SearchPattern
         {
-
-            ////Соединение с БД
-            //OleDbConnection connection;
-            //OleDbCommand command;
-
-            //private void ConnectTo()
-            //{
-            //    connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
-            //    command = connection.CreateCommand();
-            //}
-
-            //private const string CONNECTION_STRING =
-            //    "Data Source=(local);Initial Catalog=DesignPatterns;Integrated Security=True";
-
             private const string CONNECTION_STRING =
     "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
-
-            //public int ID { get; set; }
-            //public string Name { get; set; }
-            //public bool IsPremiumMember { get; set; }
-
-            //public int ID { get; set; }
-            //public string RegularExpression { get; set; }
-            //public string CompareWith { get; set; }
-            //public string Action { get; set; }
 
             int id;
             public int ID
@@ -246,6 +223,11 @@ namespace Domain
                 set { action = value; }
             }
 
+            //Вывод в Combobox cmbPatterns
+            public override string ToString()
+            {
+                return RegularExpression + " | " + CompareWith + " | " + Action;
+            }
 
             public SearchPattern(int id, string regularExpression, string compareWith, string action)
             {
@@ -302,9 +284,6 @@ namespace Domain
                         if (reader.HasRows)
                         {
                             reader.Read();
-
-                            //string name = (string)reader["Name"];
-                            //bool isPremiumMember = (bool)reader["IsPremiumMember"];
                             string regularExpression = (string)reader["RegularExpression"];
                             string compareWith = (string)reader["CompareWith"];
                             string action = (string)reader["Action"];
@@ -369,25 +348,25 @@ namespace Domain
 
 
 
-            public void Delete()
-            {
-                using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
-                {
-                    connection.Open();
+            //public void Delete()
+            //{
+            //    using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            //    {
+            //        connection.Open();
 
-                    using (SqlCommand command = connection.CreateCommand())
-                    {
-                        command.CommandType = CommandType.Text;
+            //        using (SqlCommand command = connection.CreateCommand())
+            //        {
+            //            command.CommandType = CommandType.Text;
 
-                        command.CommandText = "DELETE FROM [TSearchPattern] WHERE [ID] = @ID";
-                        // This method uses the ID value from this object's property.
-                        // This function didn't need to receive that value from a parameter.
-                        command.Parameters.AddWithValue("@ID", ID);
+            //            command.CommandText = "DELETE FROM [TSearchPattern] WHERE [ID] = @ID";
+            //            // This method uses the ID value from this object's property.
+            //            // This function didn't need to receive that value from a parameter.
+            //            command.Parameters.AddWithValue("@ID", ID);
 
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
+            //            command.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
         }
 
     }

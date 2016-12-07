@@ -27,52 +27,16 @@ namespace CRUD_v2
             InitializeComponent();
         }
 
-        public void disp_data() 
-        {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            //cmd.CommandText = "SELECT * FROM TSearchPattern";
-            cmd.CommandText = "SELECT regularExpression, compareWith, action FROM TSearchPattern";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns[0].HeaderText = "Шаблон";
-            dataGridView1.Columns[1].HeaderText = "Сравнивать с";
-            dataGridView1.Columns[2].HeaderText = "Действие";
-            con.Close();
-        }
-
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //SearchPattern arsp = new SearchPattern();
-            //arsp = cmbPatterns.SelectedItem as SearchPattern;
+            SearchPattern sp = new SearchPattern();
+            sp = cmbPatterns.SelectedItem as SearchPattern;
 
-            //SearchPattern arsp = new SearchPattern();
-
-            //b.Delete();
-            ////MessageBox.Show("Запись удалена");
-            //disp_data();
-
-            //DataRow current = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
-            //current.Delete();
-            //MessageBox.Show("Запись удалена");
-            //disp_data();
-
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            //cmd.CommandText = "SELECT * FROM TSearchPattern";
-            cmd.CommandText = "DELETE FROM TSearchPattern WHERE regularExpression='"+txtRegExp.Text+"'";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            disp_data();
-
-
+            b.Delete(sp);
+            MessageBox.Show("Запись удалена");
         }
+
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -82,14 +46,14 @@ namespace CRUD_v2
             arsp.CompareWith = cmbAction.Text;
             b.Insert(arsp);
             MessageBox.Show("Запись успешно добавлена");
-            disp_data();
+
 
         }
 
 
         private void btnFillCombobox_Click(object sender, EventArgs e)
         {
-            //cmbPatterns.DataSource = b.FillCombobox();
+            cmbPatterns.DataSource = b.FillCombobox();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -117,7 +81,7 @@ namespace CRUD_v2
             //выпадающий список для выбора "Сравнивать с"
             this.tCompareTableAdapter.Fill(this.searchBaseDataSet.TCompare);
 
-            disp_data();
+   
 
         }
 

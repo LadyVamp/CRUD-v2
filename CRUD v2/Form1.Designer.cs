@@ -58,7 +58,6 @@
             this.searchBaseDataSet1 = new CRUD_v2.SearchBaseDataSet1();
             this.tSearchPatternBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tSearchPatternTableAdapter = new CRUD_v2.SearchBaseDataSet1TableAdapters.TSearchPatternTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tSearchPatternBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
@@ -69,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -280,14 +278,11 @@
             // cmbPatterns
             // 
             this.cmbPatterns.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tSearchPatternBindingSource, "regularExpression", true));
-            this.cmbPatterns.DataSource = this.tSearchPatternBindingSource;
-            this.cmbPatterns.DisplayMember = "regularExpression";
             this.cmbPatterns.FormattingEnabled = true;
             this.cmbPatterns.Location = new System.Drawing.Point(13, 19);
             this.cmbPatterns.Name = "cmbPatterns";
             this.cmbPatterns.Size = new System.Drawing.Size(335, 21);
             this.cmbPatterns.TabIndex = 5;
-            this.cmbPatterns.ValueMember = "regularExpression";
             // 
             // txtNewRegExp
             // 
@@ -323,14 +318,6 @@
             // 
             this.tSearchPatternTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(408, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(384, 141);
-            this.dataGridView1.TabIndex = 2;
-            // 
             // tSearchPatternBindingSource1
             // 
             this.tSearchPatternBindingSource1.DataMember = "TSearchPattern";
@@ -340,8 +327,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 403);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(399, 403);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
@@ -358,7 +344,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -395,7 +380,6 @@
         private SearchBaseDataSet1 searchBaseDataSet1;
         private System.Windows.Forms.BindingSource tSearchPatternBindingSource;
         private SearchBaseDataSet1TableAdapters.TSearchPatternTableAdapter tSearchPatternTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource tSearchPatternBindingSource1;
     }
 }
