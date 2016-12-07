@@ -32,11 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbAction = new System.Windows.Forms.ComboBox();
-            this.tActionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBaseDataSet = new CRUD_v2.SearchBaseDataSet();
             this.cmbCompare = new System.Windows.Forms.ComboBox();
-            this.tCompareBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtRegExp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,23 +48,18 @@
             this.btnFillCombobox = new System.Windows.Forms.Button();
             this.cmbPatterns = new System.Windows.Forms.ComboBox();
             this.txtNewRegExp = new System.Windows.Forms.TextBox();
+            this.searchBaseDataSet = new CRUD_v2.SearchBaseDataSet();
+            this.searchBaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tCompareBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
+            this.tActionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
-            this.searchBaseDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBaseDataSet1 = new CRUD_v2.SearchBaseDataSet1();
-            this.tSearchPatternBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tSearchPatternTableAdapter = new CRUD_v2.SearchBaseDataSet1TableAdapters.TSearchPatternTableAdapter();
-            this.tSearchPatternBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -108,21 +99,6 @@
             this.cmbAction.TabIndex = 9;
             this.cmbAction.ValueMember = "actionName";
             // 
-            // tActionBindingSource
-            // 
-            this.tActionBindingSource.DataMember = "TAction";
-            this.tActionBindingSource.DataSource = this.searchBaseDataSetBindingSource;
-            // 
-            // searchBaseDataSetBindingSource
-            // 
-            this.searchBaseDataSetBindingSource.DataSource = this.searchBaseDataSet;
-            this.searchBaseDataSetBindingSource.Position = 0;
-            // 
-            // searchBaseDataSet
-            // 
-            this.searchBaseDataSet.DataSetName = "SearchBaseDataSet";
-            this.searchBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cmbCompare
             // 
             this.cmbCompare.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tCompareBindingSource, "compareName", true));
@@ -134,11 +110,6 @@
             this.cmbCompare.Size = new System.Drawing.Size(121, 21);
             this.cmbCompare.TabIndex = 8;
             this.cmbCompare.ValueMember = "compareName";
-            // 
-            // tCompareBindingSource
-            // 
-            this.tCompareBindingSource.DataMember = "TCompare";
-            this.tCompareBindingSource.DataSource = this.searchBaseDataSetBindingSource;
             // 
             // btnInsert
             // 
@@ -277,7 +248,6 @@
             // 
             // cmbPatterns
             // 
-            this.cmbPatterns.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tSearchPatternBindingSource, "regularExpression", true));
             this.cmbPatterns.FormattingEnabled = true;
             this.cmbPatterns.Location = new System.Drawing.Point(13, 19);
             this.cmbPatterns.Name = "cmbPatterns";
@@ -291,43 +261,39 @@
             this.txtNewRegExp.Size = new System.Drawing.Size(121, 20);
             this.txtNewRegExp.TabIndex = 2;
             // 
+            // searchBaseDataSet
+            // 
+            this.searchBaseDataSet.DataSetName = "SearchBaseDataSet";
+            this.searchBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // searchBaseDataSetBindingSource
+            // 
+            this.searchBaseDataSetBindingSource.DataSource = this.searchBaseDataSet;
+            this.searchBaseDataSetBindingSource.Position = 0;
+            // 
+            // tCompareBindingSource
+            // 
+            this.tCompareBindingSource.DataMember = "TCompare";
+            this.tCompareBindingSource.DataSource = this.searchBaseDataSetBindingSource;
+            // 
             // tCompareTableAdapter
             // 
             this.tCompareTableAdapter.ClearBeforeFill = true;
+            // 
+            // tActionBindingSource
+            // 
+            this.tActionBindingSource.DataMember = "TAction";
+            this.tActionBindingSource.DataSource = this.searchBaseDataSetBindingSource;
             // 
             // tActionTableAdapter
             // 
             this.tActionTableAdapter.ClearBeforeFill = true;
             // 
-            // searchBaseDataSetBindingSource1
-            // 
-            this.searchBaseDataSetBindingSource1.DataSource = this.searchBaseDataSet;
-            this.searchBaseDataSetBindingSource1.Position = 0;
-            // 
-            // searchBaseDataSet1
-            // 
-            this.searchBaseDataSet1.DataSetName = "SearchBaseDataSet1";
-            this.searchBaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tSearchPatternBindingSource
-            // 
-            this.tSearchPatternBindingSource.DataMember = "TSearchPattern";
-            this.tSearchPatternBindingSource.DataSource = this.searchBaseDataSet1;
-            // 
-            // tSearchPatternTableAdapter
-            // 
-            this.tSearchPatternTableAdapter.ClearBeforeFill = true;
-            // 
-            // tSearchPatternBindingSource1
-            // 
-            this.tSearchPatternBindingSource1.DataMember = "TSearchPattern";
-            this.tSearchPatternBindingSource1.DataSource = this.searchBaseDataSet1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 403);
+            this.ClientSize = new System.Drawing.Size(403, 403);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
@@ -335,16 +301,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,11 +338,6 @@
         private SearchBaseDataSetTableAdapters.TCompareTableAdapter tCompareTableAdapter;
         private System.Windows.Forms.BindingSource tActionBindingSource;
         private SearchBaseDataSetTableAdapters.TActionTableAdapter tActionTableAdapter;
-        private System.Windows.Forms.BindingSource searchBaseDataSetBindingSource1;
-        private SearchBaseDataSet1 searchBaseDataSet1;
-        private System.Windows.Forms.BindingSource tSearchPatternBindingSource;
-        private SearchBaseDataSet1TableAdapters.TSearchPatternTableAdapter tSearchPatternTableAdapter;
-        private System.Windows.Forms.BindingSource tSearchPatternBindingSource1;
     }
 }
 

@@ -57,11 +57,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchBaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SearchBaseDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SearchBaseDataSet1.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,17 +88,6 @@
     </None>
     <None Include="SearchBaseDataSet.xss">
       <DependentUpon>SearchBaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SearchBaseDataSet1.xsc">
-      <DependentUpon>SearchBaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="SearchBaseDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SearchBaseDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SearchBaseDataSet1.xss">
-      <DependentUpon>SearchBaseDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
