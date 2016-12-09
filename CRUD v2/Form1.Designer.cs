@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnInsertXYZ = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbAction = new System.Windows.Forms.ComboBox();
             this.tActionBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -54,13 +55,31 @@
             this.txtNewRegExp = new System.Windows.Forms.TextBox();
             this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
             this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
-            this.btnInsertXYZ = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtKeywords = new System.Windows.Forms.TextBox();
+            this.cbDoc = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbDocx = new System.Windows.Forms.CheckBox();
+            this.cbRtf = new System.Windows.Forms.CheckBox();
+            this.cbTxt = new System.Windows.Forms.CheckBox();
+            this.txtSize = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -79,6 +98,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert";
+            // 
+            // btnInsertXYZ
+            // 
+            this.btnInsertXYZ.Location = new System.Drawing.Point(266, 123);
+            this.btnInsertXYZ.Name = "btnInsertXYZ";
+            this.btnInsertXYZ.Size = new System.Drawing.Size(102, 23);
+            this.btnInsertXYZ.TabIndex = 11;
+            this.btnInsertXYZ.Text = "Добавить XYZ";
+            this.btnInsertXYZ.UseVisualStyleBackColor = true;
+            this.btnInsertXYZ.Click += new System.EventHandler(this.btnInsertXYZ_Click);
             // 
             // label5
             // 
@@ -291,21 +320,183 @@
             // 
             this.tActionTableAdapter.ClearBeforeFill = true;
             // 
-            // btnInsertXYZ
+            // groupBox3
             // 
-            this.btnInsertXYZ.Location = new System.Drawing.Point(266, 123);
-            this.btnInsertXYZ.Name = "btnInsertXYZ";
-            this.btnInsertXYZ.Size = new System.Drawing.Size(102, 23);
-            this.btnInsertXYZ.TabIndex = 11;
-            this.btnInsertXYZ.Text = "Добавить XYZ";
-            this.btnInsertXYZ.UseVisualStyleBackColor = true;
-            this.btnInsertXYZ.Click += new System.EventHandler(this.btnInsertXYZ_Click);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.btnSearch);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.txtSize);
+            this.groupBox3.Controls.Add(this.cbRtf);
+            this.groupBox3.Controls.Add(this.cbTxt);
+            this.groupBox3.Controls.Add(this.cbDocx);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.cbDoc);
+            this.groupBox3.Controls.Add(this.txtKeywords);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Location = new System.Drawing.Point(394, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(386, 366);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Редактирование запроса поиска";
+            //this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Ключевые слова";
+            // 
+            // txtKeywords
+            // 
+            this.txtKeywords.Location = new System.Drawing.Point(123, 19);
+            this.txtKeywords.Name = "txtKeywords";
+            this.txtKeywords.Size = new System.Drawing.Size(190, 20);
+            this.txtKeywords.TabIndex = 1;
+            // 
+            // cbDoc
+            // 
+            this.cbDoc.AutoSize = true;
+            this.cbDoc.Location = new System.Drawing.Point(124, 53);
+            this.cbDoc.Name = "cbDoc";
+            this.cbDoc.Size = new System.Drawing.Size(47, 17);
+            this.cbDoc.TabIndex = 2;
+            this.cbDoc.Text = ".doc";
+            this.cbDoc.UseVisualStyleBackColor = true;
+            //this.cbDoc.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 57);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Формат файла";
+            //this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // cbDocx
+            // 
+            this.cbDocx.AutoSize = true;
+            this.cbDocx.Location = new System.Drawing.Point(124, 79);
+            this.cbDocx.Name = "cbDocx";
+            this.cbDocx.Size = new System.Drawing.Size(52, 17);
+            this.cbDocx.TabIndex = 4;
+            this.cbDocx.Text = ".docx";
+            this.cbDocx.UseVisualStyleBackColor = true;
+            // 
+            // cbRtf
+            // 
+            this.cbRtf.AutoSize = true;
+            this.cbRtf.Location = new System.Drawing.Point(205, 77);
+            this.cbRtf.Name = "cbRtf";
+            this.cbRtf.Size = new System.Drawing.Size(38, 17);
+            this.cbRtf.TabIndex = 8;
+            this.cbRtf.Text = ".rtf";
+            this.cbRtf.UseVisualStyleBackColor = true;
+            // 
+            // cbTxt
+            // 
+            this.cbTxt.AutoSize = true;
+            this.cbTxt.Location = new System.Drawing.Point(205, 52);
+            this.cbTxt.Name = "cbTxt";
+            this.cbTxt.Size = new System.Drawing.Size(40, 17);
+            this.cbTxt.TabIndex = 6;
+            this.cbTxt.Text = ".txt";
+            this.cbTxt.UseVisualStyleBackColor = true;
+            // 
+            // txtSize
+            // 
+            this.txtSize.Location = new System.Drawing.Point(124, 106);
+            this.txtSize.Name = "txtSize";
+            this.txtSize.Size = new System.Drawing.Size(52, 20);
+            this.txtSize.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 109);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Размер файла";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(19, 142);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "Поиск";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(413, 207);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(351, 150);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(182, 113);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Kb";
+            //this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(293, 113);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(20, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Kb";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(235, 106);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(52, 20);
+            this.textBox1.TabIndex = 13;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(106, 113);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "От";
+            //this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(208, 113);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(22, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "До";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 403);
+            this.ClientSize = new System.Drawing.Size(806, 403);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
@@ -319,6 +510,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,6 +545,23 @@
         private System.Windows.Forms.BindingSource tActionBindingSource;
         private SearchBaseDataSetTableAdapters.TActionTableAdapter tActionTableAdapter;
         private System.Windows.Forms.Button btnInsertXYZ;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox cbDoc;
+        private System.Windows.Forms.TextBox txtKeywords;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox cbRtf;
+        private System.Windows.Forms.CheckBox cbTxt;
+        private System.Windows.Forms.CheckBox cbDocx;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtSize;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
