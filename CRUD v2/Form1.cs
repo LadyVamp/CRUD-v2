@@ -68,8 +68,16 @@ namespace CRUD_v2
             MessageBox.Show("Запись обновлена");
         }
 
+        //строка соединения с БД
+        private const string CONNECTION_STRING =
+   "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFileWithoutID.TFile". При необходимости она может быть перемещена или удалена.
+            this.tFileTableAdapter1.Fill(this.searchBaseDataSetFileWithoutID.TFile);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFile.TFile". При необходимости она может быть перемещена или удалена.
+            this.tFileTableAdapter.Fill(this.searchBaseDataSetFile.TFile);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TAction". При необходимости она может быть перемещена или удалена.
             //выпадающий список для выбора "Действие"
             this.tActionTableAdapter.Fill(this.searchBaseDataSet.TAction);
@@ -77,7 +85,20 @@ namespace CRUD_v2
             //выпадающий список для выбора "Сравнивать с"
             this.tCompareTableAdapter.Fill(this.searchBaseDataSet.TCompare);
 
+
+            //заполнить dataGridView при запуске формы
+            DataSet ds = new DataSet();
+            SqlConnection dataBaseConnection = new SqlConnection(CONNECTION_STRING);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM TFile", dataBaseConnection);
+            dataAdapter.Fill(ds, "TFile");
+            dataGridView1.DataSource = ds.Tables["TFile"];
+
         }
+
+
+            
+
+              
 
         private void btnInsertXYZ_Click(object sender, EventArgs e)
         {
@@ -92,61 +113,29 @@ namespace CRUD_v2
 
         SqlConnection con = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
 
-        private void txtKeywords_KeyUp(object sender, KeyEventArgs e)
+      
+
+        int i;
+
+        private void btnSearchKeywords_Click(object sender, EventArgs e)
         {
-            //https://www.youtube.com/watch?v=z0HwGx10xz8
 
-            if (txtKeywords.Text == "")
-            {
-
-            }
-            else
-            {
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT  Name, Keywords, Size, Format, Content FROM TFile WHERE Keywords LIKE ('" + txtKeywords + "%')";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                con.Close();
-            }
-
-
-        }
-
-        //private void txtKeywords_TextChanged(object sender, EventArgs e)
-        //{
-
-        //    if (txtKeywords.Text == "")
-        //    {
-
-        //    }
-        //    else
-        //    {
-        //        con.Open();
-        //        SqlCommand cmd = con.CreateCommand();
-        //        cmd.CommandType = CommandType.Text;
-        //        cmd.CommandText = "SELECT Name, Keywords, Size, Format, Content FROM TFile WHERE Keywords LIKE ('" + txtKeywords + "%')";
-        //        cmd.ExecuteNonQuery();
-        //        DataTable dt = new DataTable();
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        da.Fill(dt);
-        //        dataGridView1.DataSource = dt;
-        //        con.Close();
-        //    }
+           
             
-        //}
+            
+            //for (; i < dataGridView1.RowCount; )
+            //    if (dataGridView1[1, i].FormattedValue.ToString().
+            //        Contains(txtKeywords.Text.Trim()))
+            //    {
+            //        dataGridView1.CurrentCell = dataGridView1[0, i];
+            //        if (i < dataGridView1.RowCount - 1)
+            //            i++;
+            //        else
+            //            i = 0;
+            //        return;
+            //    }
 
-  
-
-
-
-
-
-
+        } 
 
 
     }
