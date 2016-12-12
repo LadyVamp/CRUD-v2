@@ -75,9 +75,29 @@ namespace Domain
          private const string CONNECTION_STRING =
     "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
 
-        //Поиск по ключевым словам, формату и размеру файла
-        //ввести в checkbox и textbox, вывести в datagridview
-         public void Search(File f)
+        ////Поиск по ключевым словам, формату и размеру файла
+        ////ввести в checkbox и textbox, вывести в datagridview
+        // public void Search(File f)
+        // {
+        //     using (SqlConnection con = new SqlConnection(CONNECTION_STRING))
+        //     {
+        //         con.Open();
+
+        //         using (SqlCommand command = con.CreateCommand())
+        //         {
+        //             command.CommandType = System.Data.CommandType.Text;
+        //             //command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
+        //             //здесь сложный запрос
+        //             //TODO. глянуть примеры https://www.youtube.com/results?search_query=datagridview+checkbox+c%23+
+        //             //! пример для поиска по ключевым словам https://www.youtube.com/watch?v=ErrbRSXnxGM
+        //             command.ExecuteNonQuery();
+        //         }
+        //     }
+
+        // }
+
+         //Поиск по ключевым словам
+         public void SearchData(string valueToSearch)
          {
              using (SqlConnection con = new SqlConnection(CONNECTION_STRING))
              {
@@ -86,10 +106,12 @@ namespace Domain
                  using (SqlCommand command = con.CreateCommand())
                  {
                      command.CommandType = System.Data.CommandType.Text;
-                     //command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
+                     string query = "SELECT * FROM TFile WHERE CONCAT('Name', 'Keywords') LIKE '%"+valueToSearch+"%' ";
+                     //dataGridView1.DataSource = 
                      //здесь сложный запрос
                      //TODO. глянуть примеры https://www.youtube.com/results?search_query=datagridview+checkbox+c%23+
                      //! пример для поиска по ключевым словам https://www.youtube.com/watch?v=ErrbRSXnxGM
+                     // [G] фильтрация datagridview c#
                      command.ExecuteNonQuery();
                  }
              }

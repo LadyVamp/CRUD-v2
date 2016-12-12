@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
 using Session;
+using System.Data.SqlClient;
+
 
 namespace CRUD_v2
 {
@@ -87,6 +89,58 @@ namespace CRUD_v2
             //MessageBox.Show("Запись успешно добавлена");
             MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
         }
+
+        SqlConnection con = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+
+        private void txtKeywords_KeyUp(object sender, KeyEventArgs e)
+        {
+            //https://www.youtube.com/watch?v=z0HwGx10xz8
+
+            if (txtKeywords.Text == "")
+            {
+
+            }
+            else
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT  Name, Keywords, Size, Format, Content FROM TFile WHERE Keywords LIKE ('" + txtKeywords + "%')";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+
+
+        }
+
+        //private void txtKeywords_TextChanged(object sender, EventArgs e)
+        //{
+
+        //    if (txtKeywords.Text == "")
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = con.CreateCommand();
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.CommandText = "SELECT Name, Keywords, Size, Format, Content FROM TFile WHERE Keywords LIKE ('" + txtKeywords + "%')";
+        //        cmd.ExecuteNonQuery();
+        //        DataTable dt = new DataTable();
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        da.Fill(dt);
+        //        dataGridView1.DataSource = dt;
+        //        con.Close();
+        //    }
+            
+        //}
+
+  
 
 
 

@@ -56,22 +56,22 @@
             this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
             this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtKeywords = new System.Windows.Forms.TextBox();
-            this.cbDoc = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbDocx = new System.Windows.Forms.CheckBox();
-            this.cbRtf = new System.Windows.Forms.CheckBox();
-            this.cbTxt = new System.Windows.Forms.CheckBox();
-            this.txtSize = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtSize = new System.Windows.Forms.TextBox();
+            this.cbRtf = new System.Windows.Forms.CheckBox();
+            this.cbTxt = new System.Windows.Forms.CheckBox();
+            this.cbDocx = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbDoc = new System.Windows.Forms.CheckBox();
+            this.txtKeywords = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
@@ -343,54 +343,74 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Редактирование запроса поиска";
-            //this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // label7
+            // label13
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 26);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Ключевые слова";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(208, 113);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(22, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "До";
             // 
-            // txtKeywords
+            // label12
             // 
-            this.txtKeywords.Location = new System.Drawing.Point(123, 19);
-            this.txtKeywords.Name = "txtKeywords";
-            this.txtKeywords.Size = new System.Drawing.Size(190, 20);
-            this.txtKeywords.TabIndex = 1;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(106, 113);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "От";
             // 
-            // cbDoc
+            // label11
             // 
-            this.cbDoc.AutoSize = true;
-            this.cbDoc.Location = new System.Drawing.Point(124, 53);
-            this.cbDoc.Name = "cbDoc";
-            this.cbDoc.Size = new System.Drawing.Size(47, 17);
-            this.cbDoc.TabIndex = 2;
-            this.cbDoc.Text = ".doc";
-            this.cbDoc.UseVisualStyleBackColor = true;
-            //this.cbDoc.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(293, 113);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(20, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Kb";
             // 
-            // label8
+            // textBox1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 57);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Формат файла";
-            //this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.textBox1.Location = new System.Drawing.Point(235, 106);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(52, 20);
+            this.textBox1.TabIndex = 13;
             // 
-            // cbDocx
+            // label10
             // 
-            this.cbDocx.AutoSize = true;
-            this.cbDocx.Location = new System.Drawing.Point(124, 79);
-            this.cbDocx.Name = "cbDocx";
-            this.cbDocx.Size = new System.Drawing.Size(52, 17);
-            this.cbDocx.TabIndex = 4;
-            this.cbDocx.Text = ".docx";
-            this.cbDocx.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(182, 113);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Kb";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(19, 142);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "Поиск";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 109);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Размер файла";
+            // 
+            // txtSize
+            // 
+            this.txtSize.Location = new System.Drawing.Point(124, 106);
+            this.txtSize.Name = "txtSize";
+            this.txtSize.Size = new System.Drawing.Size(52, 20);
+            this.txtSize.TabIndex = 9;
             // 
             // cbRtf
             // 
@@ -412,30 +432,51 @@
             this.cbTxt.Text = ".txt";
             this.cbTxt.UseVisualStyleBackColor = true;
             // 
-            // txtSize
+            // cbDocx
             // 
-            this.txtSize.Location = new System.Drawing.Point(124, 106);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(52, 20);
-            this.txtSize.TabIndex = 9;
+            this.cbDocx.AutoSize = true;
+            this.cbDocx.Location = new System.Drawing.Point(124, 79);
+            this.cbDocx.Name = "cbDocx";
+            this.cbDocx.Size = new System.Drawing.Size(52, 17);
+            this.cbDocx.TabIndex = 4;
+            this.cbDocx.Text = ".docx";
+            this.cbDocx.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // label8
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 109);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Размер файла";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 57);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Формат файла";
             // 
-            // btnSearch
+            // cbDoc
             // 
-            this.btnSearch.Location = new System.Drawing.Point(19, 142);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 11;
-            this.btnSearch.Text = "Поиск";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.cbDoc.AutoSize = true;
+            this.cbDoc.Location = new System.Drawing.Point(124, 53);
+            this.cbDoc.Name = "cbDoc";
+            this.cbDoc.Size = new System.Drawing.Size(47, 17);
+            this.cbDoc.TabIndex = 2;
+            this.cbDoc.Text = ".doc";
+            this.cbDoc.UseVisualStyleBackColor = true;
+            // 
+            // txtKeywords
+            // 
+            this.txtKeywords.Location = new System.Drawing.Point(124, 23);
+            this.txtKeywords.Name = "txtKeywords";
+            this.txtKeywords.Size = new System.Drawing.Size(100, 20);
+            this.txtKeywords.TabIndex = 17;
+            //this.txtKeywords.TextChanged += new System.EventHandler(this.txtKeywords_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Ключевые слова";
             // 
             // dataGridView1
             // 
@@ -444,51 +485,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(351, 150);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(182, 113);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Kb";
-            //this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(293, 113);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 13);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Kb";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(235, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 13;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(106, 113);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "От";
-            //this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(208, 113);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(22, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "До";
             // 
             // Form1
             // 
