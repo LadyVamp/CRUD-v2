@@ -18,7 +18,6 @@ namespace CRUD_v2
     {
 
         Broker b = new Broker();
-        //SearchPattern sp = new SearchPattern();
 
         public Form1()
         {
@@ -92,6 +91,12 @@ namespace CRUD_v2
             SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM TFile", dataBaseConnection);
             dataAdapter.Fill(ds, "TFile");
             dataGridView1.DataSource = ds.Tables["TFile"];
+            dataGridView1.Columns[0].HeaderText = "Название";
+            dataGridView1.Columns[1].HeaderText = "Ключевые слова";
+            dataGridView1.Columns[2].HeaderText = "Размер, КБ"; 
+            dataGridView1.Columns[3].HeaderText = "Формат";
+            dataGridView1.Columns[4].HeaderText = "Содержание";
+
 
         }
                       
@@ -103,33 +108,37 @@ namespace CRUD_v2
             sp.Action = "XYZ";
             sp.CompareWith = "XYZ";
             b.Insert(sp);
-            //MessageBox.Show("Запись успешно добавлена");
             MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
         }
  
-
+        //Поиск по ключевым словам
         private void btnSearchKeywords_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            try
             {
-                row.Selected = false;
-                // Если в текстовом поле, отвечающем за поиск в первом столбце, что-то есть
-                if (txtKeywords.TextLength > 0)
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    // Если текст совпадает
-                    if (row.Cells[1].Value.ToString() == txtKeywords.Text)
+                    row.Selected = false;
+                    // Если в текстовом поле, отвечающем за поиск в первом столбце, что-то есть
+                    if (txtKeywords.TextLength > 0)
                     {
-                        // Выделяем строку
-                        row.Selected = true;
-                        // Завершаем поиск
-                        break;
+                        // Если текст совпадает
+                        if (row.Cells[1].Value.ToString() == txtKeywords.Text)
+                        {
+                            // Выделяем строку
+                            row.Selected = true;
+                            // Завершаем поиск
+                            break;
+                        }
                     }
+
                 }
-
             }
-           
-        
 
+            catch 
+            {
+                MessageBox.Show("Ключевое слово отсутствует");
+            } 
         } 
 
 

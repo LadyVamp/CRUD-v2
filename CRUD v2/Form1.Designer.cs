@@ -56,6 +56,7 @@
             this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
             this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSearchKeywords = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -72,17 +73,16 @@
             this.txtKeywords = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnSearchKeywords = new System.Windows.Forms.Button();
-            this.searchBaseDataSetFile = new CRUD_v2.SearchBaseDataSetFile();
-            this.tFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tFileTableAdapter = new CRUD_v2.SearchBaseDataSetFileTableAdapters.TFileTableAdapter();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keywordsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchBaseDataSetFileWithoutID = new CRUD_v2.SearchBaseDataSetFileWithoutID();
             this.tFileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBaseDataSetFileWithoutID = new CRUD_v2.SearchBaseDataSetFileWithoutID();
+            this.searchBaseDataSetFile = new CRUD_v2.SearchBaseDataSetFile();
+            this.tFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tFileTableAdapter = new CRUD_v2.SearchBaseDataSetFileTableAdapters.TFileTableAdapter();
             this.tFileTableAdapter1 = new CRUD_v2.SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
@@ -92,10 +92,10 @@
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -338,6 +338,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Controls.Add(this.btnSearchKeywords);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
@@ -360,6 +361,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Редактирование запроса поиска";
+            // 
+            // btnSearchKeywords
+            // 
+            this.btnSearchKeywords.Location = new System.Drawing.Point(265, 19);
+            this.btnSearchKeywords.Name = "btnSearchKeywords";
+            this.btnSearchKeywords.Size = new System.Drawing.Size(115, 38);
+            this.btnSearchKeywords.TabIndex = 18;
+            this.btnSearchKeywords.Text = "Поиск по ключевым словам";
+            this.btnSearchKeywords.UseVisualStyleBackColor = true;
+            this.btnSearchKeywords.Click += new System.EventHandler(this.btnSearchKeywords_Click);
             // 
             // label13
             // 
@@ -505,34 +516,10 @@
             this.formatDataGridViewTextBoxColumn,
             this.contentDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tFileBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(413, 207);
+            this.dataGridView1.Location = new System.Drawing.Point(19, 171);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 189);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // btnSearchKeywords
-            // 
-            this.btnSearchKeywords.Location = new System.Drawing.Point(265, 19);
-            this.btnSearchKeywords.Name = "btnSearchKeywords";
-            this.btnSearchKeywords.Size = new System.Drawing.Size(115, 38);
-            this.btnSearchKeywords.TabIndex = 18;
-            this.btnSearchKeywords.Text = "Поиск по ключевым словам";
-            this.btnSearchKeywords.UseVisualStyleBackColor = true;
-            this.btnSearchKeywords.Click += new System.EventHandler(this.btnSearchKeywords_Click);
-            // 
-            // searchBaseDataSetFile
-            // 
-            this.searchBaseDataSetFile.DataSetName = "SearchBaseDataSetFile";
-            this.searchBaseDataSetFile.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tFileBindingSource
-            // 
-            this.tFileBindingSource.DataMember = "TFile";
-            this.tFileBindingSource.DataSource = this.searchBaseDataSetFile;
-            // 
-            // tFileTableAdapter
-            // 
-            this.tFileTableAdapter.ClearBeforeFill = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -564,15 +551,29 @@
             this.contentDataGridViewTextBoxColumn.HeaderText = "Content";
             this.contentDataGridViewTextBoxColumn.Name = "contentDataGridViewTextBoxColumn";
             // 
+            // tFileBindingSource1
+            // 
+            this.tFileBindingSource1.DataMember = "TFile";
+            this.tFileBindingSource1.DataSource = this.searchBaseDataSetFileWithoutID;
+            // 
             // searchBaseDataSetFileWithoutID
             // 
             this.searchBaseDataSetFileWithoutID.DataSetName = "SearchBaseDataSetFileWithoutID";
             this.searchBaseDataSetFileWithoutID.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tFileBindingSource1
+            // searchBaseDataSetFile
             // 
-            this.tFileBindingSource1.DataMember = "TFile";
-            this.tFileBindingSource1.DataSource = this.searchBaseDataSetFileWithoutID;
+            this.searchBaseDataSetFile.DataSetName = "SearchBaseDataSetFile";
+            this.searchBaseDataSetFile.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tFileBindingSource
+            // 
+            this.tFileBindingSource.DataMember = "TFile";
+            this.tFileBindingSource.DataSource = this.searchBaseDataSetFile;
+            // 
+            // tFileTableAdapter
+            // 
+            this.tFileTableAdapter.ClearBeforeFill = true;
             // 
             // tFileTableAdapter1
             // 
@@ -583,7 +584,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 403);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -601,10 +601,10 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
