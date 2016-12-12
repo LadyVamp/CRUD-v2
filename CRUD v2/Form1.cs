@@ -94,11 +94,7 @@ namespace CRUD_v2
             dataGridView1.DataSource = ds.Tables["TFile"];
 
         }
-
-
-            
-
-              
+                      
 
         private void btnInsertXYZ_Click(object sender, EventArgs e)
         {
@@ -110,30 +106,29 @@ namespace CRUD_v2
             //MessageBox.Show("Запись успешно добавлена");
             MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
         }
-
-        SqlConnection con = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
-
-      
-
-        int i;
+ 
 
         private void btnSearchKeywords_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Selected = false;
+                // Если в текстовом поле, отвечающем за поиск в первом столбце, что-то есть
+                if (txtKeywords.TextLength > 0)
+                {
+                    // Если текст совпадает
+                    if (row.Cells[1].Value.ToString() == txtKeywords.Text)
+                    {
+                        // Выделяем строку
+                        row.Selected = true;
+                        // Завершаем поиск
+                        break;
+                    }
+                }
 
+            }
            
-            
-            
-            //for (; i < dataGridView1.RowCount; )
-            //    if (dataGridView1[1, i].FormattedValue.ToString().
-            //        Contains(txtKeywords.Text.Trim()))
-            //    {
-            //        dataGridView1.CurrentCell = dataGridView1[0, i];
-            //        if (i < dataGridView1.RowCount - 1)
-            //            i++;
-            //        else
-            //            i = 0;
-            //        return;
-            //    }
+        
 
         } 
 
