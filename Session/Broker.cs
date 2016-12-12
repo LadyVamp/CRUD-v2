@@ -124,6 +124,49 @@ namespace Session
         }
 
 
+        //SelectDoc
+        public List<File> SelectDoc()
+        {
+            List<File> fList = new List<File>();
+
+            try
+            {
+                command.CommandText = "SELECT * FROM TFile WHERE Format = 'doc'";
+                command.CommandType = System.Data.CommandType.Text;
+                connection.Open();
+
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    File f = new File();
+                    f.ID = Convert.ToInt32(reader["ID"].ToString());
+                    f.Name = reader["name"].ToString();
+                    f.Keywords = reader["keywords"].ToString();
+                    f.Size = Convert.ToInt32(reader["size"].ToString());
+                    f.Format = reader["format"].ToString();
+                    f.Content = reader["content"].ToString();
+                    fList.Add(f);
+                }
+                return fList;
+
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+
     }
 
     

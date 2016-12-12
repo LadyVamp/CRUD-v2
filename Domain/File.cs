@@ -63,6 +63,16 @@ namespace Domain
             Content = content;
         }
 
+         public File() //конструктор с 0 аргументов
+         {
+             ID = id;
+             Name = name;
+             Keywords = keywords;
+             Size = size;
+             Format = format;
+             Content = content;
+         }
+
          //Соединение с БД
          OleDbConnection connection;
          OleDbCommand command;
@@ -117,6 +127,23 @@ namespace Domain
              }
 
          }
+
+
+         ////  Поиск по формату файла
+         //public void SearchFormat(File f)
+         //{
+         //    using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+         //    {
+         //        connection.Open();
+
+         //        using (SqlCommand command = connection.CreateCommand())
+         //        {
+         //            command.CommandType = System.Data.CommandType.Text;
+         //            command.CommandText = "SELECT [TFile] WHERE Format= '" + cbDoc.Text + "', AND Format= '" + cbDocx.Text + "', AND Format='" + cbTxt.Text + "', AND Format='" + cbRtf.Text + "'WHERE ID=" + f.ID;
+         //            command.ExecuteNonQuery();
+         //        }
+         //    }
+         //}
 
 
 

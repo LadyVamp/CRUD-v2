@@ -48,7 +48,6 @@ namespace CRUD_v2
         private void btnFillCombobox_Click(object sender, EventArgs e)
         {
             cmbPatterns.DataSource = b.FillCombobox();
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -96,8 +95,9 @@ namespace CRUD_v2
             dataGridView1.Columns[2].HeaderText = "Размер, КБ"; 
             dataGridView1.Columns[3].HeaderText = "Формат";
             dataGridView1.Columns[4].HeaderText = "Содержание";
-
-
+            dataGridView1.Columns[2].Width = 70;
+            dataGridView1.Columns[3].Width = 70;
+            dataGridView1.Columns[4].Width = 145;
         }
                       
 
@@ -139,6 +139,12 @@ namespace CRUD_v2
             {
                 MessageBox.Show("Ключевое слово отсутствует");
             } 
+        }
+
+        private void cbDoc_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            dataGridView1.DataSource = b.SelectDoc();   
         } 
 
 

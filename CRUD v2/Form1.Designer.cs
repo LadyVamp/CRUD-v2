@@ -488,6 +488,7 @@
             this.cbDoc.TabIndex = 2;
             this.cbDoc.Text = ".doc";
             this.cbDoc.UseVisualStyleBackColor = true;
+            this.cbDoc.CheckedChanged += new System.EventHandler(this.cbDoc_CheckedChanged);
             // 
             // txtKeywords
             // 
