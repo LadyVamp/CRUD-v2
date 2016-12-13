@@ -141,11 +141,58 @@ namespace CRUD_v2
             } 
         }
 
-        private void cbDoc_CheckedChanged(object sender, EventArgs e)
-        {
+        //private void cbDoc_CheckedChanged(object sender, EventArgs e)
+        //{
             
-            dataGridView1.DataSource = b.SelectDoc();   
+        //    dataGridView1.DataSource = b.SelectDoc();   
+        //}
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //dataGridView1.DataSource = b.SelectFormats();
+
+            if (checkBox1.Checked) //doc
+            {
+                dataGridView1.DataSource = b.SelectDoc();
+            }
+
+            if (checkBox2.Checked) //docx
+            {
+                dataGridView1.DataSource = b.SelectDocx();
+            }
+
+            if (checkBox3.Checked) //txt
+            {
+                dataGridView1.DataSource = b.SelectTxt();
+            }
+
+            if ((checkBox1.Checked) & (checkBox2.Checked)) //doc & docx
+            {
+                dataGridView1.DataSource = b.SelectDocAndDocx();
+            }
+
+            if ((checkBox1.Checked) & (checkBox3.Checked)) //doc & txt
+            {
+                dataGridView1.DataSource = b.SelectDocAndTxt();
+            }
+
+            if ((checkBox2.Checked) & (checkBox3.Checked)) //docx & txt
+            {
+                dataGridView1.DataSource = b.SelectDocxAndTxt();
+            }
+
+            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked)) //doc & docx & txt
+            {
+                dataGridView1.DataSource = b.SelectDocAndDocxAndTxt();
+            }
+
+            //else
+            //{
+            //    dataGridView1.DataSource = b.Reset();
+            //}
         } 
+
+       
 
 
     }
