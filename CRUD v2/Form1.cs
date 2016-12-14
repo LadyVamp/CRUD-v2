@@ -185,11 +185,6 @@ namespace CRUD_v2
             {
                 dataGridView1.DataSource = b.SelectDocAndDocxAndTxt();
             }
-
-            //else
-            //{
-            //    dataGridView1.DataSource = b.Reset();
-            //}
         } 
 
        
