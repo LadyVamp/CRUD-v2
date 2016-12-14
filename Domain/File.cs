@@ -46,6 +46,8 @@ namespace Domain
             set { format = value; }
         }
 
+        //string @Format;
+
         string content;
         public string Content
         {
