@@ -11,11 +11,9 @@ namespace Session
 {
     public class Broker
     {
+        //  CRUD поисковых шаблонов
         OleDbConnection connection;
         OleDbCommand command;
-
-        OleDbConnection con;
-        OleDbCommand cmd;
 
         private void ConnectTo()
         {
@@ -23,23 +21,28 @@ namespace Session
             command = connection.CreateCommand();
         }
 
+        private const string CONNECTION_STRING =
+    "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
+        //  /CRUD поисковых шаблонов
+
+        //  Редактирование запроса поиска
+        OleDbConnection con;
+        OleDbCommand cmd;
         private void ConnectTo1()
         {
             con = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
             cmd = con.CreateCommand();
         }
+        //  /Редактирование запроса поиска
 
         public Broker()
         {
             ConnectTo();
-            ConnectTo1();
+            ConnectTo1(); //Редактирование запроса поиска
         }
 
 
-
-        private const string CONNECTION_STRING =
-    "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
-
+        //  CRUD поисковых шаблонов
         //Insert
         public void Insert(SearchPattern arsp)  
         {
@@ -131,18 +134,15 @@ namespace Session
                 }
             }
         }
+        //  /CRUD поисковых шаблонов
 
 
-
+        //  Редактирование запроса поиска
         public List<File> SelectByFormat(string format)
         {
-            //command.CommandType = System.Data.CommandType.Text;
-            //command.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
-            //command.Parameters.AddWithValue("@Format", format);
-            //return GetFiles(connection, command);
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.Clear();
             cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
+            //cmd.Parameters.Clear(); 
             cmd.Parameters.AddWithValue("@Format", format);
             return GetFiles(con, cmd);
         }
@@ -150,26 +150,20 @@ namespace Session
         public List<File> SelectByFormat(params string[] formats)
         {
             var sbNames = new StringBuilder(10 * formats.Length);
+            cmd.Parameters.Clear();  //вызов перед циклом
             for (int i = 0; i < formats.Length; i++)
             {
-                cmd.Parameters.Clear();
-
                 string name = "@Format" + i;
-                //command.Parameters.Add(name, formats[i]);
+                //cmd.Parameters.Clear();
                 cmd.Parameters.Add(name, formats[i]);
-
+                
                 if (sbNames.Length > 0) sbNames.Append(",");
                 sbNames.Append(name);
             }
 
-            //command.CommandType = System.Data.CommandType.Text;
-            //command.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format IN (" + sbNames.ToString() + ")";
-            //return GetFiles(connection, command);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format IN (" + sbNames.ToString() + ")";
             return GetFiles(con, cmd);
-
-
         }
 
         private static List<File> GetFiles(OleDbConnection con, OleDbCommand cmd)
@@ -178,7 +172,6 @@ namespace Session
             try
             {
                 con.Open();
-                cmd.Parameters.Clear();
                 using (var reader1 = cmd.ExecuteReader())
 
                 {
@@ -241,6 +234,11 @@ namespace Session
         public List<File> SelectDocAndDocxAndTxt()
         {
             return SelectByFormat("doc", "docx", "txt");
+        }
+
+        public List<File> SelectDocAndDocxAndTxtAndRtf()
+        {
+            return SelectByFormat("doc", "docx", "txt", "rtf");
         }
 
     }
