@@ -13,6 +13,8 @@ namespace Session
     {
         OleDbConnection connection;
         OleDbCommand command;
+
+        OleDbConnection con;
         OleDbCommand cmd;
 
         private void ConnectTo()
@@ -23,14 +25,17 @@ namespace Session
 
         private void ConnectTo1()
         {
-            connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
-            cmd = connection.CreateCommand();
+            con = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+            cmd = con.CreateCommand();
         }
 
         public Broker()
         {
             ConnectTo();
+            ConnectTo1();
         }
+
+
 
         private const string CONNECTION_STRING =
     "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
@@ -105,7 +110,6 @@ namespace Session
                 {
                     command.CommandType = System.Data.CommandType.Text;
                     command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.ID;
-                    //command.Parameters.AddWithValue("@ID", ID);
 
                     command.ExecuteNonQuery();
                 }
@@ -137,9 +141,10 @@ namespace Session
             //command.Parameters.AddWithValue("@Format", format);
             //return GetFiles(connection, command);
             cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Clear();
             cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
             cmd.Parameters.AddWithValue("@Format", format);
-            return GetFiles(connection, cmd);
+            return GetFiles(con, cmd);
         }
 
         public List<File> SelectByFormat(params string[] formats)
@@ -147,6 +152,8 @@ namespace Session
             var sbNames = new StringBuilder(10 * formats.Length);
             for (int i = 0; i < formats.Length; i++)
             {
+                cmd.Parameters.Clear();
+
                 string name = "@Format" + i;
                 //command.Parameters.Add(name, formats[i]);
                 cmd.Parameters.Add(name, formats[i]);
@@ -160,29 +167,30 @@ namespace Session
             //return GetFiles(connection, command);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format IN (" + sbNames.ToString() + ")";
-            return GetFiles(connection, cmd);
+            return GetFiles(con, cmd);
 
 
         }
 
-        private static List<File> GetFiles(OleDbConnection connection, OleDbCommand cmd)
+        private static List<File> GetFiles(OleDbConnection con, OleDbCommand cmd)
         {
             List<File> fList = new List<File>();
             try
             {
-                connection.Open();
-                using (var reader = cmd.ExecuteReader())
+                con.Open();
+                cmd.Parameters.Clear();
+                using (var reader1 = cmd.ExecuteReader())
 
                 {
-                    while (reader.Read())
+                    while (reader1.Read())
                     {
                         File f = new File();
-                        f.ID = Convert.ToInt32(reader["ID"].ToString());
-                        f.Name = reader["name"].ToString();
-                        f.Keywords = reader["keywords"].ToString();
-                        f.Size = Convert.ToInt32(reader["size"].ToString());
-                        f.Format = reader["format"].ToString();
-                        f.Content = reader["content"].ToString();
+                        f.ID = Convert.ToInt32(reader1["ID"].ToString());
+                        f.Name = reader1["name"].ToString();
+                        f.Keywords = reader1["keywords"].ToString();
+                        f.Size = Convert.ToInt32(reader1["size"].ToString());
+                        f.Format = reader1["format"].ToString();
+                        f.Content = reader1["content"].ToString();
                         fList.Add(f);
                     }
                     return fList;
@@ -191,7 +199,7 @@ namespace Session
 
             finally
             {
-                if (connection != null) { connection.Close(); }
+                if (con != null) { con.Close(); }
             }
         }
 
@@ -208,6 +216,11 @@ namespace Session
         public List<File> SelectTxt()
         {
             return SelectByFormat("txt");
+        }
+
+        public List<File> SelectRtf()
+        {
+            return SelectByFormat("rtf");
         }
 
         public List<File> SelectDocAndDocx()
@@ -229,228 +242,6 @@ namespace Session
         {
             return SelectByFormat("doc", "docx", "txt");
         }
-
-
-        ////SelectDoc
-        //public List<File> SelectDoc()
-        //{
-        //    List<File> fList = new List<File>();
-
-        //    try
-        //    {
-        //        command.CommandText = "SELECT * FROM TFile WHERE Format = 'doc'";
-        //        command.CommandType = System.Data.CommandType.Text;
-        //        connection.Open();
-
-        //        OleDbDataReader reader = command.ExecuteReader();
-
-        //        while (reader.Read())
-        //        {
-        //            File f = new File();
-        //            f.ID = Convert.ToInt32(reader["ID"].ToString());
-        //            f.Name = reader["name"].ToString();
-        //            f.Keywords = reader["keywords"].ToString();
-        //            f.Size = Convert.ToInt32(reader["size"].ToString());
-        //            f.Format = reader["format"].ToString();
-        //            f.Content = reader["content"].ToString();
-        //            fList.Add(f);
-        //        }
-        //        return fList;
-
-        //    }
-
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-
-        //    finally
-        //    {
-        //        if (connection != null)
-        //        {
-        //            connection.Close();
-        //        }
-        //    }
-        //}
-
-        ////SelectDocx
-        //public List<File> SelectDocx()
-        //{
-        //    List<File> fList = new List<File>();
-        //    try
-        //    {
-        //        command.CommandText = "SELECT * FROM TFile WHERE Format = 'docx'";
-        //        command.CommandType = System.Data.CommandType.Text;
-        //        connection.Open();
-        //        OleDbDataReader reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            File f = new File();
-        //            f.ID = Convert.ToInt32(reader["ID"].ToString());
-        //            f.Name = reader["name"].ToString();
-        //            f.Keywords = reader["keywords"].ToString();
-        //            f.Size = Convert.ToInt32(reader["size"].ToString());
-        //            f.Format = reader["format"].ToString();
-        //            f.Content = reader["content"].ToString();
-        //            fList.Add(f);
-        //        }
-        //        return fList;
-        //    }
-        //    catch (Exception)
-        //    { throw; }
-        //    finally
-        //    { if (connection != null) { connection.Close(); } }
-        //}
-
-        ////SelectTxt
-        //public List<File> SelectTxt()
-        //{
-        //    List<File> fList = new List<File>();
-        //    try
-        //    {
-        //        command.CommandText = "SELECT * FROM TFile WHERE Format = 'txt'";
-        //        command.CommandType = System.Data.CommandType.Text;
-        //        connection.Open();
-        //        OleDbDataReader reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            File f = new File();
-        //            f.ID = Convert.ToInt32(reader["ID"].ToString());
-        //            f.Name = reader["name"].ToString();
-        //            f.Keywords = reader["keywords"].ToString();
-        //            f.Size = Convert.ToInt32(reader["size"].ToString());
-        //            f.Format = reader["format"].ToString();
-        //            f.Content = reader["content"].ToString();
-        //            fList.Add(f);
-        //        }
-        //        return fList;
-        //    }
-        //    catch (Exception)
-        //    { throw; }
-        //    finally
-        //    { if (connection != null) { connection.Close(); } }
-        //}
-
-        ////SelectDocAndDocx
-        //public List<File> SelectDocAndDocx()
-        //{
-        //    List<File> fList = new List<File>();
-
-        //    try
-        //    {
-        //        command.CommandText = "SELECT * FROM TFile WHERE Format IN ('doc', 'docx')";
-        //        command.CommandType = System.Data.CommandType.Text;
-        //        connection.Open();
-        //        OleDbDataReader reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            File f = new File();
-        //            f.ID = Convert.ToInt32(reader["ID"].ToString());
-        //            f.Name = reader["name"].ToString();
-        //            f.Keywords = reader["keywords"].ToString();
-        //            f.Size = Convert.ToInt32(reader["size"].ToString());
-        //            f.Format = reader["format"].ToString();
-        //            f.Content = reader["content"].ToString();
-        //            fList.Add(f);
-        //        }
-        //        return fList;
-
-        //    }
-        //    catch (Exception)
-        //    { throw; }
-        //    finally
-        //    { if (connection != null) { connection.Close(); } }
-        //}
-
-        ////SelectDocAndTxt
-        //public List<File> SelectDocAndTxt()
-        //{
-        //    List<File> fList = new List<File>();
-        //    try
-        //    {
-        //        command.CommandText = "SELECT * FROM TFile WHERE Format IN ('doc', 'txt')";
-        //        command.CommandType = System.Data.CommandType.Text;
-        //        connection.Open();
-        //        OleDbDataReader reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            File f = new File();
-        //            f.ID = Convert.ToInt32(reader["ID"].ToString());
-        //            f.Name = reader["name"].ToString();
-        //            f.Keywords = reader["keywords"].ToString();
-        //            f.Size = Convert.ToInt32(reader["size"].ToString());
-        //            f.Format = reader["format"].ToString();
-        //            f.Content = reader["content"].ToString();
-        //            fList.Add(f);
-        //        }
-        //        return fList;
-
-        //    }
-        //    catch (Exception)
-        //    { throw; }
-        //    finally
-        //    { if (connection != null) { connection.Close(); } }
-        //}
-
-        ////SelectDocAndTxt
-        //public List<File> SelectDocxAndTxt()
-        //{
-        //    List<File> fList = new List<File>();
-        //    try
-        //    {
-        //        command.CommandText = "SELECT * FROM TFile WHERE Format IN ('docx', 'txt')";
-        //        command.CommandType = System.Data.CommandType.Text;
-        //        connection.Open();
-        //        OleDbDataReader reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            File f = new File();
-        //            f.ID = Convert.ToInt32(reader["ID"].ToString());
-        //            f.Name = reader["name"].ToString();
-        //            f.Keywords = reader["keywords"].ToString();
-        //            f.Size = Convert.ToInt32(reader["size"].ToString());
-        //            f.Format = reader["format"].ToString();
-        //            f.Content = reader["content"].ToString();
-        //            fList.Add(f);
-        //        }
-        //        return fList;
-
-        //    }
-        //    catch (Exception)
-        //    { throw; }
-        //    finally
-        //    { if (connection != null) { connection.Close(); } }
-        //}
-
-
-        ////SelectDocAndDocxAndTxt
-        //public List<File> SelectDocAndDocxAndTxt()
-        //{
-        //    List<File> fList = new List<File>();
-        //    try
-        //    {
-        //        command.CommandText = "SELECT * FROM TFile WHERE Format IN ('doc', 'docx', 'txt')";
-        //        command.CommandType = System.Data.CommandType.Text;
-        //        connection.Open();
-        //        OleDbDataReader reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            File f = new File();
-        //            f.ID = Convert.ToInt32(reader["ID"].ToString());
-        //            f.Name = reader["name"].ToString();
-        //            f.Keywords = reader["keywords"].ToString();
-        //            f.Size = Convert.ToInt32(reader["size"].ToString());
-        //            f.Format = reader["format"].ToString();
-        //            f.Content = reader["content"].ToString();
-        //            fList.Add(f);
-        //        }
-        //        return fList;
-        //    }
-        //    catch (Exception)
-        //    { throw; }
-        //    finally
-        //    { if (connection != null) { connection.Close(); } }
-        //}
 
     }
 
