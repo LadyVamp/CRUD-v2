@@ -13,11 +13,18 @@ namespace Session
     {
         OleDbConnection connection;
         OleDbCommand command;
+        OleDbCommand cmd;
 
         private void ConnectTo()
         {
             connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
             command = connection.CreateCommand();
+        }
+
+        private void ConnectTo1()
+        {
+            connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+            cmd = connection.CreateCommand();
         }
 
         public Broker()
@@ -39,7 +46,6 @@ namespace Session
                 {
                     command.CommandType = System.Data.CommandType.Text;
                     command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
-                    //command1.Parameters.AddWithValue("@ID", ID);
                     command.ExecuteNonQuery();
                 }
             }
@@ -126,10 +132,14 @@ namespace Session
 
         public List<File> SelectByFormat(string format)
         {
-            command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
-            command.Parameters.AddWithValue("@Format", format);
-            return GetFiles(connection, command);
+            //command.CommandType = System.Data.CommandType.Text;
+            //command.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
+            //command.Parameters.AddWithValue("@Format", format);
+            //return GetFiles(connection, command);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
+            cmd.Parameters.AddWithValue("@Format", format);
+            return GetFiles(connection, cmd);
         }
 
         public List<File> SelectByFormat(params string[] formats)
@@ -138,26 +148,30 @@ namespace Session
             for (int i = 0; i < formats.Length; i++)
             {
                 string name = "@Format" + i;
-                command.Parameters.Add(name, formats[i]);
+                //command.Parameters.Add(name, formats[i]);
+                cmd.Parameters.Add(name, formats[i]);
 
                 if (sbNames.Length > 0) sbNames.Append(",");
                 sbNames.Append(name);
             }
 
-            command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format IN (" + sbNames.ToString() + ")";
-            return GetFiles(connection, command);
+            //command.CommandType = System.Data.CommandType.Text;
+            //command.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format IN (" + sbNames.ToString() + ")";
+            //return GetFiles(connection, command);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format IN (" + sbNames.ToString() + ")";
+            return GetFiles(connection, cmd);
 
 
         }
 
-        private static List<File> GetFiles(OleDbConnection connection, OleDbCommand command)
+        private static List<File> GetFiles(OleDbConnection connection, OleDbCommand cmd)
         {
             List<File> fList = new List<File>();
             try
             {
                 connection.Open();
-                using (var reader = command.ExecuteReader())
+                using (var reader = cmd.ExecuteReader())
 
                 {
                     while (reader.Read())
