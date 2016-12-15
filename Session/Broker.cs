@@ -142,7 +142,7 @@ namespace Session
         {
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
-            //cmd.Parameters.Clear(); 
+            cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Format", format);
             return GetFiles(con, cmd);
         }
