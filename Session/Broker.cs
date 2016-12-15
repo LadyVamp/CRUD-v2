@@ -154,7 +154,6 @@ namespace Session
             for (int i = 0; i < formats.Length; i++)
             {
                 string name = "@Format" + i;
-                //cmd.Parameters.Clear();
                 cmd.Parameters.Add(name, formats[i]);
                 
                 if (sbNames.Length > 0) sbNames.Append(",");
