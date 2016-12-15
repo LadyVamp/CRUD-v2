@@ -12,12 +12,12 @@ namespace Session
     public class Broker
     {
         //  CRUD поисковых шаблонов
-        OleDbConnection connection;
-        OleDbCommand command;
+        SqlConnection connection;
+        SqlCommand command;
 
         private void ConnectTo()
         {
-            connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+            connection = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
             command = connection.CreateCommand();
         }
 
@@ -26,11 +26,11 @@ namespace Session
         //  /CRUD поисковых шаблонов
 
         //  Редактирование запроса поиска
-        OleDbConnection con;
-        OleDbCommand cmd;
+        SqlConnection con;
+        SqlCommand cmd;
         private void ConnectTo1()
         {
-            con = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+            con = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
             cmd = con.CreateCommand();
         }
         //  /Редактирование запроса поиска
@@ -71,7 +71,7 @@ namespace Session
                 command.CommandType = System.Data.CommandType.Text;
                 connection.Open();
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
@@ -154,7 +154,7 @@ namespace Session
             for (int i = 0; i < formats.Length; i++)
             {
                 string name = "@Format" + i;
-                cmd.Parameters.Add(name, formats[i]);
+                cmd.Parameters.AddWithValue(name, formats[i]);
                 
                 if (sbNames.Length > 0) sbNames.Append(",");
                 sbNames.Append(name);
@@ -165,14 +165,13 @@ namespace Session
             return GetFiles(con, cmd);
         }
 
-        private static List<File> GetFiles(OleDbConnection con, OleDbCommand cmd)
+        private static List<File> GetFiles(SqlConnection con, SqlCommand cmd)
         {
             List<File> fList = new List<File>();
             try
             {
                 con.Open();
                 using (var reader1 = cmd.ExecuteReader())
-
                 {
                     while (reader1.Read())
                     {
