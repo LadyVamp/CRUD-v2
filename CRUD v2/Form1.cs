@@ -112,25 +112,30 @@ namespace CRUD_v2
         }
  
         //  Поиск по ключевым словам
-        private void btnSearchKeywords_Click(object sender, EventArgs e)
+        private void btnSearchKeywords_Click(object sender, EventArgs e)    //  1
         {
             try
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                foreach (DataGridViewRow row in dataGridView1.Rows)     //  2
                 {
                     row.Selected = false;
                     // Если в текстовом поле, отвечающем за поиск в первом столбце, что-то есть
-                    if (txtKeywords.TextLength > 0)
+                    if (txtKeywords.TextLength > 0) //  3
                     {
                         // Если текст совпадает
-                        if (row.Cells[1].Value.ToString() == txtKeywords.Text)
+                        if (row.Cells[1].Value.ToString() == txtKeywords.Text)  // 4
                         {
                             // Выделяем строку
-                            row.Selected = true;
+                            row.Selected = true;    // 5
                             // Завершаем поиск
                             break;
                         }
-                    }
+                        //if (row.Cells[1].Value.ToString() != txtKeywords.Text)    // 6
+                        //{
+                        //    MessageBox.Show("Поиск не дал результатов"); // 7
+                        //    break;
+                        //} 
+                    } // 8
 
                 }
             }
@@ -143,47 +148,52 @@ namespace CRUD_v2
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked) //doc
+            if (checkBox1.Checked) //   1) doc   
             {
                 dataGridView1.DataSource = b.SelectDoc();
             }
 
-            if (checkBox2.Checked) //docx
+            if (checkBox2.Checked) //   2) docx
             {
                 dataGridView1.DataSource = b.SelectDocx();
             }
 
-            if (checkBox3.Checked) //txt
+            if (checkBox3.Checked) //   3) txt   
             {
                 dataGridView1.DataSource = b.SelectTxt();
             }
 
-            if (checkBox4.Checked) //rtf
+            if (checkBox4.Checked) //   4) rtf    
             {
                 dataGridView1.DataSource = b.SelectRtf();
             }
 
-            if ((checkBox1.Checked) & (checkBox2.Checked)) //doc & docx
+            if ((checkBox1.Checked) & (checkBox2.Checked)) //   5) doc & docx
             {
                 dataGridView1.DataSource = b.SelectDocAndDocx();
             }
 
-            if ((checkBox1.Checked) & (checkBox3.Checked)) //doc & txt
+            if ((checkBox1.Checked) & (checkBox3.Checked)) //   6) doc & txt
             {
                 dataGridView1.DataSource = b.SelectDocAndTxt();
             }
 
-            if ((checkBox2.Checked) & (checkBox3.Checked)) //docx & txt
+            if ((checkBox1.Checked) & (checkBox4.Checked)) //   7) doc & rtf
+            {
+                dataGridView1.DataSource = b.SelectDocAndRtf();
+            }
+
+            if ((checkBox2.Checked) & (checkBox3.Checked)) //   8) docx & txt
             {
                 dataGridView1.DataSource = b.SelectDocxAndTxt();
             }
 
-            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked)) //doc & docx & txt
+            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked)) // 9) doc & docx & txt
             {
                 dataGridView1.DataSource = b.SelectDocAndDocxAndTxt();
             }
 
-            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked) & (checkBox4.Checked)) //doc & docx & txt & rtf
+            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked) & (checkBox4.Checked)) //   10) doc & docx & txt & rtf
             {
                 dataGridView1.DataSource = b.SelectDocAndDocxAndTxtAndRtf();
             }
