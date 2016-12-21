@@ -73,6 +73,172 @@ namespace CodedUITestProject1
             Mouse.Click(uIОКButton, new Point(59, 13));
         }
         
+        /// <summary>
+        /// Обновили запись. Все ок
+        /// </summary>
+        public void Update_UpdRecord()
+        {
+            #region Variable Declarations
+            WinComboBox uIИзменитьСравниватьсComboBox = this.UIForm1Window.UICmbNewCompareWindow.UIИзменитьСравниватьсComboBox;
+            WinComboBox uICmbNewActionComboBox = this.UIForm1Window.UICmbNewActionWindow.UICmbNewActionComboBox;
+            WinButton uIОбновитьButton = this.UIForm1Window.UIОбновитьWindow.UIОбновитьButton;
+            WinButton uIОКButton = this.UIОКWindow.UIОКButton;
+            #endregion
+
+            // Последнее действие мыши не записано.
+
+            // Выберите "XYZ" в "Изменить Сравнивать с" поле со списком
+            uIИзменитьСравниватьсComboBox.EditableItem = this.Update_UpdRecordParams.UIИзменитьСравниватьсComboBoxEditableItem;
+
+            // Выберите "XYZ" в "cmbNewAction" поле со списком
+            uICmbNewActionComboBox.EditableItem = this.Update_UpdRecordParams.UICmbNewActionComboBoxEditableItem;
+
+            // Щелкните "Обновить" кнопка
+            Mouse.Click(uIОбновитьButton, new Point(65, 9));
+
+            // Щелкните "ОК" кнопка
+            Mouse.Click(uIОКButton, new Point(44, 11));
+        }
+        
+        /// <summary>
+        /// AssertMethodNewNamePattern - Используйте "AssertMethodNewNamePatternExpectedValues" для передачи параметров в этот метод.
+        /// </summary>
+        public void AssertMethodNewNamePattern()
+        {
+            #region Variable Declarations
+            WinEdit uITxtNewRegExpEdit = this.UIForm1Window.UITxtNewRegExpWindow.UITxtNewRegExpEdit;
+            #endregion
+
+            // Убедитесь, что свойство Text "txtNewRegExp" надпись равняется ""
+            Assert.AreEqual(this.AssertMethodNewNamePatternExpectedValues.UITxtNewRegExpEditText, uITxtNewRegExpEdit.Text);
+        }
+        
+        /// <summary>
+        /// Введено существующее имя. Дб исключение, что такое имя уже используется
+        /// </summary>
+        public void EnterXYZ_ExcNameAlredyUse()
+        {
+            #region Variable Declarations
+            WinButton uIЗаполнитьButton = this.UIForm1Window.UIЗаполнитьWindow.UIЗаполнитьButton;
+            WinComboBox uICmbPatternsComboBox = this.UIForm1Window.UICmbPatternsWindow.UICmbPatternsComboBox;
+            WinEdit uITxtNewRegExpEdit = this.UIForm1Window.UITxtNewRegExpWindow.UITxtNewRegExpEdit;
+            WinButton uIОбновитьButton = this.UIForm1Window.UIОбновитьWindow.UIОбновитьButton;
+            WinButton uIОКButton = this.UIОКWindow.UIОКButton;
+            #endregion
+
+            // Щелкните "Заполнить" кнопка
+            Mouse.Click(uIЗаполнитьButton, new Point(29, 10));
+
+            // Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
+            uICmbPatternsComboBox.SelectedItem = this.EnterXYZ_ExcNameAlredyUseParams.UICmbPatternsComboBoxSelectedItem;
+
+            // Тип "XYZ" в "txtNewRegExp" надпись
+            uITxtNewRegExpEdit.Text = this.EnterXYZ_ExcNameAlredyUseParams.UITxtNewRegExpEditText;
+
+            // Щелкните "Обновить" кнопка
+            Mouse.Click(uIОбновитьButton, new Point(38, 13));
+
+            // Щелкните "ОК" кнопка
+            Mouse.Click(uIОКButton, new Point(42, 12));
+        }
+        
+        /// <summary>
+        /// Пустое имя. Дб исключение "имя не дб пустым"
+        /// </summary>
+        public void EmptyNewRegExpression_ThrowsException()
+        {
+
+            // Последнее действие мыши не записано.
+        }
+        
+        
+
+        /// <summary>
+        /// EmptyNewRegExpr_ThrowsException - Используйте "EmptyNewRegExpr_ThrowsExceptionParams" для передачи параметров в этот метод.
+        /// </summary>
+        public void EmptyNewRegExpr_ThrowsException()
+        {
+            #region Variable Declarations
+            WinEdit uITxtNewRegExpEdit = this.UIForm1Window.UITxtNewRegExpWindow.UITxtNewRegExpEdit;
+            WinButton uIЗаполнитьButton = this.UIForm1Window.UIЗаполнитьWindow.UIЗаполнитьButton;
+            WinComboBox uICmbPatternsComboBox = this.UIForm1Window.UICmbPatternsWindow.UICmbPatternsComboBox;
+            WinButton uIДобавитьXYZButton = this.UIForm1Window.UIДобавитьXYZWindow.UIДобавитьXYZButton;
+            WinButton uIОКButton = this.UIОКWindow.UIОКButton;
+            WinButton uIОбновитьButton = this.UIForm1Window.UIОбновитьWindow.UIОбновитьButton;
+            #endregion
+
+            try 
+            {
+                // Щелкните "txtNewRegExp" надпись
+                Mouse.Click(uITxtNewRegExpEdit, new Point(42, 6));
+
+                // Щелкните "Заполнить" кнопка
+                Mouse.Click(uIЗаполнитьButton, new Point(54, 9));
+
+                //// Выберите " | Абсолютный путь | Включить" в "cmbPatterns" поле со списком
+                //uICmbPatternsComboBox.SelectedItem = this.EmptyNewRegExpr_ThrowsExceptionParams.UICmbPatternsComboBoxSelectedItem;
+
+                // Щелкните "Добавить XYZ" кнопка
+                Mouse.Click(uIДобавитьXYZButton, new Point(71, 8));
+
+                // Щелкните "ОК" кнопка
+                Mouse.Click(uIОКButton, new Point(48, 9));
+
+                // Щелкните "Заполнить" кнопка
+                Mouse.Click(uIЗаполнитьButton, new Point(61, 11));
+
+                // Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
+                //uICmbPatternsComboBox.SelectedItem = this.EmptyNewRegExpr_ThrowsExceptionParams.UICmbPatternsComboBoxSelectedItem1;
+
+                // Щелкните "txtNewRegExp" надпись
+                Mouse.Click(uITxtNewRegExpEdit, new Point(22, 7));
+
+                // Щелкните "Обновить" кнопка
+                Mouse.Click(uIОбновитьButton, new Point(42, 12));
+
+                // Щелкните "ОК" кнопка
+                Mouse.Click(uIОКButton, new Point(42, 12));
+            }
+            catch (Exception e) 
+            { 
+                Console.WriteLine("Шаблон регулярного выражения не должен быть пустым!");
+            }
+
+        }
+        
+        /// <summary>
+        /// EmptyNewRegExpr_ThrowsExceptionParams - Используйте "EmptyNewRegExpr_ThrowsExceptionParamsParams" для передачи параметров в этот метод.
+        /// </summary>
+        public void EmptyNewRegExpr_ThrowsExceptionParams()
+        {
+            #region Variable Declarations
+            WinComboBox uICmbPatternsComboBox = this.UIForm1Window.UICmbPatternsWindow.UICmbPatternsComboBox;
+            WinEdit uITxtNewRegExpEdit = this.UIForm1Window.UITxtNewRegExpWindow.UITxtNewRegExpEdit;
+            WinButton uIОбновитьButton = this.UIForm1Window.UIОбновитьWindow.UIОбновитьButton;
+            WinControl uIItemDialog = this.UIItemWindow.UIItemWindow1.UIItemDialog;
+            WinButton uIОКButton = this.UIОКWindow.UIОКButton;
+            WinButton uIЗакрытьButton = this.UIForm1Window.UIForm1TitleBar.UIЗакрытьButton;
+            #endregion
+
+            // Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
+            //uICmbPatternsComboBox.SelectedItem = this.EmptyNewRegExpr_ThrowsExceptionParamsParams.UICmbPatternsComboBoxSelectedItem;
+
+            // Тип "" в "txtNewRegExp" надпись
+            //uITxtNewRegExpEdit.Text = this.EmptyNewRegExpr_ThrowsExceptionParamsParams.UITxtNewRegExpEditText;
+
+            // Щелкните "Обновить" кнопка
+            Mouse.Click(uIОбновитьButton, new Point(29, 16));
+
+            // Щелкните Dialog
+            Mouse.Click(uIItemDialog, new Point(115, 105));
+
+            // Щелкните "ОК" кнопка
+            Mouse.Click(uIОКButton, new Point(58, 13));
+
+            // Щелкните "Закрыть" кнопка
+            Mouse.Click(uIЗакрытьButton, new Point(14, 10));
+        }
+        
         #region Properties
         public virtual EnterKeyword_KeywordIsFindParams EnterKeyword_KeywordIsFindParams
         {
@@ -98,6 +264,66 @@ namespace CodedUITestProject1
             }
         }
         
+        public virtual Update_UpdRecordParams Update_UpdRecordParams
+        {
+            get
+            {
+                if ((this.mUpdate_UpdRecordParams == null))
+                {
+                    this.mUpdate_UpdRecordParams = new Update_UpdRecordParams();
+                }
+                return this.mUpdate_UpdRecordParams;
+            }
+        }
+        
+        public virtual AssertMethodNewNamePatternExpectedValues AssertMethodNewNamePatternExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertMethodNewNamePatternExpectedValues == null))
+                {
+                    this.mAssertMethodNewNamePatternExpectedValues = new AssertMethodNewNamePatternExpectedValues();
+                }
+                return this.mAssertMethodNewNamePatternExpectedValues;
+            }
+        }
+        
+        public virtual EnterXYZ_ExcNameAlredyUseParams EnterXYZ_ExcNameAlredyUseParams
+        {
+            get
+            {
+                if ((this.mEnterXYZ_ExcNameAlredyUseParams == null))
+                {
+                    this.mEnterXYZ_ExcNameAlredyUseParams = new EnterXYZ_ExcNameAlredyUseParams();
+                }
+                return this.mEnterXYZ_ExcNameAlredyUseParams;
+            }
+        }
+        
+        //public virtual EmptyNewRegExpr_ThrowsExceptionParams EmptyNewRegExpr_ThrowsExceptionParams
+        //{
+        //    get
+        //    {
+        //        if ((this.mEmptyNewRegExpr_ThrowsExceptionParams == null))
+        //        {
+        //            this.mEmptyNewRegExpr_ThrowsExceptionParams = new EmptyNewRegExpr_ThrowsExceptionParams();
+        //        }
+        //        return this.mEmptyNewRegExpr_ThrowsExceptionParams;
+        //    }
+        //}
+        
+        //public virtual EmptyNewRegExpr_ThrowsExceptionParamsParams EmptyNewRegExpr_ThrowsExceptionParamsParams
+        //{
+        //    get
+        //    {
+        //        if ((this.mEmptyNewRegExpr_ThrowsExceptionParamsParams == null))
+        //        {
+        //            this.mEmptyNewRegExpr_ThrowsExceptionParamsParams = new EmptyNewRegExpr_ThrowsExceptionParamsParams();
+        //        }
+        //        return this.mEmptyNewRegExpr_ThrowsExceptionParamsParams;
+        //    }
+        //}
+        
         public UIForm1Window UIForm1Window
         {
             get
@@ -121,6 +347,18 @@ namespace CodedUITestProject1
                 return this.mUIОКWindow;
             }
         }
+        
+        public UIItemWindow UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow();
+                }
+                return this.mUIItemWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -128,9 +366,21 @@ namespace CodedUITestProject1
         
         private EnterKeyword_KeywordIsNotFindParams mEnterKeyword_KeywordIsNotFindParams;
         
+        private Update_UpdRecordParams mUpdate_UpdRecordParams;
+        
+        private AssertMethodNewNamePatternExpectedValues mAssertMethodNewNamePatternExpectedValues;
+        
+        private EnterXYZ_ExcNameAlredyUseParams mEnterXYZ_ExcNameAlredyUseParams;
+        
+        //private EmptyNewRegExpr_ThrowsExceptionParams mEmptyNewRegExpr_ThrowsExceptionParams;
+        
+        //private EmptyNewRegExpr_ThrowsExceptionParamsParams mEmptyNewRegExpr_ThrowsExceptionParamsParams;
+        
         private UIForm1Window mUIForm1Window;
         
         private UIОКWindow mUIОКWindow;
+        
+        private UIItemWindow mUIItemWindow;
         #endregion
     }
     
@@ -169,6 +419,103 @@ namespace CodedUITestProject1
         #endregion
     }
     
+    /// <summary>
+    /// Параметры для передачи в "Update_UpdRecord"
+    /// </summary>
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class Update_UpdRecordParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Выберите "XYZ" в "Изменить Сравнивать с" поле со списком
+        /// </summary>
+        public string UIИзменитьСравниватьсComboBoxEditableItem = "XYZ";
+        
+        /// <summary>
+        /// Выберите "XYZ" в "cmbNewAction" поле со списком
+        /// </summary>
+        public string UICmbNewActionComboBoxEditableItem = "XYZ";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Параметры для передачи в "AssertMethodNewNamePattern"
+    /// </summary>
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class AssertMethodNewNamePatternExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Убедитесь, что свойство Text "txtNewRegExp" надпись равняется ""
+        /// </summary>
+        public string UITxtNewRegExpEditText = "";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Параметры для передачи в "EnterXYZ_ExcNameAlredyUse"
+    /// </summary>
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class EnterXYZ_ExcNameAlredyUseParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
+        /// </summary>
+        public string UICmbPatternsComboBoxSelectedItem = "XYZ | XYZ | XYZ";
+        
+        /// <summary>
+        /// Тип "XYZ" в "txtNewRegExp" надпись
+        /// </summary>
+        public string UITxtNewRegExpEditText = "XYZ";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Параметры для передачи в "EmptyNewRegExpr_ThrowsException"
+    /// </summary>
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class EmptyNewRegExpr_ThrowsExceptionParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Выберите " | Абсолютный путь | Включить" в "cmbPatterns" поле со списком
+        /// </summary>
+        public string UICmbPatternsComboBoxSelectedItem = " | Абсолютный путь | Включить";
+        
+        /// <summary>
+        /// Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
+        /// </summary>
+        public string UICmbPatternsComboBoxSelectedItem1 = "XYZ | XYZ | XYZ";
+        #endregion
+
+
+    }
+    
+    ///// <summary>
+    ///// Параметры для передачи в "EmptyNewRegExpr_ThrowsExceptionParams"
+    ///// </summary>
+    //[GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    //public class EmptyNewRegExpr_ThrowsExceptionParamsParams
+    //{
+        
+    //    #region Fields
+    //    /// <summary>
+    //    /// Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
+    //    /// </summary>
+    //    public string UICmbPatternsComboBoxSelectedItem = "XYZ | XYZ | XYZ";
+        
+    //    /// <summary>
+    //    /// Тип "" в "txtNewRegExp" надпись
+    //    /// </summary>
+    //    public string UITxtNewRegExpEditText = "";
+    //    #endregion
+    //}
+    
     [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
     public class UIForm1Window : WinWindow
     {
@@ -206,12 +553,124 @@ namespace CodedUITestProject1
                 return this.mUIПоискпоключевымсловаWindow;
             }
         }
+        
+        public UICmbNewCompareWindow UICmbNewCompareWindow
+        {
+            get
+            {
+                if ((this.mUICmbNewCompareWindow == null))
+                {
+                    this.mUICmbNewCompareWindow = new UICmbNewCompareWindow(this);
+                }
+                return this.mUICmbNewCompareWindow;
+            }
+        }
+        
+        public UICmbNewActionWindow UICmbNewActionWindow
+        {
+            get
+            {
+                if ((this.mUICmbNewActionWindow == null))
+                {
+                    this.mUICmbNewActionWindow = new UICmbNewActionWindow(this);
+                }
+                return this.mUICmbNewActionWindow;
+            }
+        }
+        
+        public UIОбновитьWindow UIОбновитьWindow
+        {
+            get
+            {
+                if ((this.mUIОбновитьWindow == null))
+                {
+                    this.mUIОбновитьWindow = new UIОбновитьWindow(this);
+                }
+                return this.mUIОбновитьWindow;
+            }
+        }
+        
+        public UITxtNewRegExpWindow UITxtNewRegExpWindow
+        {
+            get
+            {
+                if ((this.mUITxtNewRegExpWindow == null))
+                {
+                    this.mUITxtNewRegExpWindow = new UITxtNewRegExpWindow(this);
+                }
+                return this.mUITxtNewRegExpWindow;
+            }
+        }
+        
+        public UIЗаполнитьWindow UIЗаполнитьWindow
+        {
+            get
+            {
+                if ((this.mUIЗаполнитьWindow == null))
+                {
+                    this.mUIЗаполнитьWindow = new UIЗаполнитьWindow(this);
+                }
+                return this.mUIЗаполнитьWindow;
+            }
+        }
+        
+        public UICmbPatternsWindow UICmbPatternsWindow
+        {
+            get
+            {
+                if ((this.mUICmbPatternsWindow == null))
+                {
+                    this.mUICmbPatternsWindow = new UICmbPatternsWindow(this);
+                }
+                return this.mUICmbPatternsWindow;
+            }
+        }
+        
+        public UIДобавитьXYZWindow UIДобавитьXYZWindow
+        {
+            get
+            {
+                if ((this.mUIДобавитьXYZWindow == null))
+                {
+                    this.mUIДобавитьXYZWindow = new UIДобавитьXYZWindow(this);
+                }
+                return this.mUIДобавитьXYZWindow;
+            }
+        }
+        
+        public UIForm1TitleBar UIForm1TitleBar
+        {
+            get
+            {
+                if ((this.mUIForm1TitleBar == null))
+                {
+                    this.mUIForm1TitleBar = new UIForm1TitleBar(this);
+                }
+                return this.mUIForm1TitleBar;
+            }
+        }
         #endregion
         
         #region Fields
         private UITxtKeywordsWindow mUITxtKeywordsWindow;
         
         private UIПоискпоключевымсловаWindow mUIПоискпоключевымсловаWindow;
+        
+        private UICmbNewCompareWindow mUICmbNewCompareWindow;
+        
+        private UICmbNewActionWindow mUICmbNewActionWindow;
+        
+        private UIОбновитьWindow mUIОбновитьWindow;
+        
+        private UITxtNewRegExpWindow mUITxtNewRegExpWindow;
+        
+        private UIЗаполнитьWindow mUIЗаполнитьWindow;
+        
+        private UICmbPatternsWindow mUICmbPatternsWindow;
+        
+        private UIДобавитьXYZWindow mUIДобавитьXYZWindow;
+        
+        private UIForm1TitleBar mUIForm1TitleBar;
         #endregion
     }
     
@@ -287,6 +746,290 @@ namespace CodedUITestProject1
     }
     
     [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UICmbNewCompareWindow : WinWindow
+    {
+        
+        public UICmbNewCompareWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "cmbNewCompare";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIИзменитьСравниватьсComboBox
+        {
+            get
+            {
+                if ((this.mUIИзменитьСравниватьсComboBox == null))
+                {
+                    this.mUIИзменитьСравниватьсComboBox = new WinComboBox(this);
+                    #region Условия поиска
+                    this.mUIИзменитьСравниватьсComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Изменить Сравнивать с";
+                    this.mUIИзменитьСравниватьсComboBox.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUIИзменитьСравниватьсComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIИзменитьСравниватьсComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UICmbNewActionWindow : WinWindow
+    {
+        
+        public UICmbNewActionWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "cmbNewAction";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UICmbNewActionComboBox
+        {
+            get
+            {
+                if ((this.mUICmbNewActionComboBox == null))
+                {
+                    this.mUICmbNewActionComboBox = new WinComboBox(this);
+                    #region Условия поиска
+                    this.mUICmbNewActionComboBox.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUICmbNewActionComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUICmbNewActionComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UIОбновитьWindow : WinWindow
+    {
+        
+        public UIОбновитьWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "btnUpdate";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIОбновитьButton
+        {
+            get
+            {
+                if ((this.mUIОбновитьButton == null))
+                {
+                    this.mUIОбновитьButton = new WinButton(this);
+                    #region Условия поиска
+                    this.mUIОбновитьButton.SearchProperties[WinButton.PropertyNames.Name] = "Обновить";
+                    this.mUIОбновитьButton.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUIОбновитьButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIОбновитьButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UITxtNewRegExpWindow : WinWindow
+    {
+        
+        public UITxtNewRegExpWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "txtNewRegExp";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITxtNewRegExpEdit
+        {
+            get
+            {
+                if ((this.mUITxtNewRegExpEdit == null))
+                {
+                    this.mUITxtNewRegExpEdit = new WinEdit(this);
+                    #region Условия поиска
+                    this.mUITxtNewRegExpEdit.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUITxtNewRegExpEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITxtNewRegExpEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UIЗаполнитьWindow : WinWindow
+    {
+        
+        public UIЗаполнитьWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "btnFillCombobox";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIЗаполнитьButton
+        {
+            get
+            {
+                if ((this.mUIЗаполнитьButton == null))
+                {
+                    this.mUIЗаполнитьButton = new WinButton(this);
+                    #region Условия поиска
+                    this.mUIЗаполнитьButton.SearchProperties[WinButton.PropertyNames.Name] = "Заполнить";
+                    this.mUIЗаполнитьButton.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUIЗаполнитьButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIЗаполнитьButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UICmbPatternsWindow : WinWindow
+    {
+        
+        public UICmbPatternsWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "cmbPatterns";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UICmbPatternsComboBox
+        {
+            get
+            {
+                if ((this.mUICmbPatternsComboBox == null))
+                {
+                    this.mUICmbPatternsComboBox = new WinComboBox(this);
+                    #region Условия поиска
+                    this.mUICmbPatternsComboBox.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUICmbPatternsComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUICmbPatternsComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UIДобавитьXYZWindow : WinWindow
+    {
+        
+        public UIДобавитьXYZWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "btnInsertXYZ";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIДобавитьXYZButton
+        {
+            get
+            {
+                if ((this.mUIДобавитьXYZButton == null))
+                {
+                    this.mUIДобавитьXYZButton = new WinButton(this);
+                    #region Условия поиска
+                    this.mUIДобавитьXYZButton.SearchProperties[WinButton.PropertyNames.Name] = "Добавить XYZ";
+                    this.mUIДобавитьXYZButton.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUIДобавитьXYZButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIДобавитьXYZButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UIForm1TitleBar : WinTitleBar
+    {
+        
+        public UIForm1TitleBar(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIЗакрытьButton
+        {
+            get
+            {
+                if ((this.mUIЗакрытьButton == null))
+                {
+                    this.mUIЗакрытьButton = new WinButton(this);
+                    #region Условия поиска
+                    this.mUIЗакрытьButton.SearchProperties[WinButton.PropertyNames.Name] = "Закрыть";
+                    this.mUIЗакрытьButton.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUIЗакрытьButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIЗакрытьButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
     public class UIОКWindow : WinWindow
     {
         
@@ -319,6 +1062,71 @@ namespace CodedUITestProject1
         
         #region Fields
         private WinButton mUIОКButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UIItemWindow : WinWindow
+    {
+        
+        public UIItemWindow()
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Рабочий стол";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32769";
+            #endregion
+        }
+        
+        #region Properties
+        public UIItemWindow1 UIItemWindow1
+        {
+            get
+            {
+                if ((this.mUIItemWindow1 == null))
+                {
+                    this.mUIItemWindow1 = new UIItemWindow1(this);
+                }
+                return this.mUIItemWindow1;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIItemWindow1 mUIItemWindow1;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UIItemWindow1 : WinWindow
+    {
+        
+        public UIItemWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIItemDialog
+        {
+            get
+            {
+                if ((this.mUIItemDialog == null))
+                {
+                    this.mUIItemDialog = new WinControl(this);
+                    #region Условия поиска
+                    this.mUIItemDialog.SearchProperties[UITestControl.PropertyNames.ControlType] = "Dialog";
+                    #endregion
+                }
+                return this.mUIItemDialog;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIItemDialog;
         #endregion
     }
 }

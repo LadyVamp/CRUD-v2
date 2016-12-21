@@ -66,6 +66,8 @@ namespace CRUD_v2
             MessageBox.Show("Запись обновлена");
         }
 
+       
+
         //строка соединения с БД
         private const string CONNECTION_STRING =
    "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
