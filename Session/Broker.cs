@@ -12,6 +12,7 @@ namespace Session
     public class Broker
     {
         //  CRUD поисковых шаблонов
+        // Соединение с БД
         SqlConnection connection;
         SqlCommand command;
 
@@ -26,6 +27,7 @@ namespace Session
         //  /CRUD поисковых шаблонов
 
         //  Редактирование запроса поиска
+        // Соединение с БД
         SqlConnection con;
         SqlCommand cmd;
         private void ConnectTo1()
@@ -138,6 +140,7 @@ namespace Session
 
 
         //  Редактирование запроса поиска
+        //  Универсальные методы для выборки по одному и нескольким форматам
         public List<File> SelectByFormat(string format)
         {
             cmd.CommandType = System.Data.CommandType.Text;
@@ -194,6 +197,7 @@ namespace Session
             }
         }
 
+        //Применение методов
         public List<File> SelectDoc()
         {
             return SelectByFormat("doc");

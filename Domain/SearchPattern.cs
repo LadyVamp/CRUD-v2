@@ -72,109 +72,112 @@ namespace Domain
             return RegularExpression + " | " + CompareWith + " | " + Action;
         }
 
-        //  Соединение с БД
-        OleDbConnection connection;
-        OleDbCommand command;
-        private void ConnectTo()
-        {
-            connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
-            command = connection.CreateCommand();
-        }
 
-        private const string CONNECTION_STRING =
-   "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
-        
-        //  Методы CRUD
-        //  Insert
-        public void Insert(SearchPattern arsp)
-        {
-            using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
-            {
-                connection1.Open();
+        /* Весь код ниже уже есть в Broker.cs и выполняется там */
+   //     //  Соединение с БД
+   //     OleDbConnection connection;
+   //     OleDbCommand command;
+   //     private void ConnectTo()
+   //     {
+   //         connection = new OleDbConnection(@"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+   //         command = connection.CreateCommand();
+   //     }
 
-                using (SqlCommand command = connection1.CreateCommand())
-                {
-                    command.CommandType = System.Data.CommandType.Text;
-                    command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
-                    command.ExecuteNonQuery();
-                }
-            }
+   //     private const string CONNECTION_STRING =
+   //"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
 
-        }
 
-        //  Read (FillCombobox)
-        public List<SearchPattern> FillCombobox()
-        {
-            List<SearchPattern> spList = new List<SearchPattern>();
+        ////  Методы CRUD
+        ////  Insert
+        //public void Insert(SearchPattern arsp)
+        //{
+        //    using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
+        //    {
+        //        connection1.Open();
 
-            try
-            {
-                command.CommandText = "SELECT * FROM TSearchPattern";
-                command.CommandType = System.Data.CommandType.Text;
-                connection.Open();
+        //        using (SqlCommand command = connection1.CreateCommand())
+        //        {
+        //            command.CommandType = System.Data.CommandType.Text;
+        //            command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
+        //            command.ExecuteNonQuery();
+        //        }
+        //    }
 
-                OleDbDataReader reader = command.ExecuteReader();
+        //}
 
-                while (reader.Read())
-                {
-                    SearchPattern sp = new SearchPattern();
+        ////  Read (FillCombobox)
+        //public List<SearchPattern> FillCombobox()
+        //{
+        //    List<SearchPattern> spList = new List<SearchPattern>();
 
-                    sp.ID = Convert.ToInt32(reader["ID"].ToString());
-                    sp.RegularExpression = reader["regularExpression"].ToString();
-                    sp.CompareWith = reader["compareWith"].ToString();
-                    sp.Action = reader["action"].ToString();
+        //    try
+        //    {
+        //        command.CommandText = "SELECT * FROM TSearchPattern";
+        //        command.CommandType = System.Data.CommandType.Text;
+        //        connection.Open();
 
-                    spList.Add(sp);
-                }
-                return spList;
+        //        OleDbDataReader reader = command.ExecuteReader();
 
-            }
+        //        while (reader.Read())
+        //        {
+        //            SearchPattern sp = new SearchPattern();
 
-            catch (Exception)
-            {
-                throw;
-            }
+        //            sp.ID = Convert.ToInt32(reader["ID"].ToString());
+        //            sp.RegularExpression = reader["regularExpression"].ToString();
+        //            sp.CompareWith = reader["compareWith"].ToString();
+        //            sp.Action = reader["action"].ToString();
 
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
-        }
+        //            spList.Add(sp);
+        //        }
+        //        return spList;
 
-        //  Update
-        public void Update(SearchPattern oldPattern, SearchPattern newPattern)
-        {
-            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
-            {
-                connection.Open();
+        //    }
 
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandType = System.Data.CommandType.Text;
-                    command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.ID;
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
 
-        //  Delete
-        public void Delete(SearchPattern sp)
-        {
-            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
-            {
-                connection.Open();
+        //    finally
+        //    {
+        //        if (connection != null)
+        //        {
+        //            connection.Close();
+        //        }
+        //    }
+        //}
 
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandType = System.Data.CommandType.Text;
-                    command.CommandText = "DELETE FROM TSearchPattern WHERE ID= " + sp.ID;
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
+        ////  Update
+        //public void Update(SearchPattern oldPattern, SearchPattern newPattern)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+        //    {
+        //        connection.Open();
+
+        //        using (SqlCommand command = connection.CreateCommand())
+        //        {
+        //            command.CommandType = System.Data.CommandType.Text;
+        //            command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.ID;
+        //            command.ExecuteNonQuery();
+        //        }
+        //    }
+        //}
+
+        ////  Delete
+        //public void Delete(SearchPattern sp)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+        //    {
+        //        connection.Open();
+
+        //        using (SqlCommand command = connection.CreateCommand())
+        //        {
+        //            command.CommandType = System.Data.CommandType.Text;
+        //            command.CommandText = "DELETE FROM TSearchPattern WHERE ID= " + sp.ID;
+        //            command.ExecuteNonQuery();
+        //        }
+        //    }
+        //}
 
 
     }
