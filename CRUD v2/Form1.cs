@@ -52,16 +52,16 @@ namespace CRUD_v2
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            SearchPattern oldPattern = new SearchPattern();
-            SearchPattern newPattern = new SearchPattern();
+            SearchPattern oldPattern = new SearchPattern(); // 1
+            SearchPattern newPattern = new SearchPattern(); // 2
 
-            oldPattern = cmbPatterns.SelectedItem as SearchPattern;
+            oldPattern = cmbPatterns.SelectedItem as SearchPattern; // 3
 
-            newPattern.RegularExpression = txtNewRegExp.Text;
-            newPattern.CompareWith = cmbNewCompare.Text;
-            newPattern.Action = cmbNewAction.Text;
+            newPattern.RegularExpression = txtNewRegExp.Text; // 4
+            newPattern.CompareWith = cmbNewCompare.Text; // 5
+            newPattern.Action = cmbNewAction.Text; // 6
 
-            b.Update(oldPattern, newPattern);
+            b.Update(oldPattern, newPattern); // 7
 
             MessageBox.Show("Запись обновлена");
         }
