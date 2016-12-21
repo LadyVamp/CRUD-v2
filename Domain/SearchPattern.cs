@@ -66,13 +66,13 @@ namespace Domain
             Action = action;
         }
 
-        //Вывод в Combobox cmbPatterns
+        //  Вывод в Combobox cmbPatterns
         public override string ToString()
         {
             return RegularExpression + " | " + CompareWith + " | " + Action;
         }
 
-        //Соединение с БД
+        //  Соединение с БД
         OleDbConnection connection;
         OleDbCommand command;
         private void ConnectTo()

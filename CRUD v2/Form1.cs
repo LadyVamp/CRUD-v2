@@ -100,7 +100,7 @@ namespace CRUD_v2
             dataGridView1.Columns[4].Width = 145;
         }
                       
-
+        //  Пример активной записи
         private void btnInsertXYZ_Click(object sender, EventArgs e)
         {
             SearchPattern sp = new SearchPattern();
@@ -111,7 +111,7 @@ namespace CRUD_v2
             MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
         }
  
-        //Поиск по ключевым словам
+        //  Поиск по ключевым словам
         private void btnSearchKeywords_Click(object sender, EventArgs e)
         {
             try

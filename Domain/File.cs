@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.OleDb;
+//using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using System.Data.SqlClient;
 
+//Класс File содержит поля таблицы и методы для выборки по одному и нескольким форматам
 namespace Domain
 {
     public class File
