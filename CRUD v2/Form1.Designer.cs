@@ -56,22 +56,27 @@
             this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
             this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtKeywords = new System.Windows.Forms.TextBox();
-            this.cbDoc = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbDocx = new System.Windows.Forms.CheckBox();
-            this.cbRtf = new System.Windows.Forms.CheckBox();
-            this.cbTxt = new System.Windows.Forms.CheckBox();
-            this.txtSize = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keywordsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tFileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBaseDataSetFileWithoutID = new CRUD_v2.SearchBaseDataSetFileWithoutID();
+            this.btnSearchKeywords = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtKeywords = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.searchBaseDataSetFile = new CRUD_v2.SearchBaseDataSetFile();
+            this.tFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tFileTableAdapter = new CRUD_v2.SearchBaseDataSetFileTableAdapters.TFileTableAdapter();
+            this.tFileTableAdapter1 = new CRUD_v2.SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
@@ -80,6 +85,10 @@
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -322,28 +331,158 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.btnSearchKeywords);
             this.groupBox3.Controls.Add(this.btnSearch);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.txtSize);
-            this.groupBox3.Controls.Add(this.cbRtf);
-            this.groupBox3.Controls.Add(this.cbTxt);
-            this.groupBox3.Controls.Add(this.cbDocx);
+            this.groupBox3.Controls.Add(this.checkBox4);
+            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.checkBox2);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.cbDoc);
+            this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.txtKeywords);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(394, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(386, 366);
+            this.groupBox3.Size = new System.Drawing.Size(577, 366);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Редактирование запроса поиска";
-            //this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.keywordsDataGridViewTextBoxColumn,
+            this.sizeDataGridViewTextBoxColumn,
+            this.formatDataGridViewTextBoxColumn,
+            this.contentDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.tFileBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 151);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(544, 209);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // keywordsDataGridViewTextBoxColumn
+            // 
+            this.keywordsDataGridViewTextBoxColumn.DataPropertyName = "Keywords";
+            this.keywordsDataGridViewTextBoxColumn.HeaderText = "Keywords";
+            this.keywordsDataGridViewTextBoxColumn.Name = "keywordsDataGridViewTextBoxColumn";
+            // 
+            // sizeDataGridViewTextBoxColumn
+            // 
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
+            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
+            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            // 
+            // formatDataGridViewTextBoxColumn
+            // 
+            this.formatDataGridViewTextBoxColumn.DataPropertyName = "Format";
+            this.formatDataGridViewTextBoxColumn.HeaderText = "Format";
+            this.formatDataGridViewTextBoxColumn.Name = "formatDataGridViewTextBoxColumn";
+            // 
+            // contentDataGridViewTextBoxColumn
+            // 
+            this.contentDataGridViewTextBoxColumn.DataPropertyName = "Content";
+            this.contentDataGridViewTextBoxColumn.HeaderText = "Content";
+            this.contentDataGridViewTextBoxColumn.Name = "contentDataGridViewTextBoxColumn";
+            // 
+            // tFileBindingSource1
+            // 
+            this.tFileBindingSource1.DataMember = "TFile";
+            this.tFileBindingSource1.DataSource = this.searchBaseDataSetFileWithoutID;
+            // 
+            // searchBaseDataSetFileWithoutID
+            // 
+            this.searchBaseDataSetFileWithoutID.DataSetName = "SearchBaseDataSetFileWithoutID";
+            this.searchBaseDataSetFileWithoutID.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnSearchKeywords
+            // 
+            this.btnSearchKeywords.Location = new System.Drawing.Point(265, 19);
+            this.btnSearchKeywords.Name = "btnSearchKeywords";
+            this.btnSearchKeywords.Size = new System.Drawing.Size(198, 24);
+            this.btnSearchKeywords.TabIndex = 18;
+            this.btnSearchKeywords.Text = "Поиск по ключевым словам";
+            this.btnSearchKeywords.UseVisualStyleBackColor = true;
+            this.btnSearchKeywords.Click += new System.EventHandler(this.btnSearchKeywords_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(19, 110);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "Поиск";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(205, 77);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(38, 17);
+            this.checkBox4.TabIndex = 8;
+            this.checkBox4.Tag = "rtf";
+            this.checkBox4.Text = ".rtf";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(205, 52);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(40, 17);
+            this.checkBox3.TabIndex = 6;
+            this.checkBox3.Tag = "txt";
+            this.checkBox3.Text = ".txt";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(124, 79);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(52, 17);
+            this.checkBox2.TabIndex = 4;
+            this.checkBox2.Tag = "docx";
+            this.checkBox2.Text = ".docx";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 58);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Формат файла";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(124, 53);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(47, 17);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Tag = "doc";
+            this.checkBox1.Text = ".doc";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // txtKeywords
+            // 
+            this.txtKeywords.Location = new System.Drawing.Point(124, 23);
+            this.txtKeywords.Name = "txtKeywords";
+            this.txtKeywords.Size = new System.Drawing.Size(100, 20);
+            this.txtKeywords.TabIndex = 17;
             // 
             // label7
             // 
@@ -354,148 +493,29 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Ключевые слова";
             // 
-            // txtKeywords
+            // searchBaseDataSetFile
             // 
-            this.txtKeywords.Location = new System.Drawing.Point(123, 19);
-            this.txtKeywords.Name = "txtKeywords";
-            this.txtKeywords.Size = new System.Drawing.Size(190, 20);
-            this.txtKeywords.TabIndex = 1;
+            this.searchBaseDataSetFile.DataSetName = "SearchBaseDataSetFile";
+            this.searchBaseDataSetFile.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cbDoc
+            // tFileBindingSource
             // 
-            this.cbDoc.AutoSize = true;
-            this.cbDoc.Location = new System.Drawing.Point(124, 53);
-            this.cbDoc.Name = "cbDoc";
-            this.cbDoc.Size = new System.Drawing.Size(47, 17);
-            this.cbDoc.TabIndex = 2;
-            this.cbDoc.Text = ".doc";
-            this.cbDoc.UseVisualStyleBackColor = true;
-            //this.cbDoc.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.tFileBindingSource.DataMember = "TFile";
+            this.tFileBindingSource.DataSource = this.searchBaseDataSetFile;
             // 
-            // label8
+            // tFileTableAdapter
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 57);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Формат файла";
-            //this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.tFileTableAdapter.ClearBeforeFill = true;
             // 
-            // cbDocx
+            // tFileTableAdapter1
             // 
-            this.cbDocx.AutoSize = true;
-            this.cbDocx.Location = new System.Drawing.Point(124, 79);
-            this.cbDocx.Name = "cbDocx";
-            this.cbDocx.Size = new System.Drawing.Size(52, 17);
-            this.cbDocx.TabIndex = 4;
-            this.cbDocx.Text = ".docx";
-            this.cbDocx.UseVisualStyleBackColor = true;
-            // 
-            // cbRtf
-            // 
-            this.cbRtf.AutoSize = true;
-            this.cbRtf.Location = new System.Drawing.Point(205, 77);
-            this.cbRtf.Name = "cbRtf";
-            this.cbRtf.Size = new System.Drawing.Size(38, 17);
-            this.cbRtf.TabIndex = 8;
-            this.cbRtf.Text = ".rtf";
-            this.cbRtf.UseVisualStyleBackColor = true;
-            // 
-            // cbTxt
-            // 
-            this.cbTxt.AutoSize = true;
-            this.cbTxt.Location = new System.Drawing.Point(205, 52);
-            this.cbTxt.Name = "cbTxt";
-            this.cbTxt.Size = new System.Drawing.Size(40, 17);
-            this.cbTxt.TabIndex = 6;
-            this.cbTxt.Text = ".txt";
-            this.cbTxt.UseVisualStyleBackColor = true;
-            // 
-            // txtSize
-            // 
-            this.txtSize.Location = new System.Drawing.Point(124, 106);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(52, 20);
-            this.txtSize.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 109);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Размер файла";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(19, 142);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 11;
-            this.btnSearch.Text = "Поиск";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(413, 207);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(351, 150);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(182, 113);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Kb";
-            //this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(293, 113);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 13);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Kb";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(235, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 13;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(106, 113);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "От";
-            //this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(208, 113);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(22, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "До";
+            this.tFileTableAdapter1.ClearBeforeFill = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 403);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(983, 391);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -513,6 +533,10 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,21 +571,25 @@
         private System.Windows.Forms.Button btnInsertXYZ;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox cbDoc;
+        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txtKeywords;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox cbRtf;
-        private System.Windows.Forms.CheckBox cbTxt;
-        private System.Windows.Forms.CheckBox cbDocx;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnSearchKeywords;
+        private SearchBaseDataSetFile searchBaseDataSetFile;
+        private System.Windows.Forms.BindingSource tFileBindingSource;
+        private SearchBaseDataSetFileTableAdapters.TFileTableAdapter tFileTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keywordsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contentDataGridViewTextBoxColumn;
+        private SearchBaseDataSetFileWithoutID searchBaseDataSetFileWithoutID;
+        private System.Windows.Forms.BindingSource tFileBindingSource1;
+        private SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter tFileTableAdapter1;
     }
 }
-
