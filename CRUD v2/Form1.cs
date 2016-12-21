@@ -114,86 +114,82 @@ namespace CRUD_v2
         //  Поиск по ключевым словам
         private void btnSearchKeywords_Click(object sender, EventArgs e)    //  1
         {
-            try
+            try // 2
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)     //  2
+                foreach (DataGridViewRow row in dataGridView1.Rows)     //  3
                 {
                     row.Selected = false;
                     // Если в текстовом поле, отвечающем за поиск в первом столбце, что-то есть
-                    if (txtKeywords.TextLength > 0) //  3
+                    if (txtKeywords.TextLength > 0) //  4
                     {
                         // Если текст совпадает
-                        if (row.Cells[1].Value.ToString() == txtKeywords.Text)  // 4
+                        if (row.Cells[1].Value.ToString() == txtKeywords.Text)  // 5
                         {
                             // Выделяем строку
-                            row.Selected = true;    // 5
+                            row.Selected = true;    // 6
                             // Завершаем поиск
                             break;
                         }
-                        //if (row.Cells[1].Value.ToString() != txtKeywords.Text)    // 6
-                        //{
-                        //    MessageBox.Show("Поиск не дал результатов"); // 7
-                        //    break;
-                        //} 
-                    } // 8
+                       
+                    } // 7
 
-                }
-            }
+                } // 8
+            } // 9
 
             catch 
             {
-                MessageBox.Show("Ключевое слово отсутствует");
+                MessageBox.Show("Ключевое слово отсутствует"); // 10
             } 
-        }
+        } // 11
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked) //   1) doc   
+            if (checkBox1.Checked) //   doc   
             {
                 dataGridView1.DataSource = b.SelectDoc();
             }
 
-            if (checkBox2.Checked) //   2) docx
+            if (checkBox2.Checked) //   docx
             {
                 dataGridView1.DataSource = b.SelectDocx();
             }
 
-            if (checkBox3.Checked) //   3) txt   
+            if (checkBox3.Checked) //   txt   
             {
                 dataGridView1.DataSource = b.SelectTxt();
             }
 
-            if (checkBox4.Checked) //   4) rtf    
+            if (checkBox4.Checked) //   rtf    
             {
                 dataGridView1.DataSource = b.SelectRtf();
             }
 
-            if ((checkBox1.Checked) & (checkBox2.Checked)) //   5) doc & docx
+            if ((checkBox1.Checked) & (checkBox2.Checked)) //  doc & docx
             {
                 dataGridView1.DataSource = b.SelectDocAndDocx();
             }
 
-            if ((checkBox1.Checked) & (checkBox3.Checked)) //   6) doc & txt
+            if ((checkBox1.Checked) & (checkBox3.Checked)) //   doc & txt
             {
                 dataGridView1.DataSource = b.SelectDocAndTxt();
             }
 
-            if ((checkBox1.Checked) & (checkBox4.Checked)) //   7) doc & rtf
+            if ((checkBox1.Checked) & (checkBox4.Checked)) //   doc & rtf
             {
                 dataGridView1.DataSource = b.SelectDocAndRtf();
             }
 
-            if ((checkBox2.Checked) & (checkBox3.Checked)) //   8) docx & txt
+            if ((checkBox2.Checked) & (checkBox3.Checked)) //   docx & txt
             {
                 dataGridView1.DataSource = b.SelectDocxAndTxt();
             }
 
-            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked)) // 9) doc & docx & txt
+            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked)) // doc & docx & txt
             {
                 dataGridView1.DataSource = b.SelectDocAndDocxAndTxt();
             }
 
-            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked) & (checkBox4.Checked)) //   10) doc & docx & txt & rtf
+            if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked) & (checkBox4.Checked)) //   doc & docx & txt & rtf
             {
                 dataGridView1.DataSource = b.SelectDocAndDocxAndTxtAndRtf();
             }
