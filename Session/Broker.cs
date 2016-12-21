@@ -238,6 +238,12 @@ namespace Session
             return SelectByFormat("docx", "txt");
         }
 
+        public List<File> SelectTxtAndRtf()
+        {
+            return SelectByFormat("txt", "rtf");
+        }
+
+
         public List<File> SelectDocAndDocxAndTxt()
         {
             return SelectByFormat("doc", "docx", "txt");

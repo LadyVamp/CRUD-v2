@@ -1,0 +1,5 @@
+C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\CodedUITestProject1\bin\Debug\CodedUITestProject1.dll
+C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\CodedUITestProject1\bin\Debug\CodedUITestProject1.pdb
+C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\CodedUITestProject1\obj\Debug\CodedUITestProject1.csprojResolveAssemblyReference.cache
+C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\CodedUITestProject1\obj\Debug\CodedUITestProject1.dll
+C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\CodedUITestProject1\obj\Debug\CodedUITestProject1.pdb

@@ -184,6 +184,12 @@ namespace CRUD_v2
                 dataGridView1.DataSource = b.SelectDocxAndTxt();
             }
 
+            if ((checkBox3.Checked) & (checkBox4.Checked)) //   txt & rtf
+            {
+                dataGridView1.DataSource = b.SelectTxtAndRtf();
+            }
+
+
             if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked)) // doc & docx & txt
             {
                 dataGridView1.DataSource = b.SelectDocAndDocxAndTxt();
