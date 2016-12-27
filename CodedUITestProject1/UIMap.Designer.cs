@@ -199,7 +199,7 @@ namespace CodedUITestProject1
                 // Щелкните "ОК" кнопка
                 Mouse.Click(uIОКButton, new Point(42, 12));
             }
-            catch (Exception e) 
+            catch (Exception) 
             { 
                 Console.WriteLine("Шаблон регулярного выражения не должен быть пустым!");
             }

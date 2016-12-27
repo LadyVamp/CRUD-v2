@@ -46,7 +46,7 @@ namespace Session
 
         //  CRUD поисковых шаблонов
         //Insert
-        public void Insert(SearchPattern arsp)  
+        public void Insert(SearchPattern arsp)
         {
             using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
             {
