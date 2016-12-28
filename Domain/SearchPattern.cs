@@ -85,23 +85,6 @@ namespace Domain
         private const string CONNECTION_STRING =
     "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
 
-        ////Insert
-        //public void Insert(SearchPattern arsp)
-        //{
-        //    using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
-        //    {
-        //        connection1.Open();
-
-        //        using (SqlCommand command = connection1.CreateCommand())
-        //        {
-        //            command.CommandType = System.Data.CommandType.Text;
-        //            command.CommandText = "INSERT INTO TSearchPattern (regularExpression, compareWith, action) VALUES('" + arsp.RegularExpression + "', '" + arsp.CompareWith + "', '" + arsp.Action + "')";
-        //            command.ExecuteNonQuery();
-        //        }
-        //    }
-
-        //}
-
         //Insert
         public void Insert()
         {
@@ -164,7 +147,7 @@ namespace Domain
         }
 
         //Update
-        public void Update(SearchPattern oldPattern, SearchPattern newPattern)
+        public void Update()
         {
             using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
@@ -173,7 +156,7 @@ namespace Domain
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandType = System.Data.CommandType.Text;
-                    command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + newPattern.RegularExpression + "', compareWith= '" + newPattern.CompareWith + "', action= '" + newPattern.Action + "' WHERE ID=" + oldPattern.ID;
+                    command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + RegularExpression + "', compareWith= '" + CompareWith + "', action= '" + Action + "' WHERE ID=" + ID;
 
                     command.ExecuteNonQuery();
                 }
@@ -181,7 +164,7 @@ namespace Domain
         }
 
         //Delete
-        public void Delete(SearchPattern sp)
+        public void Delete()
         {
             using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
@@ -190,7 +173,7 @@ namespace Domain
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandType = System.Data.CommandType.Text;
-                    command.CommandText = "DELETE FROM TSearchPattern WHERE ID= " + sp.ID;
+                    command.CommandText = "DELETE FROM TSearchPattern WHERE ID= " + ID;
                     command.ExecuteNonQuery();
                 }
             }

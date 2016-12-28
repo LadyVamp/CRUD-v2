@@ -24,15 +24,6 @@ namespace CRUD_v2
             InitializeComponent();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            SearchPattern sp = new SearchPattern();
-            sp = cmbPatterns.SelectedItem as SearchPattern;
-
-            b.Delete(sp);
-            MessageBox.Show("Запись удалена");
-        }
-
         private void btnInsert_Click(object sender, EventArgs e)
         {
             SearchPattern sp = new SearchPattern();
@@ -43,7 +34,6 @@ namespace CRUD_v2
             MessageBox.Show("Запись успешно добавлена");
 
         }
-
 
         private void btnFillCombobox_Click(object sender, EventArgs e)
         {
@@ -66,7 +56,15 @@ namespace CRUD_v2
             MessageBox.Show("Запись обновлена");
         }
 
-       
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            SearchPattern sp = new SearchPattern();
+            sp = cmbPatterns.SelectedItem as SearchPattern;
+
+            b.Delete(sp);
+            MessageBox.Show("Запись удалена");
+        }
+
 
         //строка соединения с БД
         private const string CONNECTION_STRING =
