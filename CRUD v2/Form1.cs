@@ -32,8 +32,20 @@ namespace CRUD_v2
             sp.CompareWith = cmbAction.Text;
             b.Insert(sp);
             MessageBox.Show("Запись успешно добавлена");
-
         }
+
+        //  Пример активной записи
+        private void btnInsertXYZ_Click(object sender, EventArgs e)
+        {
+            SearchPattern sp = new SearchPattern();
+            sp.RegularExpression = "XYZ";
+            sp.Action = "XYZ";
+            sp.CompareWith = "XYZ";
+            b.Insert(sp);
+            MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
+        }
+
+
 
         private void btnFillCombobox_Click(object sender, EventArgs e)
         {
@@ -42,16 +54,16 @@ namespace CRUD_v2
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            SearchPattern oldPattern = new SearchPattern(); // 1
-            SearchPattern newPattern = new SearchPattern(); // 2
+            SearchPattern oldPattern = new SearchPattern(); 
+            SearchPattern newPattern = new SearchPattern(); 
 
-            oldPattern = cmbPatterns.SelectedItem as SearchPattern; // 3
+            oldPattern = cmbPatterns.SelectedItem as SearchPattern; 
 
-            newPattern.RegularExpression = txtNewRegExp.Text; // 4
-            newPattern.CompareWith = cmbNewCompare.Text; // 5
-            newPattern.Action = cmbNewAction.Text; // 6
+            newPattern.RegularExpression = txtNewRegExp.Text;
+            newPattern.CompareWith = cmbNewCompare.Text;
+            newPattern.Action = cmbNewAction.Text;
 
-            b.Update(oldPattern, newPattern); // 7
+            b.Update(oldPattern, newPattern); 
 
             MessageBox.Show("Запись обновлена");
         }
@@ -100,47 +112,36 @@ namespace CRUD_v2
             dataGridView1.Columns[4].Width = 145;
         }
                       
-        //  Пример активной записи
-        private void btnInsertXYZ_Click(object sender, EventArgs e)
-        {
-            SearchPattern sp = new SearchPattern();
-            sp.RegularExpression = "XYZ";
-            sp.Action = "XYZ";
-            sp.CompareWith = "XYZ";
-            b.Insert(sp);
-            MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
-        }
- 
         //  Поиск по ключевым словам
-        private void btnSearchKeywords_Click(object sender, EventArgs e)    //  1
+        private void btnSearchKeywords_Click(object sender, EventArgs e)   
         {
-            try // 2
+            try 
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)     //  3
+                foreach (DataGridViewRow row in dataGridView1.Rows)    
                 {
                     row.Selected = false;
                     // Если в текстовом поле, отвечающем за поиск в первом столбце, что-то есть
-                    if (txtKeywords.TextLength > 0) //  4
+                    if (txtKeywords.TextLength > 0) 
                     {
                         // Если текст совпадает
-                        if (row.Cells[1].Value.ToString() == txtKeywords.Text)  // 5
+                        if (row.Cells[1].Value.ToString() == txtKeywords.Text)  
                         {
                             // Выделяем строку
-                            row.Selected = true;    // 6
+                            row.Selected = true;    
                             // Завершаем поиск
                             break;
                         }
                        
-                    } // 7
+                    } 
 
-                } // 8
-            } // 9
+                } 
+            }
 
             catch 
             {
-                MessageBox.Show("Ключевое слово отсутствует"); // 10
+                MessageBox.Show("Ключевое слово отсутствует"); 
             } 
-        } // 11
+        } 
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
