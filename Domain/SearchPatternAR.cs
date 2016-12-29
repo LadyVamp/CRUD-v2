@@ -19,7 +19,7 @@ using System.Data.SqlClient;
  */
 namespace Domain
 {
-    public class SearchPattern
+    public class SearchPatternAR
     {
        //Поля таблицы
         int id;
@@ -50,7 +50,7 @@ namespace Domain
             set { action = value; }
         }
 
-        public SearchPattern(int id, string regularExpression, string compareWith, string action)
+        public SearchPatternAR(int id, string regularExpression, string compareWith, string action)
         {
             ID = id;
             RegularExpression = regularExpression;
@@ -58,7 +58,7 @@ namespace Domain
             Action = action;
         }
 
-        public SearchPattern() //конструктор с 0 аргументов
+        public SearchPatternAR() //конструктор с 0 аргументов
         {
             ID = id;
             RegularExpression = regularExpression;
@@ -104,9 +104,9 @@ namespace Domain
 
 
         //FillCombobox
-        public List<SearchPattern> FillCombobox()
+        public List<SearchPatternAR> FillCombobox()
         {
-            List<SearchPattern> spList = new List<SearchPattern>();
+            List<SearchPatternAR> spList = new List<SearchPatternAR>();
 
             try
             {
@@ -118,7 +118,7 @@ namespace Domain
 
                 while (reader.Read())
                 {
-                    SearchPattern sp = new SearchPattern();
+                    SearchPatternAR sp = new SearchPatternAR();
                     sp.ID = Convert.ToInt32(reader["ID"].ToString());
                     sp.RegularExpression = reader["regularExpression"].ToString();
                     sp.CompareWith = reader["compareWith"].ToString();

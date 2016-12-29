@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 //Класс File содержит поля таблицы и методы для выборки по одному и нескольким форматам
 namespace Domain
 {
-    public class File
+    public class FileAR
     {
         int id;
         public int ID
@@ -53,7 +53,7 @@ namespace Domain
             set { content = value; }
         }
 
-        public File(int id, string name, string keywords, int size, string format, string content)
+        public FileAR(int id, string name, string keywords, int size, string format, string content)
         {
             ID = id;
             Name = name;
@@ -63,7 +63,7 @@ namespace Domain
             Content = content;
         }
 
-        public File() //конструктор с 0 аргументов
+        public FileAR() //конструктор с 0 аргументов
         {
             ID = id;
             Name = name;
