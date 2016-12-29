@@ -85,8 +85,8 @@ namespace Domain
         private const string CONNECTION_STRING =
     "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
 
-        //Insert
-        public void Insert()
+        //Create
+        public void Create()
         {
             using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
             {
@@ -103,8 +103,8 @@ namespace Domain
         }
 
 
-        //FillCombobox
-        public List<SearchPatternAR> FillCombobox()
+        //Read
+        public List<SearchPatternAR> Read()
         {
             List<SearchPatternAR> spList = new List<SearchPatternAR>();
 
