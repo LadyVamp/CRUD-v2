@@ -103,7 +103,6 @@ namespace Domain
         }
 
 
-
         //FillCombobox
         public List<SearchPattern> FillCombobox()
         {
@@ -120,7 +119,6 @@ namespace Domain
                 while (reader.Read())
                 {
                     SearchPattern sp = new SearchPattern();
-
                     sp.ID = Convert.ToInt32(reader["ID"].ToString());
                     sp.RegularExpression = reader["regularExpression"].ToString();
                     sp.CompareWith = reader["compareWith"].ToString();
@@ -129,7 +127,6 @@ namespace Domain
                     spList.Add(sp);
                 }
                 return spList;
-
             }
 
             catch (Exception)
@@ -157,7 +154,6 @@ namespace Domain
                 {
                     command.CommandType = System.Data.CommandType.Text;
                     command.CommandText = "UPDATE [TSearchPattern] SET regularExpression= '" + RegularExpression + "', compareWith= '" + CompareWith + "', action= '" + Action + "' WHERE ID=" + ID;
-
                     command.ExecuteNonQuery();
                 }
             }
