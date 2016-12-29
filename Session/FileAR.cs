@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Session
 {
-    public class File
+    public class FileAR
     {
         //  Редактирование запроса поиска
         // Соединение с БД
@@ -22,7 +22,7 @@ namespace Session
         }
         //  /Редактирование запроса поиска
 
-        public File()
+        public FileAR()
         {
             ConnectTo1(); //Редактирование запроса поиска
         }
@@ -30,7 +30,7 @@ namespace Session
 
         //  Редактирование запроса поиска
         //  Универсальные методы для выборки по одному и нескольким форматам
-        public List<FileAR> SelectByFormat(string format)
+        public List<File> SelectByFormat(string format)
         {
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT ID, name, keywords, size, format, content FROM TFile WHERE Format = @Format";
@@ -39,7 +39,7 @@ namespace Session
             return GetFiles(con, cmd);
         }
 
-        public List<FileAR> SelectByFormat(params string[] formats)
+        public List<File> SelectByFormat(params string[] formats)
         {
             var sbNames = new StringBuilder(10 * formats.Length);
             cmd.Parameters.Clear();  //вызов перед циклом
@@ -57,9 +57,9 @@ namespace Session
             return GetFiles(con, cmd);
         }
 
-        private static List<FileAR> GetFiles(SqlConnection con, SqlCommand cmd)
+        private static List<File> GetFiles(SqlConnection con, SqlCommand cmd)
         {
-            List<FileAR> fList = new List<FileAR>();
+            List<File> fList = new List<File>();
             try
             {
                 con.Open();
@@ -67,7 +67,7 @@ namespace Session
                 {
                     while (reader1.Read())
                     {
-                        FileAR f = new FileAR();
+                        File f = new File();
                         f.ID = Convert.ToInt32(reader1["ID"].ToString());
                         f.Name = reader1["name"].ToString();
                         f.Keywords = reader1["keywords"].ToString();
@@ -87,58 +87,58 @@ namespace Session
         }
 
         //Применение методов
-        public List<FileAR> SelectDoc()
+        public List<File> SelectDoc()
         {
             return SelectByFormat("doc");
         }
 
-        public List<FileAR> SelectDocx()
+        public List<File> SelectDocx()
         {
             return SelectByFormat("docx");
         }
 
-        public List<FileAR> SelectTxt()
+        public List<File> SelectTxt()
         {
             return SelectByFormat("txt");
         }
 
-        public List<FileAR> SelectRtf()
+        public List<File> SelectRtf()
         {
             return SelectByFormat("rtf");
         }
 
-        public List<FileAR> SelectDocAndDocx()
+        public List<File> SelectDocAndDocx()
         {
             return SelectByFormat("doc", "docx");
         }
 
-        public List<FileAR> SelectDocAndTxt()
+        public List<File> SelectDocAndTxt()
         {
             return SelectByFormat("doc", "txt");
         }
 
-        public List<FileAR> SelectDocAndRtf()
+        public List<File> SelectDocAndRtf()
         {
             return SelectByFormat("doc", "rtf");
         }
 
-        public List<FileAR> SelectDocxAndTxt()
+        public List<File> SelectDocxAndTxt()
         {
             return SelectByFormat("docx", "txt");
         }
 
-        public List<FileAR> SelectTxtAndRtf()
+        public List<File> SelectTxtAndRtf()
         {
             return SelectByFormat("txt", "rtf");
         }
 
 
-        public List<FileAR> SelectDocAndDocxAndTxt()
+        public List<File> SelectDocAndDocxAndTxt()
         {
             return SelectByFormat("doc", "docx", "txt");
         }
 
-        public List<FileAR> SelectDocAndDocxAndTxtAndRtf()
+        public List<File> SelectDocAndDocxAndTxtAndRtf()
         {
             return SelectByFormat("doc", "docx", "txt", "rtf");
         }

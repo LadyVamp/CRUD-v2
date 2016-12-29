@@ -17,8 +17,8 @@ namespace CRUD_v2
     public partial class Form1 : Form
     {
 
-        SearchPattern s = new SearchPattern();
-        File f = new File();
+        SearchPatternAR s = new SearchPatternAR();
+        FileAR f = new FileAR();
 
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace CRUD_v2
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            SearchPatternAR sp = new SearchPatternAR();
+            SearchPattern sp = new SearchPattern();
             sp.RegularExpression = txtRegExp.Text;
             sp.Action = cmbCompare.Text;
             sp.CompareWith = cmbAction.Text;
@@ -38,7 +38,7 @@ namespace CRUD_v2
         //  Пример активной записи
         private void btnInsertXYZ_Click(object sender, EventArgs e)
         {
-            SearchPatternAR sp = new SearchPatternAR();
+            SearchPattern sp = new SearchPattern();
             sp.RegularExpression = "XYZ";
             sp.Action = "XYZ";
             sp.CompareWith = "XYZ";
@@ -55,10 +55,10 @@ namespace CRUD_v2
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            SearchPatternAR oldPattern = new SearchPatternAR(); 
-            SearchPatternAR newPattern = new SearchPatternAR(); 
+            SearchPattern oldPattern = new SearchPattern(); 
+            SearchPattern newPattern = new SearchPattern(); 
 
-            oldPattern = cmbPatterns.SelectedItem as SearchPatternAR; 
+            oldPattern = cmbPatterns.SelectedItem as SearchPattern; 
 
             newPattern.RegularExpression = txtNewRegExp.Text;
             newPattern.CompareWith = cmbNewCompare.Text;
@@ -71,8 +71,8 @@ namespace CRUD_v2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            SearchPatternAR sp = new SearchPatternAR();
-            sp = cmbPatterns.SelectedItem as SearchPatternAR;
+            SearchPattern sp = new SearchPattern();
+            sp = cmbPatterns.SelectedItem as SearchPattern;
 
             s.Delete(sp);
             MessageBox.Show("Запись удалена");
