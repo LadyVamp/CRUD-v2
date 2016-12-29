@@ -17,7 +17,7 @@ namespace CRUD_v2
     public partial class Form1 : Form
     {
 
-        Broker b = new Broker();
+        SearchPatternAR b = new SearchPatternAR();
 
         public Form1()
         {

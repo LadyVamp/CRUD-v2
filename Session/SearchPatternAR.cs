@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Session
 {
-    public class Broker
+    public class SearchPatternAR
     {
         //  CRUD поисковых шаблонов
         // Соединение с БД
@@ -37,7 +37,7 @@ namespace Session
         }
         //  /Редактирование запроса поиска
 
-        public Broker()
+        public SearchPatternAR()
         {
             ConnectTo();
             ConnectTo1(); //Редактирование запроса поиска
