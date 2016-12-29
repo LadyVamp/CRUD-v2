@@ -18,7 +18,7 @@ namespace CRUD_v2
     {
 
         SearchPattern s = new SearchPattern();
-        FileAR f = new FileAR();
+        File f = new File();
 
         public Form1()
         {
