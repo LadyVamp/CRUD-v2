@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Session
 {
-    public class SearchPatternAR
+    public class SearchPattern
     {
         //  CRUD поисковых шаблонов
         // Соединение с БД
@@ -26,7 +26,7 @@ namespace Session
     "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
         //  /CRUD поисковых шаблонов
 
-        public SearchPatternAR()
+        public SearchPattern()
         {
             ConnectTo();
         }
@@ -34,7 +34,7 @@ namespace Session
 
         //  CRUD поисковых шаблонов
         //Create
-        public void Create(SearchPattern arsp)
+        public void Create(SearchPatternAR arsp)
         {
             using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
             {
@@ -51,9 +51,9 @@ namespace Session
         }
 
         //Read
-        public List<SearchPattern> Read()   
+        public List<SearchPatternAR> Read()   
         {
-            List<SearchPattern> spList = new List<SearchPattern>();
+            List<SearchPatternAR> spList = new List<SearchPatternAR>();
 
             try
             {
@@ -65,7 +65,7 @@ namespace Session
 
                 while (reader.Read())
                 {
-                    SearchPattern sp = new SearchPattern();
+                    SearchPatternAR sp = new SearchPatternAR();
 
                     sp.ID = Convert.ToInt32(reader["ID"].ToString());
                     sp.RegularExpression = reader["regularExpression"].ToString();
@@ -93,7 +93,7 @@ namespace Session
         }
 
         //Update
-        public void Update(SearchPattern oldPattern, SearchPattern newPattern)  
+        public void Update(SearchPatternAR oldPattern, SearchPatternAR newPattern)  
         {
             using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
@@ -110,7 +110,7 @@ namespace Session
         }
 
         //Delete
-        public void Delete(SearchPattern sp)     
+        public void Delete(SearchPatternAR sp)     
         {
             using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {

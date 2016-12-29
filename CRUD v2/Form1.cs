@@ -17,7 +17,7 @@ namespace CRUD_v2
     public partial class Form1 : Form
     {
 
-        SearchPatternAR s = new SearchPatternAR();
+        SearchPattern s = new SearchPattern();
         FileAR f = new FileAR();
 
         public Form1()
@@ -27,7 +27,7 @@ namespace CRUD_v2
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            SearchPattern sp = new SearchPattern();
+            SearchPatternAR sp = new SearchPatternAR();
             sp.RegularExpression = txtRegExp.Text;
             sp.Action = cmbCompare.Text;
             sp.CompareWith = cmbAction.Text;
@@ -38,7 +38,7 @@ namespace CRUD_v2
         //  Пример активной записи
         private void btnInsertXYZ_Click(object sender, EventArgs e)
         {
-            SearchPattern sp = new SearchPattern();
+            SearchPatternAR sp = new SearchPatternAR();
             sp.RegularExpression = "XYZ";
             sp.Action = "XYZ";
             sp.CompareWith = "XYZ";
@@ -55,10 +55,10 @@ namespace CRUD_v2
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            SearchPattern oldPattern = new SearchPattern(); 
-            SearchPattern newPattern = new SearchPattern(); 
+            SearchPatternAR oldPattern = new SearchPatternAR(); 
+            SearchPatternAR newPattern = new SearchPatternAR(); 
 
-            oldPattern = cmbPatterns.SelectedItem as SearchPattern; 
+            oldPattern = cmbPatterns.SelectedItem as SearchPatternAR; 
 
             newPattern.RegularExpression = txtNewRegExp.Text;
             newPattern.CompareWith = cmbNewCompare.Text;
@@ -71,8 +71,8 @@ namespace CRUD_v2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            SearchPattern sp = new SearchPattern();
-            sp = cmbPatterns.SelectedItem as SearchPattern;
+            SearchPatternAR sp = new SearchPatternAR();
+            sp = cmbPatterns.SelectedItem as SearchPatternAR;
 
             s.Delete(sp);
             MessageBox.Show("Запись удалена");
