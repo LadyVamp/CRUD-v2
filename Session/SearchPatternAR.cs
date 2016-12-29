@@ -45,8 +45,8 @@ namespace Session
 
 
         //  CRUD поисковых шаблонов
-        //Insert
-        public void Insert(SearchPattern arsp)
+        //Create
+        public void Create(SearchPattern arsp)
         {
             using (SqlConnection connection1 = new SqlConnection(CONNECTION_STRING))
             {
@@ -62,8 +62,8 @@ namespace Session
 
         }
 
-        //FillCombobox
-        public List<SearchPattern> FillCombobox()   
+        //Read
+        public List<SearchPattern> Read()   
         {
             List<SearchPattern> spList = new List<SearchPattern>();
 

@@ -30,7 +30,7 @@ namespace CRUD_v2
             sp.RegularExpression = txtRegExp.Text;
             sp.Action = cmbCompare.Text;
             sp.CompareWith = cmbAction.Text;
-            b.Insert(sp);
+            b.Create(sp);
             MessageBox.Show("Запись успешно добавлена");
         }
 
@@ -41,7 +41,7 @@ namespace CRUD_v2
             sp.RegularExpression = "XYZ";
             sp.Action = "XYZ";
             sp.CompareWith = "XYZ";
-            b.Insert(sp);
+            b.Create(sp);
             MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
         }
 
@@ -49,7 +49,7 @@ namespace CRUD_v2
 
         private void btnFillCombobox_Click(object sender, EventArgs e)
         {
-            cmbPatterns.DataSource = b.FillCombobox();
+            cmbPatterns.DataSource = b.Read();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
