@@ -17,7 +17,8 @@ namespace CRUD_v2
     public partial class Form1 : Form
     {
 
-        SearchPatternAR b = new SearchPatternAR();
+        SearchPatternAR s = new SearchPatternAR();
+        FileAR f = new FileAR();
 
         public Form1()
         {
@@ -30,7 +31,7 @@ namespace CRUD_v2
             sp.RegularExpression = txtRegExp.Text;
             sp.Action = cmbCompare.Text;
             sp.CompareWith = cmbAction.Text;
-            b.Create(sp);
+            s.Create(sp);
             MessageBox.Show("Запись успешно добавлена");
         }
 
@@ -41,7 +42,7 @@ namespace CRUD_v2
             sp.RegularExpression = "XYZ";
             sp.Action = "XYZ";
             sp.CompareWith = "XYZ";
-            b.Create(sp);
+            s.Create(sp);
             MessageBox.Show("Запись " + "'XYZ'" + " успешно добавлена");
         }
 
@@ -49,7 +50,7 @@ namespace CRUD_v2
 
         private void btnFillCombobox_Click(object sender, EventArgs e)
         {
-            cmbPatterns.DataSource = b.Read();
+            cmbPatterns.DataSource = s.Read();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -63,7 +64,7 @@ namespace CRUD_v2
             newPattern.CompareWith = cmbNewCompare.Text;
             newPattern.Action = cmbNewAction.Text;
 
-            b.Update(oldPattern, newPattern); 
+            s.Update(oldPattern, newPattern); 
 
             MessageBox.Show("Запись обновлена");
         }
@@ -73,7 +74,7 @@ namespace CRUD_v2
             SearchPattern sp = new SearchPattern();
             sp = cmbPatterns.SelectedItem as SearchPattern;
 
-            b.Delete(sp);
+            s.Delete(sp);
             MessageBox.Show("Запись удалена");
         }
 
@@ -147,58 +148,58 @@ namespace CRUD_v2
         {
             if (checkBox1.Checked) //   doc   
             {
-                dataGridView1.DataSource = b.SelectDoc();
+                dataGridView1.DataSource = f.SelectDoc();
             }
 
             if (checkBox2.Checked) //   docx
             {
-                dataGridView1.DataSource = b.SelectDocx();
+                dataGridView1.DataSource = f.SelectDocx();
             }
 
             if (checkBox3.Checked) //   txt   
             {
-                dataGridView1.DataSource = b.SelectTxt();
+                dataGridView1.DataSource = f.SelectTxt();
             }
 
             if (checkBox4.Checked) //   rtf    
             {
-                dataGridView1.DataSource = b.SelectRtf();
+                dataGridView1.DataSource = f.SelectRtf();
             }
 
             if ((checkBox1.Checked) & (checkBox2.Checked)) //  doc & docx
             {
-                dataGridView1.DataSource = b.SelectDocAndDocx();
+                dataGridView1.DataSource = f.SelectDocAndDocx();
             }
 
             if ((checkBox1.Checked) & (checkBox3.Checked)) //   doc & txt
             {
-                dataGridView1.DataSource = b.SelectDocAndTxt();
+                dataGridView1.DataSource = f.SelectDocAndTxt();
             }
 
             if ((checkBox1.Checked) & (checkBox4.Checked)) //   doc & rtf
             {
-                dataGridView1.DataSource = b.SelectDocAndRtf();
+                dataGridView1.DataSource = f.SelectDocAndRtf();
             }
 
             if ((checkBox2.Checked) & (checkBox3.Checked)) //   docx & txt
             {
-                dataGridView1.DataSource = b.SelectDocxAndTxt();
+                dataGridView1.DataSource = f.SelectDocxAndTxt();
             }
 
             if ((checkBox3.Checked) & (checkBox4.Checked)) //   txt & rtf
             {
-                dataGridView1.DataSource = b.SelectTxtAndRtf();
+                dataGridView1.DataSource = f.SelectTxtAndRtf();
             }
 
 
             if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked)) // doc & docx & txt
             {
-                dataGridView1.DataSource = b.SelectDocAndDocxAndTxt();
+                dataGridView1.DataSource = f.SelectDocAndDocxAndTxt();
             }
 
             if ((checkBox1.Checked) & (checkBox2.Checked) & (checkBox3.Checked) & (checkBox4.Checked)) //   doc & docx & txt & rtf
             {
-                dataGridView1.DataSource = b.SelectDocAndDocxAndTxtAndRtf();
+                dataGridView1.DataSource = f.SelectDocAndDocxAndTxtAndRtf();
             }
         } 
 

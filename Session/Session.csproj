@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="SearchPatternAR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FileAR.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
