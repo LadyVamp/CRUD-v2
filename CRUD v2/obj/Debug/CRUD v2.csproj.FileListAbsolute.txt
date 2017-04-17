@@ -11,3 +11,4 @@ c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\D
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\bin\Debug\Session.pdb
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD v2.exe
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD v2.pdb
+C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\CRUD v2\obj\Debug\CRUD_v2.Login.resources

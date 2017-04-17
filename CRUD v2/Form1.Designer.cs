@@ -77,6 +77,7 @@
             this.tFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tFileTableAdapter = new CRUD_v2.SearchBaseDataSetFileTableAdapters.TFileTableAdapter();
             this.tFileTableAdapter1 = new CRUD_v2.SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter();
+            this.btnEnterLogin = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
@@ -511,11 +512,22 @@
             // 
             this.tFileTableAdapter1.ClearBeforeFill = true;
             // 
+            // btnEnterLogin
+            // 
+            this.btnEnterLogin.Location = new System.Drawing.Point(813, 388);
+            this.btnEnterLogin.Name = "btnEnterLogin";
+            this.btnEnterLogin.Size = new System.Drawing.Size(158, 23);
+            this.btnEnterLogin.TabIndex = 3;
+            this.btnEnterLogin.Text = "Вход для администратора";
+            this.btnEnterLogin.UseVisualStyleBackColor = true;
+            this.btnEnterLogin.Click += new System.EventHandler(this.btnEnterLogin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 391);
+            this.ClientSize = new System.Drawing.Size(983, 423);
+            this.Controls.Add(this.btnEnterLogin);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -591,5 +603,6 @@
         private SearchBaseDataSetFileWithoutID searchBaseDataSetFileWithoutID;
         private System.Windows.Forms.BindingSource tFileBindingSource1;
         private SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter tFileTableAdapter1;
+        private System.Windows.Forms.Button btnEnterLogin;
     }
 }
