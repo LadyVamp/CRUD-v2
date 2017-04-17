@@ -39,7 +39,7 @@ namespace Session
             get { return action; }
             set { action = value; }
         }
-        
+
         //  CRUD поисковых шаблонов
         // Соединение с БД
         SqlConnection connection;
