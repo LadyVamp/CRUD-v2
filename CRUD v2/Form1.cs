@@ -206,7 +206,8 @@ namespace CRUD_v2
         private void btnEnterLogin_Click(object sender, EventArgs e)
         {
             Login f = new Login();
-            f.Show(); 
+            f.Show();
+            //this.Hide();
         } 
 
 

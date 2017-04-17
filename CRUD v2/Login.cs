@@ -31,11 +31,17 @@ namespace CRUD_v2
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
             {
+                this.Hide();
+                MainAP ss = new MainAP(dt.Rows[0][0].ToString());
+                ss.Show();
 
+                //((form)ss).Controls["lblRole"].Text = dt.Rows[0][0].ToString();
+           
             }
-            else 
-            { 
-            
+
+            else
+            {
+                MessageBox.Show("Неверный логин или пароль!");
             }
 
         }
