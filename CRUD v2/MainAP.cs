@@ -23,5 +23,11 @@ namespace CRUD_v2
             this.Close();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminSP f = new AdminSP();
+            f.Show();
+        }
+
     }
 }

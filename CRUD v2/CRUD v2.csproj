@@ -32,6 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSP.Designer.cs">
+      <DependentUpon>AdminSP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +95,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchBaseDataSetFileWithoutID.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SearchBaseSP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchBaseSP.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminSP.resx">
+      <DependentUpon>AdminSP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +121,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,6 +164,17 @@
     <None Include="SearchBaseDataSetFileWithoutID.xss">
       <DependentUpon>SearchBaseDataSetFileWithoutID.xsd</DependentUpon>
     </None>
+    <None Include="SearchBaseSP.xsc">
+      <DependentUpon>SearchBaseSP.xsd</DependentUpon>
+    </None>
+    <None Include="SearchBaseSP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SearchBaseSP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SearchBaseSP.xss">
+      <DependentUpon>SearchBaseSP.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -152,6 +188,9 @@
       <Project>{0938844c-d66c-45ec-8fd4-0409cf48f229}</Project>
       <Name>Session</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
