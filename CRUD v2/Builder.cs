@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUD_v2
 {
-    /// <summary>
     /// The 'Director' class
-    /// </summary>
     class Director
     {
         // Builder uses a complex series of steps
@@ -19,9 +17,7 @@ namespace CRUD_v2
         }
     }
 
-    /// <summary>
     /// The 'Builder' abstract class
-    /// </summary>
     abstract class Builder
     {
         public abstract void BuildPartA();
@@ -29,9 +25,7 @@ namespace CRUD_v2
         public abstract Product GetResult();
     }
 
-    /// <summary>
     /// The 'ConcreteBuilder1' class
-    /// </summary>
     class ConcreteBuilder1 : Builder
     {
         private Product _product = new Product();
@@ -52,9 +46,7 @@ namespace CRUD_v2
         }
     }
 
-    /// <summary>
     /// The 'ConcreteBuilder2' class
-    /// </summary>
     class ConcreteBuilder2 : Builder
     {
         private Product _product = new Product();
@@ -75,9 +67,7 @@ namespace CRUD_v2
         }
     }
 
-    /// <summary>
     /// The 'Product' class
-    /// </summary>
     class Product
     {
         private List<string> _parts = new List<string>();
