@@ -37,7 +37,7 @@ namespace CRUD_v2
                 SqlDataAdapter sda = new SqlDataAdapter(query, con);
                 sda.SelectCommand.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("INSERTED SUCCESSFULLY!");
+                MessageBox.Show("Record inserted!");
             }
 
             private void btnUpd_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace CRUD_v2
                 string query = "UPDATE TSearchPattern SET regularExpression ='" + txtRegExp.Text + "', compareWith='" + cmbCompare.Text + "', action='" + cmbAction.Text + "' WHERE regularExpression=" + txtRegExp.Text;
                 SqlDataAdapter sda = new SqlDataAdapter(query, con);
                 con.Close();
-                MessageBox.Show("UPDATED SUCCESSFULLY!");
+                MessageBox.Show("Record updated!");
             }
 
             private void btnView_Click(object sender, EventArgs e)
@@ -63,11 +63,11 @@ namespace CRUD_v2
 
             private void btnDel_Click(object sender, EventArgs e)
             {
-                //con.Open();
-                //string query = "DELETE FROM TSearchPattern WHERE regularExpression='"+txtRegExp.Text+"'";
-                //SqlDataAdapter sda = new SqlDataAdapter(query, con);
-                //con.Close();
-                //MessageBox.Show("DELETED SUCCESSFULLY!");
+                con.Open();
+                string query = "DELETE FROM TSearchPattern WHERE regularExpression='" + txtRegExp.Text + "'";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                con.Close();
+                MessageBox.Show("Record deleted!");
 
             }
 
