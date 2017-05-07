@@ -32,18 +32,16 @@ namespace CRUD_v2
 
         private void btnOpenBuilder_Click(object sender, EventArgs e)
         {
-            //BuilderForm f = new BuilderForm();
-            //f.Show();
             Task.Factory.StartNew(Console);
         }
 
         private void Console()
         {
-            // Запускаем консоль.
+            // Запускаем консоль
             if (AllocConsole())
             {
+                System.Console.WriteLine("Для показа результата выполнения шаблона Builder нажмите Enter");
                 System.Console.WriteLine("Для выхода наберите exit.");
-                System.Console.WriteLine("Для показа результата выполнения шаблона Builder нажмите любую клавишу");
                 while (true)
                 {
                     // Считываем данные
@@ -65,8 +63,10 @@ namespace CRUD_v2
 
                     Builder b1 = new ConcreteBuilder1();
                     Builder b2 = new ConcreteBuilder2();
+                    Builder b3 = new ConcreteBuilder3();
+                    Builder b4 = new ConcreteBuilder4();
 
-                    // Construct two products
+                    // Construct 4 products
                     director.Construct(b1);
                     Product p1 = b1.GetResult();
                     p1.Show();
@@ -74,8 +74,15 @@ namespace CRUD_v2
                     director.Construct(b2);
                     Product p2 = b2.GetResult();
                     p2.Show();
-                }
 
+                    director.Construct(b3);
+                    Product p3 = b3.GetResult();
+                    p3.Show();
+
+                    director.Construct(b4);
+                    Product p4 = b4.GetResult();
+                    p4.Show();
+                }
 
                 // Закрываем консоль
                 FreeConsole();
