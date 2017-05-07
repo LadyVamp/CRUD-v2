@@ -60,6 +60,7 @@
     <Compile Include="AdminSP.Designer.cs">
       <DependentUpon>AdminSP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Builder.cs" />
     <Compile Include="BuilderForm.cs">
       <SubType>Form</SubType>
     </Compile>
