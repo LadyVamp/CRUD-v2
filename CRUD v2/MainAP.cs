@@ -29,5 +29,11 @@ namespace CRUD_v2
             f.Show();
         }
 
+        private void btnOpenBuilder_Click(object sender, EventArgs e)
+        {
+            BuilderForm f = new BuilderForm();
+            f.Show();
+        }
+
     }
 }
