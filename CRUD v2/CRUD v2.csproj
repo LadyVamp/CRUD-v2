@@ -109,6 +109,9 @@
     <EmbeddedResource Include="AdminSP.resx">
       <DependentUpon>AdminSP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuilderForm.resx">
+      <DependentUpon>BuilderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
