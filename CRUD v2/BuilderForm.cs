@@ -27,6 +27,7 @@ namespace CRUD_v2
             if (AllocConsole())
             {
                 System.Console.WriteLine("Для выхода наберите exit.");
+                System.Console.WriteLine("Для показа результата выполнения шаблона Builder нажмите любую клавишу");
                 while (true)
                 {
                     // Считываем данные.
@@ -39,7 +40,42 @@ namespace CRUD_v2
                         Invoke(action);
                     else
                         action();
+
+                    // Create director and builders
+                    Director director = new Director();
+
+                    Builder b1 = new ConcreteBuilder1();
+                    Builder b2 = new ConcreteBuilder2();
+
+                    // Construct two products
+                    director.Construct(b1);
+                    Product p1 = b1.GetResult();
+                    p1.Show();
+
+                    director.Construct(b2);
+                    Product p2 = b2.GetResult();
+                    p2.Show();
                 }
+
+               
+
+                //// Wait for user
+                //Console.ReadKey();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 // Закрываем консоль.
                 FreeConsole();
             }
@@ -53,29 +89,9 @@ namespace CRUD_v2
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool FreeConsole();
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    // Create director and builders
-        //    Director director = new Director();
 
-        //    Builder b1 = new ConcreteBuilder1();
-        //    Builder b2 = new ConcreteBuilder2();
 
-        //    // Construct two products
-        //    director.Construct(b1);
-        //    Product p1 = b1.GetResult();
-        //    p1.Show();
-
-        //    director.Construct(b2);
-        //    Product p2 = b2.GetResult();
-        //    p2.Show();
-
-        //    richTextBox1.AppendText("Результат:");
-        //    richTextBox1.AppendText(Show.part);
-
-        //    //// Wait for user
-        //    //Console.Read();
-        //}
+      
     }
 
     
