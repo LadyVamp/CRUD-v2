@@ -25,6 +25,7 @@ namespace CRUD_v2
 
         private void btnLogin_Click(object sender, EventArgs e) 
         {
+            //admin; pass
             SqlConnection con = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT Role FROM TUser WHERE Username='" + txtLogin.Text + "' AND Password='" + txtPassword.Text + "' ", con);
             DataTable dt = new System.Data.DataTable();
@@ -34,7 +35,6 @@ namespace CRUD_v2
                 this.Hide();
                 MainAP ss = new MainAP(dt.Rows[0][0].ToString());
                 ss.Show();
-           
             }
 
             else

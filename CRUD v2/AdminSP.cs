@@ -37,7 +37,7 @@ namespace CRUD_v2
                 SqlDataAdapter sda = new SqlDataAdapter(query, con);
                 sda.SelectCommand.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Record inserted!");
+                MessageBox.Show("Запись добавлена");
             }
 
             private void btnUpd_Click(object sender, EventArgs e)
@@ -46,19 +46,18 @@ namespace CRUD_v2
                 string query = "UPDATE TSearchPattern SET regularExpression ='" + txtRegExp.Text + "', compareWith='" + cmbCompare.Text + "', action='" + cmbAction.Text + "' WHERE regularExpression=" + txtRegExp.Text;
                 SqlDataAdapter sda = new SqlDataAdapter(query, con);
                 con.Close();
-                MessageBox.Show("Record updated!");
+                MessageBox.Show("Запись обновлена");
             }
 
             private void btnView_Click(object sender, EventArgs e)
             {
                 con.Open();
-                string query = "SELECT * FROM TSearchPattern";
+                string query = "SELECT * FROM TSearchPattern ORDER BY ID";
                 SqlDataAdapter sda = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 dataGridView1.DataSource = dt;
                 con.Close();
-
             }
 
             private void btnDel_Click(object sender, EventArgs e)
@@ -67,33 +66,21 @@ namespace CRUD_v2
                 string query = "DELETE FROM TSearchPattern WHERE regularExpression='" + txtRegExp.Text + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(query, con);
                 con.Close();
-                MessageBox.Show("Record deleted!");
-
+                MessageBox.Show("Запись удалена");
             }
 
-            private void AdminSP_Load_1(object sender, EventArgs e)
+            private void AdminSP_Load_1(object sender, EventArgs e) //заполнить dataGridView1 при загрузке формы
             {
                 // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseSP.TSearchPattern". При необходимости она может быть перемещена или удалена.
-                this.tSearchPatternTableAdapter.Fill(this.searchBaseSP.TSearchPattern);
-
+                //this.tSearchPatternTableAdapter.Fill(this.searchBaseSP.TSearchPattern);
+                con.Open();
+                string query = "SELECT * FROM TSearchPattern ORDER BY ID";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
             }
-
-            //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-            //{
-            //    txtRegExp.Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            //    cmbCompare.Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            //    cmbAction.Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            //}
-
-        //TODO
-        //1. delete
-        //2. при выделении строки запихнуть значения в textbox
-        //3. builder
-
-
-
-
-
 
     }
 }
