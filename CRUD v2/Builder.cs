@@ -131,7 +131,8 @@ namespace CRUD_v2
 
         public void Show()
         {
-            Console.WriteLine("\nProduct Parts -------");
+            //Console.WriteLine("\nProduct Parts -------");
+            Console.WriteLine("\nЧасти шаблона поиска -------");
             foreach (string part in _parts)
                 Console.WriteLine(part);
         }

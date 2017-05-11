@@ -38,9 +38,9 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(141, 117);
+            this.btnLogin.Location = new System.Drawing.Point(112, 112);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(96, 32);
+            this.btnLogin.Size = new System.Drawing.Size(81, 32);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Войти";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             // 
             this.txtLogin.Location = new System.Drawing.Point(84, 34);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(153, 20);
+            this.txtLogin.Size = new System.Drawing.Size(109, 20);
             this.txtLogin.TabIndex = 4;
             // 
             // txtPassword
@@ -76,12 +76,12 @@
             this.txtPassword.Location = new System.Drawing.Point(83, 76);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(154, 20);
+            this.txtPassword.Size = new System.Drawing.Size(110, 20);
             this.txtPassword.TabIndex = 5;
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(162, 157);
+            this.btnExit.Location = new System.Drawing.Point(32, 157);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 6;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 192);
+            this.ClientSize = new System.Drawing.Size(238, 192);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);

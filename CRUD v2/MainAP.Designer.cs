@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblRole = new System.Windows.Forms.Label();
             this.btnOpenBuilder = new System.Windows.Forms.Button();
@@ -45,18 +44,9 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(32, 103);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(260, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Управление таблицей \"Файлы\"";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(217, 183);
+            this.button3.Location = new System.Drawing.Point(217, 161);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -77,7 +67,7 @@
             // 
             // btnOpenBuilder
             // 
-            this.btnOpenBuilder.Location = new System.Drawing.Point(82, 144);
+            this.btnOpenBuilder.Location = new System.Drawing.Point(83, 114);
             this.btnOpenBuilder.Name = "btnOpenBuilder";
             this.btnOpenBuilder.Size = new System.Drawing.Size(147, 23);
             this.btnOpenBuilder.TabIndex = 4;
@@ -89,11 +79,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 218);
+            this.ClientSize = new System.Drawing.Size(321, 215);
             this.Controls.Add(this.btnOpenBuilder);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "MainAP";
             this.Text = "Панель администратора";
@@ -105,7 +94,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Button btnOpenBuilder;
