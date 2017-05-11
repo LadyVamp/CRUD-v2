@@ -82,7 +82,6 @@ namespace CRUD_v2
 
         public override void BuildCompare()
         {
-            //_product.Add("PartX");
             _product.Add("Имя файла");
         }
 
@@ -104,7 +103,6 @@ namespace CRUD_v2
 
         public override void BuildCompare()
         {
-            //_product.Add("PartX");
             _product.Add("Абсолютный путь");
         }
 
@@ -131,7 +129,6 @@ namespace CRUD_v2
 
         public void Show()
         {
-            //Console.WriteLine("\nProduct Parts -------");
             Console.WriteLine("\nЧасти шаблона поиска -------");
             foreach (string part in _parts)
                 Console.WriteLine(part);
