@@ -48,15 +48,6 @@ namespace CRUD_v2
                     string output = System.Console.ReadLine();
                     if (output == "exit")
                         break;
-                    /*
-                    // Раскомментить при появлении текстбокса!
-                    //Выводим данные в textBox
-                    //Action action = () => richTextBox1.Text += output + Environment.NewLine;
-                    //if (InvokeRequired)
-                    //    Invoke(action);
-                    //else
-                    //    action();
-                    */
 
                     // Create director and builders
                     Director director = new Director();

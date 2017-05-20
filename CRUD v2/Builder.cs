@@ -15,8 +15,6 @@ namespace CRUD_v2
         // Builder uses a complex series of steps
         public void Construct(Builder builder)
         {
-            //builder.BuildPartA();
-            //builder.BuildPartB();
             builder.BuildCompare();
             builder.BuildAction();
         }
@@ -37,13 +35,11 @@ namespace CRUD_v2
 
         public override void BuildCompare()
         {
-            //_product.Add("PartA");
             _product.Add("Имя файла");
         }
 
         public override void BuildAction()
         {
-            //_product.Add("PartB");
             _product.Add("Включить");
         }
 
@@ -60,7 +56,6 @@ namespace CRUD_v2
 
         public override void BuildCompare()
         {
-            //_product.Add("PartX");
             _product.Add("Абсолютный путь");
         }
 
