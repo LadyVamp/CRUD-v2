@@ -105,7 +105,7 @@ namespace CRUD_v2
             dataGridView1.DataSource = ds.Tables["TFile"];
             dataGridView1.Columns[0].HeaderText = "Название";
             dataGridView1.Columns[1].HeaderText = "Ключевые слова";
-            dataGridView1.Columns[2].HeaderText = "Размер, КБ"; 
+            dataGridView1.Columns[2].HeaderText = "Размер, КБ";
             dataGridView1.Columns[3].HeaderText = "Формат";
             dataGridView1.Columns[4].HeaderText = "Содержание";
             dataGridView1.Columns[2].Width = 70;
@@ -208,6 +208,24 @@ namespace CRUD_v2
             Login f = new Login();
             f.Show();
             //this.Hide();
+        }
+
+        private void btnAllFiles_Click(object sender, EventArgs e)
+        {
+            //заполнить dataGridView 
+            DataSet ds = new DataSet();
+            SqlConnection dataBaseConnection = new SqlConnection(CONNECTION_STRING);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM TFile", dataBaseConnection);
+            dataAdapter.Fill(ds, "TFile");
+            dataGridView1.DataSource = ds.Tables["TFile"];
+            dataGridView1.Columns[0].HeaderText = "Название";
+            dataGridView1.Columns[1].HeaderText = "Ключевые слова";
+            dataGridView1.Columns[2].HeaderText = "Размер, КБ";
+            dataGridView1.Columns[3].HeaderText = "Формат";
+            dataGridView1.Columns[4].HeaderText = "Содержание";
+            dataGridView1.Columns[2].Width = 70;
+            dataGridView1.Columns[3].Width = 70;
+            dataGridView1.Columns[4].Width = 145;
         } 
 
 

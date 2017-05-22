@@ -78,6 +78,7 @@
             this.tFileTableAdapter = new CRUD_v2.SearchBaseDataSetFileTableAdapters.TFileTableAdapter();
             this.tFileTableAdapter1 = new CRUD_v2.SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter();
             this.btnEnterLogin = new System.Windows.Forms.Button();
+            this.btnAllFiles = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
@@ -332,6 +333,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnAllFiles);
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Controls.Add(this.btnSearchKeywords);
             this.groupBox3.Controls.Add(this.btnSearch);
@@ -522,6 +524,16 @@
             this.btnEnterLogin.UseVisualStyleBackColor = true;
             this.btnEnterLogin.Click += new System.EventHandler(this.btnEnterLogin_Click);
             // 
+            // btnAllFiles
+            // 
+            this.btnAllFiles.Location = new System.Drawing.Point(461, 122);
+            this.btnAllFiles.Name = "btnAllFiles";
+            this.btnAllFiles.Size = new System.Drawing.Size(102, 23);
+            this.btnAllFiles.TabIndex = 19;
+            this.btnAllFiles.Text = "Все файлы";
+            this.btnAllFiles.UseVisualStyleBackColor = true;
+            this.btnAllFiles.Click += new System.EventHandler(this.btnAllFiles_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,5 +616,6 @@
         private System.Windows.Forms.BindingSource tFileBindingSource1;
         private SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter tFileTableAdapter1;
         private System.Windows.Forms.Button btnEnterLogin;
+        private System.Windows.Forms.Button btnAllFiles;
     }
 }
