@@ -496,26 +496,6 @@ namespace CodedUITestProject1
 
     }
     
-    ///// <summary>
-    ///// Параметры для передачи в "EmptyNewRegExpr_ThrowsExceptionParams"
-    ///// </summary>
-    //[GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
-    //public class EmptyNewRegExpr_ThrowsExceptionParamsParams
-    //{
-        
-    //    #region Fields
-    //    /// <summary>
-    //    /// Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
-    //    /// </summary>
-    //    public string UICmbPatternsComboBoxSelectedItem = "XYZ | XYZ | XYZ";
-        
-    //    /// <summary>
-    //    /// Тип "" в "txtNewRegExp" надпись
-    //    /// </summary>
-    //    public string UITxtNewRegExpEditText = "";
-    //    #endregion
-    //}
-    
     [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
     public class UIForm1Window : WinWindow
     {
