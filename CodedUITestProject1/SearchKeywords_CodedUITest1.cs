@@ -10,15 +10,16 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
 
-namespace CodedUITestProject1
+  namespace CodedUITestProject1
 {
     /// <summary>
-    /// Сводное описание для CodedUITest3
+    /// Сводное описание для CodedUITest1
+    /// Поиск по ключевым словам
     /// </summary>
     [CodedUITest]
-    public class CodedUITest3
+    public class SearchKeywords_CodedUITest1
     {
-        public CodedUITest3()
+        public SearchKeywords_CodedUITest1()
         {
         }
 
@@ -27,9 +28,9 @@ namespace CodedUITestProject1
         public void CodedUITestMethod1()
         {
             // Чтобы создать код для этого теста, выберите в контекстном меню команду "Сформировать код для кодированного теста ИП", а затем выберите один из пунктов меню.
-            // Дополнительные сведения по сформированному коду см. по ссылке http://go.microsoft.com/fwlink/?LinkId=179463
-            // TODO: добавить возникновение messageBox("Регулярное выражение не должно быть пустым!")
-            this.UIMap.EmptyNewRegExpr_ThrowsExceptionParams();
+            // Дополнительные сведения по сформированному коду см. по ссылке http://go.microsoft.com/fwlink/?LinkId=179463 //this.UIMap.EnterKeyword_KeywordIsFind();
+            
+            this.UIMap.EnterKeyword_KeywordIsNotFind();
         }
 
         #region Дополнительные атрибуты тестирования
