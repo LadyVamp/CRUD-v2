@@ -1,0 +1,5 @@
+C:\Users\Nadya\Documents\Visual Studio 2012\Projects\CRUD v2\SystemTest\bin\Debug\SystemTest.dll
+C:\Users\Nadya\Documents\Visual Studio 2012\Projects\CRUD v2\SystemTest\bin\Debug\SystemTest.pdb
+C:\Users\Nadya\Documents\Visual Studio 2012\Projects\CRUD v2\SystemTest\obj\Debug\SystemTest.csprojResolveAssemblyReference.cache
+C:\Users\Nadya\Documents\Visual Studio 2012\Projects\CRUD v2\SystemTest\obj\Debug\SystemTest.dll
+C:\Users\Nadya\Documents\Visual Studio 2012\Projects\CRUD v2\SystemTest\obj\Debug\SystemTest.pdb
