@@ -17,14 +17,15 @@ namespace CodedUITestProject1
     /// Тест функции Update для шаблонов поиска
     /// </summary>
     [CodedUITest]
-    public class Update_CodedUITest3
+    public class UpdateSearchPat_CodedUITest3
     {
-        public Update_CodedUITest3()
+        public UpdateSearchPat_CodedUITest3()
         {
         }
 
         [TestMethod]
         [ExpectedException(typeof(UITestControlNotFoundException))]
+        //[ExpectedException(typeof(Exception))]
         public void CodedUITestMethod1()
         {
             // Чтобы создать код для этого теста, выберите в контекстном меню команду "Сформировать код для кодированного теста ИП", а затем выберите один из пунктов меню.

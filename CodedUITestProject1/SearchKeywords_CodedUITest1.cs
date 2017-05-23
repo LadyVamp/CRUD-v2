@@ -14,7 +14,7 @@ using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 {
     /// <summary>
     /// Сводное описание для CodedUITest1
-    /// Поиск по ключевым словам
+    /// Тест функции Поиск по ключевым словам
     /// </summary>
     [CodedUITest]
     public class SearchKeywords_CodedUITest1

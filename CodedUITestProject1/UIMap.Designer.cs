@@ -151,8 +151,6 @@ namespace CodedUITestProject1
             // Последнее действие мыши не записано.
         }
         
-        
-
         /// <summary>
         /// EmptyNewRegExpr_ThrowsException - Используйте "EmptyNewRegExpr_ThrowsExceptionParams" для передачи параметров в этот метод.
         /// </summary>
@@ -167,8 +165,9 @@ namespace CodedUITestProject1
             WinButton uIОбновитьButton = this.UIForm1Window.UIОбновитьWindow.UIОбновитьButton;
             #endregion
 
-            try 
+            try
             {
+
                 // Щелкните "txtNewRegExp" надпись
                 Mouse.Click(uITxtNewRegExpEdit, new Point(42, 6));
 
@@ -199,10 +198,11 @@ namespace CodedUITestProject1
                 // Щелкните "ОК" кнопка
                 Mouse.Click(uIОКButton, new Point(42, 12));
             }
-            catch (Exception) 
-            { 
+            catch (Exception e)
+            {
                 Console.WriteLine("Шаблон регулярного выражения не должен быть пустым!");
             }
+
 
         }
         
@@ -221,10 +221,10 @@ namespace CodedUITestProject1
             #endregion
 
             // Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
-            //uICmbPatternsComboBox.SelectedItem = this.EmptyNewRegExpr_ThrowsExceptionParamsParams.UICmbPatternsComboBoxSelectedItem;
+            uICmbPatternsComboBox.SelectedItem = this.EmptyNewRegExpr_ThrowsExceptionParamsParams.UICmbPatternsComboBoxSelectedItem;
 
             // Тип "" в "txtNewRegExp" надпись
-            //uITxtNewRegExpEdit.Text = this.EmptyNewRegExpr_ThrowsExceptionParamsParams.UITxtNewRegExpEditText;
+            uITxtNewRegExpEdit.Text = this.EmptyNewRegExpr_ThrowsExceptionParamsParams.UITxtNewRegExpEditText;
 
             // Щелкните "Обновить" кнопка
             Mouse.Click(uIОбновитьButton, new Point(29, 16));
@@ -237,6 +237,45 @@ namespace CodedUITestProject1
 
             // Щелкните "Закрыть" кнопка
             Mouse.Click(uIЗакрытьButton, new Point(14, 10));
+        }
+        
+        /// <summary>
+        /// Добавить шаблон поиска
+        /// </summary>
+        public void AddSearchPattern()
+        {
+            #region Variable Declarations
+            WinEdit uITxtRegExpEdit = this.UIForm1Window.UITxtRegExpWindow.UITxtRegExpEdit;
+            WinComboBox uICmbActionComboBox = this.UIForm1Window.UICmbActionWindow.UICmbActionComboBox;
+            WinButton uIДобавитьButton = this.UIForm1Window.UIДобавитьWindow.UIДобавитьButton;
+            WinButton uIОКButton = this.UIОКWindow.UIОКButton;
+            WinButton uIЗаполнитьButton = this.UIForm1Window.UIЗаполнитьWindow.UIЗаполнитьButton;
+            WinComboBox uICmbPatternsComboBox = this.UIForm1Window.UICmbPatternsWindow.UICmbPatternsComboBox;
+            WinButton uIЗакрытьButton = this.UIForm1Window.UIForm1TitleBar.UIЗакрытьButton;
+            #endregion
+
+            // Последнее действие мыши не записано.
+
+            // Тип "test2305" в "txtRegExp" надпись
+            uITxtRegExpEdit.Text = this.AddSearchPatternParams.UITxtRegExpEditText;
+
+            // Выберите "Включить" в "cmbAction" поле со списком
+            uICmbActionComboBox.SelectedItem = this.AddSearchPatternParams.UICmbActionComboBoxSelectedItem;
+
+            // Щелкните "Добавить" кнопка
+            Mouse.Click(uIДобавитьButton, new Point(52, 7));
+
+            // Щелкните "ОК" кнопка
+            Mouse.Click(uIОКButton, new Point(72, 15));
+
+            // Щелкните "Заполнить" кнопка
+            Mouse.Click(uIЗаполнитьButton, new Point(41, 4));
+
+            // Выберите "test2305 | Включить | Имя файла" в "cmbPatterns" поле со списком
+            uICmbPatternsComboBox.SelectedItem = this.AddSearchPatternParams.UICmbPatternsComboBoxSelectedItem;
+
+            // Щелкните "Закрыть" кнопка
+            Mouse.Click(uIЗакрытьButton, new Point(25, 8));
         }
         
         #region Properties
@@ -312,17 +351,29 @@ namespace CodedUITestProject1
         //    }
         //}
         
-        //public virtual EmptyNewRegExpr_ThrowsExceptionParamsParams EmptyNewRegExpr_ThrowsExceptionParamsParams
-        //{
-        //    get
-        //    {
-        //        if ((this.mEmptyNewRegExpr_ThrowsExceptionParamsParams == null))
-        //        {
-        //            this.mEmptyNewRegExpr_ThrowsExceptionParamsParams = new EmptyNewRegExpr_ThrowsExceptionParamsParams();
-        //        }
-        //        return this.mEmptyNewRegExpr_ThrowsExceptionParamsParams;
-        //    }
-        //}
+        public virtual EmptyNewRegExpr_ThrowsExceptionParamsParams EmptyNewRegExpr_ThrowsExceptionParamsParams
+        {
+            get
+            {
+                if ((this.mEmptyNewRegExpr_ThrowsExceptionParamsParams == null))
+                {
+                    this.mEmptyNewRegExpr_ThrowsExceptionParamsParams = new EmptyNewRegExpr_ThrowsExceptionParamsParams();
+                }
+                return this.mEmptyNewRegExpr_ThrowsExceptionParamsParams;
+            }
+        }
+        
+        public virtual AddSearchPatternParams AddSearchPatternParams
+        {
+            get
+            {
+                if ((this.mAddSearchPatternParams == null))
+                {
+                    this.mAddSearchPatternParams = new AddSearchPatternParams();
+                }
+                return this.mAddSearchPatternParams;
+            }
+        }
         
         public UIForm1Window UIForm1Window
         {
@@ -374,7 +425,9 @@ namespace CodedUITestProject1
         
         //private EmptyNewRegExpr_ThrowsExceptionParams mEmptyNewRegExpr_ThrowsExceptionParams;
         
-        //private EmptyNewRegExpr_ThrowsExceptionParamsParams mEmptyNewRegExpr_ThrowsExceptionParamsParams;
+        private EmptyNewRegExpr_ThrowsExceptionParamsParams mEmptyNewRegExpr_ThrowsExceptionParamsParams;
+        
+        private AddSearchPatternParams mAddSearchPatternParams;
         
         private UIForm1Window mUIForm1Window;
         
@@ -492,8 +545,51 @@ namespace CodedUITestProject1
         /// </summary>
         public string UICmbPatternsComboBoxSelectedItem1 = "XYZ | XYZ | XYZ";
         #endregion
-
-
+    }
+    
+    /// <summary>
+    /// Параметры для передачи в "EmptyNewRegExpr_ThrowsExceptionParams"
+    /// </summary>
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class EmptyNewRegExpr_ThrowsExceptionParamsParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Выберите "XYZ | XYZ | XYZ" в "cmbPatterns" поле со списком
+        /// </summary>
+        public string UICmbPatternsComboBoxSelectedItem = "XYZ | XYZ | XYZ";
+        
+        /// <summary>
+        /// Тип "" в "txtNewRegExp" надпись
+        /// </summary>
+        public string UITxtNewRegExpEditText = "";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Параметры для передачи в "AddSearchPattern"
+    /// </summary>
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class AddSearchPatternParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Тип "test2305" в "txtRegExp" надпись
+        /// </summary>
+        public string UITxtRegExpEditText = "test2305";
+        
+        /// <summary>
+        /// Выберите "Включить" в "cmbAction" поле со списком
+        /// </summary>
+        public string UICmbActionComboBoxSelectedItem = "Включить";
+        
+        /// <summary>
+        /// Выберите "test2305 | Включить | Имя файла" в "cmbPatterns" поле со списком
+        /// </summary>
+        public string UICmbPatternsComboBoxSelectedItem = "test2305 | Включить | Имя файла";
+        #endregion
     }
     
     [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
@@ -629,6 +725,42 @@ namespace CodedUITestProject1
                 return this.mUIForm1TitleBar;
             }
         }
+        
+        public UITxtRegExpWindow UITxtRegExpWindow
+        {
+            get
+            {
+                if ((this.mUITxtRegExpWindow == null))
+                {
+                    this.mUITxtRegExpWindow = new UITxtRegExpWindow(this);
+                }
+                return this.mUITxtRegExpWindow;
+            }
+        }
+        
+        public UICmbActionWindow UICmbActionWindow
+        {
+            get
+            {
+                if ((this.mUICmbActionWindow == null))
+                {
+                    this.mUICmbActionWindow = new UICmbActionWindow(this);
+                }
+                return this.mUICmbActionWindow;
+            }
+        }
+        
+        public UIДобавитьWindow UIДобавитьWindow
+        {
+            get
+            {
+                if ((this.mUIДобавитьWindow == null))
+                {
+                    this.mUIДобавитьWindow = new UIДобавитьWindow(this);
+                }
+                return this.mUIДобавитьWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -651,6 +783,12 @@ namespace CodedUITestProject1
         private UIДобавитьXYZWindow mUIДобавитьXYZWindow;
         
         private UIForm1TitleBar mUIForm1TitleBar;
+        
+        private UITxtRegExpWindow mUITxtRegExpWindow;
+        
+        private UICmbActionWindow mUICmbActionWindow;
+        
+        private UIДобавитьWindow mUIДобавитьWindow;
         #endregion
     }
     
@@ -1006,6 +1144,113 @@ namespace CodedUITestProject1
         
         #region Fields
         private WinButton mUIЗакрытьButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UITxtRegExpWindow : WinWindow
+    {
+        
+        public UITxtRegExpWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "txtRegExp";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITxtRegExpEdit
+        {
+            get
+            {
+                if ((this.mUITxtRegExpEdit == null))
+                {
+                    this.mUITxtRegExpEdit = new WinEdit(this);
+                    #region Условия поиска
+                    this.mUITxtRegExpEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Сравнивать с";
+                    this.mUITxtRegExpEdit.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUITxtRegExpEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITxtRegExpEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UICmbActionWindow : WinWindow
+    {
+        
+        public UICmbActionWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "cmbAction";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UICmbActionComboBox
+        {
+            get
+            {
+                if ((this.mUICmbActionComboBox == null))
+                {
+                    this.mUICmbActionComboBox = new WinComboBox(this);
+                    #region Условия поиска
+                    this.mUICmbActionComboBox.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUICmbActionComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUICmbActionComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Построитель кодированных тестов ИП", "11.0.50727.1")]
+    public class UIДобавитьWindow : WinWindow
+    {
+        
+        public UIДобавитьWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Условия поиска
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "btnInsert";
+            this.WindowTitles.Add("Form1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIДобавитьButton
+        {
+            get
+            {
+                if ((this.mUIДобавитьButton == null))
+                {
+                    this.mUIДобавитьButton = new WinButton(this);
+                    #region Условия поиска
+                    this.mUIДобавитьButton.SearchProperties[WinButton.PropertyNames.Name] = "Добавить";
+                    this.mUIДобавитьButton.WindowTitles.Add("Form1");
+                    #endregion
+                }
+                return this.mUIДобавитьButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIДобавитьButton;
         #endregion
     }
     
