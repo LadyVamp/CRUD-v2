@@ -80,21 +80,25 @@ namespace CRUD_v2
 
 
         //строка соединения с БД
-        private const string CONNECTION_STRING =
-   "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
+   //     private const string CONNECTION_STRING =
+   //"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
+         private const string CONNECTION_STRING =
+   "Data Source=DESKTOP-O9H5H8N;Initial Catalog=SearchBase;Integrated Security=True";
+        
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFileWithoutID.TFile". При необходимости она может быть перемещена или удалена.
-            this.tFileTableAdapter1.Fill(this.searchBaseDataSetFileWithoutID.TFile);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFile.TFile". При необходимости она может быть перемещена или удалена.
-            this.tFileTableAdapter.Fill(this.searchBaseDataSetFile.TFile);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TAction". При необходимости она может быть перемещена или удалена.
-            //выпадающий список для выбора "Действие"
-            this.tActionTableAdapter.Fill(this.searchBaseDataSet.TAction);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TCompare". При необходимости она может быть перемещена или удалена.
-            //выпадающий список для выбора "Сравнивать с"
-            this.tCompareTableAdapter.Fill(this.searchBaseDataSet.TCompare);
+        {         
+            
+            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFileWithoutID.TFile". При необходимости она может быть перемещена или удалена.
+            //this.tFileTableAdapter1.Fill(this.searchBaseDataSetFileWithoutID.TFile);
+            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFile.TFile". При необходимости она может быть перемещена или удалена.
+            //this.tFileTableAdapter.Fill(this.searchBaseDataSetFile.TFile);
+            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TAction". При необходимости она может быть перемещена или удалена.
+            ////выпадающий список для выбора "Действие"
+            //this.tActionTableAdapter.Fill(this.searchBaseDataSet.TAction);
+            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TCompare". При необходимости она может быть перемещена или удалена.
+            ////выпадающий список для выбора "Сравнивать с"
+            //this.tCompareTableAdapter.Fill(this.searchBaseDataSet.TCompare);
 
 
             //заполнить dataGridView при запуске формы

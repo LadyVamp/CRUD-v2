@@ -32,5 +32,15 @@ namespace CRUD_v2.Properties {
                 return ((string)(this["SearchBaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-O9H5H8N;Initial Catalog=SearchBase;Integrated Security=True")]
+        public string SearchBaseConnectionString1 {
+            get {
+                return ((string)(this["SearchBaseConnectionString1"]));
+            }
+        }
     }
 }

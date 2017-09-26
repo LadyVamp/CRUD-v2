@@ -5,3 +5,10 @@ c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Session\bin\Debug\D
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Session\obj\Debug\Session.csprojResolveAssemblyReference.cache
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Session\obj\Debug\Session.dll
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Session\obj\Debug\Session.pdb
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Session\bin\Debug\Session.dll
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Session\bin\Debug\Session.pdb
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Session\bin\Debug\Domain.dll
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Session\bin\Debug\Domain.pdb
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Session\obj\Debug\Session.csprojResolveAssemblyReference.cache
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Session\obj\Debug\Session.dll
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Session\obj\Debug\Session.pdb

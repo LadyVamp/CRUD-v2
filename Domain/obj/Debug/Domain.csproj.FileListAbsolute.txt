@@ -3,3 +3,8 @@ c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\bin\Debug\Do
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.dll
 c:\users\nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.pdb
 C:\Users\Nadya\documents\visual studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Domain\bin\Debug\Domain.dll
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Domain\bin\Debug\Domain.pdb
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.dll
+C:\Users\front\Documents\Visual Studio 2012\Projects\CRUD v2\Domain\obj\Debug\Domain.pdb
