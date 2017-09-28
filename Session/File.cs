@@ -17,7 +17,7 @@ namespace Session
         SqlCommand cmd;
         private void ConnectTo1()
         {
-            con = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+            con = new SqlConnection(@"Data Source=DESKTOP-O9H5H8N;Initial Catalog=SearchBase;Integrated Security=True");
             cmd = con.CreateCommand();
         }
         //  /Редактирование запроса поиска

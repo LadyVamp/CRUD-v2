@@ -47,12 +47,15 @@ namespace Session
 
         private void ConnectTo()
         {
-            connection = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+            //connection = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC");
+            connection = new SqlConnection(@"Data Source=DESKTOP-O9H5H8N;Initial Catalog=SearchBase;Integrated Security=True");
             command = connection.CreateCommand();
         }
 
-        private const string CONNECTION_STRING =
-    "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
+    //    private const string CONNECTION_STRING =
+    //"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
+        private const string CONNECTION_STRING = 
+            "Data Source=DESKTOP-O9H5H8N;Initial Catalog=SearchBase;Integrated Security=True";
         //  /CRUD поисковых шаблонов
 
         public SearchPattern()

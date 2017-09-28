@@ -19,7 +19,7 @@ namespace CRUD_v2
         }
 
         private const string CONNECTION_STRING =
-   "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
+   "Data Source=DESKTOP-O9H5H8N;Initial Catalog=SearchBase;Integrated Security=True";
 
 
         private void AdminSP_Load(object sender, EventArgs e)

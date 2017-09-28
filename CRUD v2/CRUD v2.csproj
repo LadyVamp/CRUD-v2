@@ -91,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchBaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SearchBaseDataSetActionCmb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchBaseDataSetActionCmb.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SearchBaseDataSetFile.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +105,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchBaseDataSetFileWithoutID.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SearchBaseDataSetNewCompareCmb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchBaseDataSetNewCompareCmb.xsd</DependentUpon>
     </Compile>
     <Compile Include="SearchBaseSP.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -159,6 +169,17 @@
     <None Include="SearchBaseDataSet1.xss">
       <DependentUpon>SearchBaseDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="SearchBaseDataSetActionCmb.xsc">
+      <DependentUpon>SearchBaseDataSetActionCmb.xsd</DependentUpon>
+    </None>
+    <None Include="SearchBaseDataSetActionCmb.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SearchBaseDataSetActionCmb.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SearchBaseDataSetActionCmb.xss">
+      <DependentUpon>SearchBaseDataSetActionCmb.xsd</DependentUpon>
+    </None>
     <None Include="SearchBaseDataSetFile.xsc">
       <DependentUpon>SearchBaseDataSetFile.xsd</DependentUpon>
     </None>
@@ -180,6 +201,17 @@
     </None>
     <None Include="SearchBaseDataSetFileWithoutID.xss">
       <DependentUpon>SearchBaseDataSetFileWithoutID.xsd</DependentUpon>
+    </None>
+    <None Include="SearchBaseDataSetNewCompareCmb.xsc">
+      <DependentUpon>SearchBaseDataSetNewCompareCmb.xsd</DependentUpon>
+    </None>
+    <None Include="SearchBaseDataSetNewCompareCmb.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SearchBaseDataSetNewCompareCmb.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SearchBaseDataSetNewCompareCmb.xss">
+      <DependentUpon>SearchBaseDataSetNewCompareCmb.xsd</DependentUpon>
     </None>
     <None Include="SearchBaseSP.xsc">
       <DependentUpon>SearchBaseSP.xsd</DependentUpon>

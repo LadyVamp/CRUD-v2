@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbAction = new System.Windows.Forms.ComboBox();
+            this.cmbCompare = new System.Windows.Forms.ComboBox();
             this.btnInsertXYZ = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbAction = new System.Windows.Forms.ComboBox();
-            this.tActionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBaseDataSet = new CRUD_v2.SearchBaseDataSet();
-            this.cmbCompare = new System.Windows.Forms.ComboBox();
-            this.tCompareBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtRegExp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.searchBaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBaseDataSet = new CRUD_v2.SearchBaseDataSet();
+            this.tSearchPatternBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBaseDataSetNewCompareCmb = new CRUD_v2.SearchBaseDataSetNewCompareCmb();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbNewAction = new System.Windows.Forms.ComboBox();
@@ -56,6 +56,7 @@
             this.tCompareTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TCompareTableAdapter();
             this.tActionTableAdapter = new CRUD_v2.SearchBaseDataSetTableAdapters.TActionTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAllFiles = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keywordsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,12 +79,19 @@
             this.tFileTableAdapter = new CRUD_v2.SearchBaseDataSetFileTableAdapters.TFileTableAdapter();
             this.tFileTableAdapter1 = new CRUD_v2.SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter();
             this.btnEnterLogin = new System.Windows.Forms.Button();
-            this.btnAllFiles = new System.Windows.Forms.Button();
+            this.searchBaseDataSet11 = new CRUD_v2.SearchBaseDataSet1();
+            this.searchBaseDataSet1 = new CRUD_v2.SearchBaseDataSet();
+            this.searchBaseDataSet12 = new CRUD_v2.SearchBaseDataSet1();
+            this.searchBaseDataSet13 = new CRUD_v2.SearchBaseDataSet1();
+            this.tSearchPatternTableAdapter = new CRUD_v2.SearchBaseDataSetNewCompareCmbTableAdapters.TSearchPatternTableAdapter();
+            this.searchBaseDataSetActionCmb = new CRUD_v2.SearchBaseDataSetActionCmb();
+            this.tSearchPatternBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tSearchPatternTableAdapter1 = new CRUD_v2.SearchBaseDataSetActionCmbTableAdapters.TSearchPatternTableAdapter();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetNewCompareCmb)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,30 +99,61 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetActionCmb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnInsertXYZ);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbAction);
             this.groupBox1.Controls.Add(this.cmbCompare);
+            this.groupBox1.Controls.Add(this.btnInsertXYZ);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnInsert);
             this.groupBox1.Controls.Add(this.txtRegExp);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 12);
+            this.groupBox1.Location = new System.Drawing.Point(17, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(374, 152);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(499, 187);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert";
             // 
+            // cmbAction
+            // 
+            this.cmbAction.FormattingEnabled = true;
+            this.cmbAction.Items.AddRange(new object[] {
+            "Включить",
+            "Исключить"});
+            this.cmbAction.Location = new System.Drawing.Point(253, 98);
+            this.cmbAction.Name = "cmbAction";
+            this.cmbAction.Size = new System.Drawing.Size(160, 24);
+            this.cmbAction.TabIndex = 13;
+            // 
+            // cmbCompare
+            // 
+            this.cmbCompare.FormattingEnabled = true;
+            this.cmbCompare.Items.AddRange(new object[] {
+            "Имя файла",
+            "Абсолютный путь"});
+            this.cmbCompare.Location = new System.Drawing.Point(253, 63);
+            this.cmbCompare.Name = "cmbCompare";
+            this.cmbCompare.Size = new System.Drawing.Size(160, 24);
+            this.cmbCompare.TabIndex = 12;
+            // 
             // btnInsertXYZ
             // 
-            this.btnInsertXYZ.Location = new System.Drawing.Point(266, 123);
+            this.btnInsertXYZ.Location = new System.Drawing.Point(355, 151);
+            this.btnInsertXYZ.Margin = new System.Windows.Forms.Padding(4);
             this.btnInsertXYZ.Name = "btnInsertXYZ";
-            this.btnInsertXYZ.Size = new System.Drawing.Size(102, 23);
+            this.btnInsertXYZ.Size = new System.Drawing.Size(136, 28);
             this.btnInsertXYZ.TabIndex = 11;
             this.btnInsertXYZ.Text = "Добавить XYZ";
             this.btnInsertXYZ.UseVisualStyleBackColor = true;
@@ -123,28 +162,51 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 91);
+            this.label5.Location = new System.Drawing.Point(13, 112);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.Size = new System.Drawing.Size(72, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Действие";
             // 
-            // cmbAction
+            // btnInsert
             // 
-            this.cmbAction.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tActionBindingSource, "actionName", true));
-            this.cmbAction.DataSource = this.tActionBindingSource;
-            this.cmbAction.DisplayMember = "actionName";
-            this.cmbAction.FormattingEnabled = true;
-            this.cmbAction.Location = new System.Drawing.Point(190, 83);
-            this.cmbAction.Name = "cmbAction";
-            this.cmbAction.Size = new System.Drawing.Size(121, 21);
-            this.cmbAction.TabIndex = 9;
-            this.cmbAction.ValueMember = "actionName";
+            this.btnInsert.Location = new System.Drawing.Point(17, 151);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(100, 28);
+            this.btnInsert.TabIndex = 4;
+            this.btnInsert.Text = "Добавить";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // tActionBindingSource
+            // txtRegExp
             // 
-            this.tActionBindingSource.DataMember = "TAction";
-            this.tActionBindingSource.DataSource = this.searchBaseDataSetBindingSource;
+            this.txtRegExp.Location = new System.Drawing.Point(253, 25);
+            this.txtRegExp.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRegExp.Name = "txtRegExp";
+            this.txtRegExp.Size = new System.Drawing.Size(160, 22);
+            this.txtRegExp.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 66);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Сравнивать с";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(227, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Шаблон (регулярное выражение)";
             // 
             // searchBaseDataSetBindingSource
             // 
@@ -156,57 +218,15 @@
             this.searchBaseDataSet.DataSetName = "SearchBaseDataSet";
             this.searchBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cmbCompare
+            // tSearchPatternBindingSource
             // 
-            this.cmbCompare.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tCompareBindingSource, "compareName", true));
-            this.cmbCompare.DataSource = this.tCompareBindingSource;
-            this.cmbCompare.DisplayMember = "compareName";
-            this.cmbCompare.FormattingEnabled = true;
-            this.cmbCompare.Location = new System.Drawing.Point(190, 51);
-            this.cmbCompare.Name = "cmbCompare";
-            this.cmbCompare.Size = new System.Drawing.Size(121, 21);
-            this.cmbCompare.TabIndex = 8;
-            this.cmbCompare.ValueMember = "compareName";
+            this.tSearchPatternBindingSource.DataMember = "TSearchPattern";
+            this.tSearchPatternBindingSource.DataSource = this.searchBaseDataSetNewCompareCmb;
             // 
-            // tCompareBindingSource
+            // searchBaseDataSetNewCompareCmb
             // 
-            this.tCompareBindingSource.DataMember = "TCompare";
-            this.tCompareBindingSource.DataSource = this.searchBaseDataSetBindingSource;
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(13, 123);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 4;
-            this.btnInsert.Text = "Добавить";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // txtRegExp
-            // 
-            this.txtRegExp.Location = new System.Drawing.Point(190, 20);
-            this.txtRegExp.Name = "txtRegExp";
-            this.txtRegExp.Size = new System.Drawing.Size(121, 20);
-            this.txtRegExp.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Сравнивать с";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Шаблон (регулярное выражение)";
+            this.searchBaseDataSetNewCompareCmb.DataSetName = "SearchBaseDataSetNewCompareCmb";
+            this.searchBaseDataSetNewCompareCmb.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox2
             // 
@@ -220,9 +240,11 @@
             this.groupBox2.Controls.Add(this.btnFillCombobox);
             this.groupBox2.Controls.Add(this.cmbPatterns);
             this.groupBox2.Controls.Add(this.txtNewRegExp);
-            this.groupBox2.Location = new System.Drawing.Point(13, 170);
+            this.groupBox2.Location = new System.Drawing.Point(17, 209);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(374, 209);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(499, 257);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select, update, delete";
@@ -230,50 +252,57 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 149);
+            this.label3.Location = new System.Drawing.Point(13, 183);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 13);
+            this.label3.Size = new System.Drawing.Size(140, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Изменить Действие";
             // 
             // cmbNewAction
             // 
-            this.cmbNewAction.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tActionBindingSource, "actionName", true));
-            this.cmbNewAction.DataSource = this.tActionBindingSource;
             this.cmbNewAction.DisplayMember = "actionName";
             this.cmbNewAction.FormattingEnabled = true;
-            this.cmbNewAction.Location = new System.Drawing.Point(227, 141);
+            this.cmbNewAction.Items.AddRange(new object[] {
+            "Включить",
+            "Исключить"});
+            this.cmbNewAction.Location = new System.Drawing.Point(303, 174);
+            this.cmbNewAction.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNewAction.Name = "cmbNewAction";
-            this.cmbNewAction.Size = new System.Drawing.Size(121, 21);
+            this.cmbNewAction.Size = new System.Drawing.Size(160, 24);
             this.cmbNewAction.TabIndex = 13;
             this.cmbNewAction.ValueMember = "actionName";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 81);
+            this.label6.Location = new System.Drawing.Point(13, 100);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(211, 13);
+            this.label6.Size = new System.Drawing.Size(274, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Новый Шаблон (регулярное выражение)";
             // 
             // cmbNewCompare
             // 
-            this.cmbNewCompare.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tCompareBindingSource, "compareName", true));
-            this.cmbNewCompare.DataSource = this.tCompareBindingSource;
             this.cmbNewCompare.DisplayMember = "compareName";
             this.cmbNewCompare.FormattingEnabled = true;
-            this.cmbNewCompare.Location = new System.Drawing.Point(227, 109);
+            this.cmbNewCompare.Items.AddRange(new object[] {
+            "Имя файла",
+            "Абсолютный путь"});
+            this.cmbNewCompare.Location = new System.Drawing.Point(303, 134);
+            this.cmbNewCompare.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNewCompare.Name = "cmbNewCompare";
-            this.cmbNewCompare.Size = new System.Drawing.Size(121, 21);
+            this.cmbNewCompare.Size = new System.Drawing.Size(160, 24);
             this.cmbNewCompare.TabIndex = 12;
             this.cmbNewCompare.ValueMember = "compareName";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(13, 46);
+            this.btnDelete.Location = new System.Drawing.Point(17, 57);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -282,17 +311,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 112);
+            this.label4.Location = new System.Drawing.Point(13, 138);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 13);
+            this.label4.Size = new System.Drawing.Size(164, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "Изменить Сравнивать с";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(13, 180);
+            this.btnUpdate.Location = new System.Drawing.Point(17, 222);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Обновить";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -300,9 +331,10 @@
             // 
             // btnFillCombobox
             // 
-            this.btnFillCombobox.Location = new System.Drawing.Point(273, 46);
+            this.btnFillCombobox.Location = new System.Drawing.Point(364, 57);
+            this.btnFillCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.btnFillCombobox.Name = "btnFillCombobox";
-            this.btnFillCombobox.Size = new System.Drawing.Size(75, 23);
+            this.btnFillCombobox.Size = new System.Drawing.Size(100, 28);
             this.btnFillCombobox.TabIndex = 6;
             this.btnFillCombobox.Text = "Заполнить";
             this.btnFillCombobox.UseVisualStyleBackColor = true;
@@ -311,16 +343,18 @@
             // cmbPatterns
             // 
             this.cmbPatterns.FormattingEnabled = true;
-            this.cmbPatterns.Location = new System.Drawing.Point(13, 19);
+            this.cmbPatterns.Location = new System.Drawing.Point(17, 23);
+            this.cmbPatterns.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPatterns.Name = "cmbPatterns";
-            this.cmbPatterns.Size = new System.Drawing.Size(335, 21);
+            this.cmbPatterns.Size = new System.Drawing.Size(445, 24);
             this.cmbPatterns.TabIndex = 5;
             // 
             // txtNewRegExp
             // 
-            this.txtNewRegExp.Location = new System.Drawing.Point(227, 78);
+            this.txtNewRegExp.Location = new System.Drawing.Point(303, 96);
+            this.txtNewRegExp.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewRegExp.Name = "txtNewRegExp";
-            this.txtNewRegExp.Size = new System.Drawing.Size(121, 20);
+            this.txtNewRegExp.Size = new System.Drawing.Size(160, 22);
             this.txtNewRegExp.TabIndex = 2;
             // 
             // tCompareTableAdapter
@@ -344,12 +378,25 @@
             this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.txtKeywords);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(394, 13);
+            this.groupBox3.Location = new System.Drawing.Point(525, 16);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(577, 366);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(769, 450);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Редактирование запроса поиска";
+            // 
+            // btnAllFiles
+            // 
+            this.btnAllFiles.Location = new System.Drawing.Point(615, 150);
+            this.btnAllFiles.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAllFiles.Name = "btnAllFiles";
+            this.btnAllFiles.Size = new System.Drawing.Size(136, 28);
+            this.btnAllFiles.TabIndex = 19;
+            this.btnAllFiles.Text = "Все файлы";
+            this.btnAllFiles.UseVisualStyleBackColor = true;
+            this.btnAllFiles.Click += new System.EventHandler(this.btnAllFiles_Click);
             // 
             // dataGridView1
             // 
@@ -362,9 +409,10 @@
             this.formatDataGridViewTextBoxColumn,
             this.contentDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tFileBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 151);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 186);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 209);
+            this.dataGridView1.Size = new System.Drawing.Size(725, 257);
             this.dataGridView1.TabIndex = 3;
             // 
             // nameDataGridViewTextBoxColumn
@@ -409,9 +457,10 @@
             // 
             // btnSearchKeywords
             // 
-            this.btnSearchKeywords.Location = new System.Drawing.Point(265, 19);
+            this.btnSearchKeywords.Location = new System.Drawing.Point(353, 23);
+            this.btnSearchKeywords.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchKeywords.Name = "btnSearchKeywords";
-            this.btnSearchKeywords.Size = new System.Drawing.Size(198, 24);
+            this.btnSearchKeywords.Size = new System.Drawing.Size(264, 30);
             this.btnSearchKeywords.TabIndex = 18;
             this.btnSearchKeywords.Text = "Поиск по ключевым словам";
             this.btnSearchKeywords.UseVisualStyleBackColor = true;
@@ -419,9 +468,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(19, 110);
+            this.btnSearch.Location = new System.Drawing.Point(25, 135);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "Поиск";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -430,9 +480,10 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(205, 77);
+            this.checkBox4.Location = new System.Drawing.Point(273, 95);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(38, 17);
+            this.checkBox4.Size = new System.Drawing.Size(47, 21);
             this.checkBox4.TabIndex = 8;
             this.checkBox4.Tag = "rtf";
             this.checkBox4.Text = ".rtf";
@@ -441,9 +492,10 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(205, 52);
+            this.checkBox3.Location = new System.Drawing.Point(273, 64);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(40, 17);
+            this.checkBox3.Size = new System.Drawing.Size(48, 21);
             this.checkBox3.TabIndex = 6;
             this.checkBox3.Tag = "txt";
             this.checkBox3.Text = ".txt";
@@ -452,9 +504,10 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(124, 79);
+            this.checkBox2.Location = new System.Drawing.Point(165, 97);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(52, 17);
+            this.checkBox2.Size = new System.Drawing.Size(63, 21);
             this.checkBox2.TabIndex = 4;
             this.checkBox2.Tag = "docx";
             this.checkBox2.Text = ".docx";
@@ -463,18 +516,20 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 58);
+            this.label8.Location = new System.Drawing.Point(21, 71);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 13);
+            this.label8.Size = new System.Drawing.Size(108, 17);
             this.label8.TabIndex = 3;
             this.label8.Text = "Формат файла";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(124, 53);
+            this.checkBox1.Location = new System.Drawing.Point(165, 65);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(47, 17);
+            this.checkBox1.Size = new System.Drawing.Size(57, 21);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Tag = "doc";
             this.checkBox1.Text = ".doc";
@@ -482,17 +537,19 @@
             // 
             // txtKeywords
             // 
-            this.txtKeywords.Location = new System.Drawing.Point(124, 23);
+            this.txtKeywords.Location = new System.Drawing.Point(165, 28);
+            this.txtKeywords.Margin = new System.Windows.Forms.Padding(4);
             this.txtKeywords.Name = "txtKeywords";
-            this.txtKeywords.Size = new System.Drawing.Size(100, 20);
+            this.txtKeywords.Size = new System.Drawing.Size(132, 22);
             this.txtKeywords.TabIndex = 17;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 26);
+            this.label7.Location = new System.Drawing.Point(21, 32);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.Size = new System.Drawing.Size(118, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ключевые слова";
             // 
@@ -516,42 +573,72 @@
             // 
             // btnEnterLogin
             // 
-            this.btnEnterLogin.Location = new System.Drawing.Point(813, 388);
+            this.btnEnterLogin.Location = new System.Drawing.Point(1084, 478);
+            this.btnEnterLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnterLogin.Name = "btnEnterLogin";
-            this.btnEnterLogin.Size = new System.Drawing.Size(158, 23);
+            this.btnEnterLogin.Size = new System.Drawing.Size(211, 28);
             this.btnEnterLogin.TabIndex = 3;
             this.btnEnterLogin.Text = "Вход для администратора";
             this.btnEnterLogin.UseVisualStyleBackColor = true;
             this.btnEnterLogin.Click += new System.EventHandler(this.btnEnterLogin_Click);
             // 
-            // btnAllFiles
+            // searchBaseDataSet11
             // 
-            this.btnAllFiles.Location = new System.Drawing.Point(461, 122);
-            this.btnAllFiles.Name = "btnAllFiles";
-            this.btnAllFiles.Size = new System.Drawing.Size(102, 23);
-            this.btnAllFiles.TabIndex = 19;
-            this.btnAllFiles.Text = "Все файлы";
-            this.btnAllFiles.UseVisualStyleBackColor = true;
-            this.btnAllFiles.Click += new System.EventHandler(this.btnAllFiles_Click);
+            this.searchBaseDataSet11.DataSetName = "SearchBaseDataSet1";
+            this.searchBaseDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // searchBaseDataSet1
+            // 
+            this.searchBaseDataSet1.DataSetName = "SearchBaseDataSet";
+            this.searchBaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // searchBaseDataSet12
+            // 
+            this.searchBaseDataSet12.DataSetName = "SearchBaseDataSet1";
+            this.searchBaseDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // searchBaseDataSet13
+            // 
+            this.searchBaseDataSet13.DataSetName = "SearchBaseDataSet1";
+            this.searchBaseDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tSearchPatternTableAdapter
+            // 
+            this.tSearchPatternTableAdapter.ClearBeforeFill = true;
+            // 
+            // searchBaseDataSetActionCmb
+            // 
+            this.searchBaseDataSetActionCmb.DataSetName = "SearchBaseDataSetActionCmb";
+            this.searchBaseDataSetActionCmb.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tSearchPatternBindingSource1
+            // 
+            this.tSearchPatternBindingSource1.DataMember = "TSearchPattern";
+            this.tSearchPatternBindingSource1.DataSource = this.searchBaseDataSetActionCmb;
+            // 
+            // tSearchPatternTableAdapter1
+            // 
+            this.tSearchPatternTableAdapter1.ClearBeforeFill = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 423);
+            this.ClientSize = new System.Drawing.Size(1311, 521);
             this.Controls.Add(this.btnEnterLogin);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tActionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCompareBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetNewCompareCmb)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -561,6 +648,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetActionCmb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSearchPatternBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -569,8 +662,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbAction;
-        private System.Windows.Forms.ComboBox cmbCompare;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.TextBox txtRegExp;
         private System.Windows.Forms.Label label2;
@@ -588,9 +679,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource searchBaseDataSetBindingSource;
         private SearchBaseDataSet searchBaseDataSet;
-        private System.Windows.Forms.BindingSource tCompareBindingSource;
+        //private System.Windows.Forms.BindingSource tCompareBindingSource;
         private SearchBaseDataSetTableAdapters.TCompareTableAdapter tCompareTableAdapter;
-        private System.Windows.Forms.BindingSource tActionBindingSource;
+        //private System.Windows.Forms.BindingSource tActionBindingSource;
         private SearchBaseDataSetTableAdapters.TActionTableAdapter tActionTableAdapter;
         private System.Windows.Forms.Button btnInsertXYZ;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -617,5 +708,17 @@
         private SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter tFileTableAdapter1;
         private System.Windows.Forms.Button btnEnterLogin;
         private System.Windows.Forms.Button btnAllFiles;
+        private System.Windows.Forms.ComboBox cmbCompare;
+        private SearchBaseDataSet1 searchBaseDataSet11;
+        private SearchBaseDataSet searchBaseDataSet1;
+        private SearchBaseDataSet1 searchBaseDataSet12;
+        private SearchBaseDataSet1 searchBaseDataSet13;
+        private SearchBaseDataSetNewCompareCmb searchBaseDataSetNewCompareCmb;
+        private System.Windows.Forms.BindingSource tSearchPatternBindingSource;
+        private SearchBaseDataSetNewCompareCmbTableAdapters.TSearchPatternTableAdapter tSearchPatternTableAdapter;
+        private System.Windows.Forms.ComboBox cmbAction;
+        private SearchBaseDataSetActionCmb searchBaseDataSetActionCmb;
+        private System.Windows.Forms.BindingSource tSearchPatternBindingSource1;
+        private SearchBaseDataSetActionCmbTableAdapters.TSearchPatternTableAdapter tSearchPatternTableAdapter1;
     }
 }

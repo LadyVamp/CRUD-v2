@@ -87,7 +87,11 @@ namespace CRUD_v2
         
 
         private void Form1_Load(object sender, EventArgs e)
-        {         
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetActionCmb.TSearchPattern". При необходимости она может быть перемещена или удалена.
+            this.tSearchPatternTableAdapter1.Fill(this.searchBaseDataSetActionCmb.TSearchPattern);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetNewCompareCmb.TSearchPattern". При необходимости она может быть перемещена или удалена.
+            this.tSearchPatternTableAdapter.Fill(this.searchBaseDataSetNewCompareCmb.TSearchPattern);
             
             //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFileWithoutID.TFile". При необходимости она может быть перемещена или удалена.
             //this.tFileTableAdapter1.Fill(this.searchBaseDataSetFileWithoutID.TFile);
