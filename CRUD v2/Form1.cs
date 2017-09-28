@@ -93,16 +93,6 @@ namespace CRUD_v2
             // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetNewCompareCmb.TSearchPattern". При необходимости она может быть перемещена или удалена.
             this.tSearchPatternTableAdapter.Fill(this.searchBaseDataSetNewCompareCmb.TSearchPattern);
             
-            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFile.TFile". При необходимости она может быть перемещена или удалена.
-            //this.tFileTableAdapter.Fill(this.searchBaseDataSetFile.TFile);
-            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TAction". При необходимости она может быть перемещена или удалена.
-            ////выпадающий список для выбора "Действие"
-            //this.tActionTableAdapter.Fill(this.searchBaseDataSet.TAction);
-            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TCompare". При необходимости она может быть перемещена или удалена.
-            ////выпадающий список для выбора "Сравнивать с"
-            //this.tCompareTableAdapter.Fill(this.searchBaseDataSet.TCompare);
-
-
             //заполнить dataGridView при запуске формы
             DataSet ds = new DataSet();
             SqlConnection dataBaseConnection = new SqlConnection(CONNECTION_STRING);
