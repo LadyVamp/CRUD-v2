@@ -52,8 +52,6 @@ namespace Session
             command = connection.CreateCommand();
         }
 
-    //    private const string CONNECTION_STRING =
-    //"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SearchBase;Data Source=NADYA-PC";
         private const string CONNECTION_STRING = 
             "Data Source=DESKTOP-O9H5H8N;Initial Catalog=SearchBase;Integrated Security=True";
         //  /CRUD поисковых шаблонов

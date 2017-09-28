@@ -679,9 +679,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource searchBaseDataSetBindingSource;
         private SearchBaseDataSet searchBaseDataSet;
-        //private System.Windows.Forms.BindingSource tCompareBindingSource;
         private SearchBaseDataSetTableAdapters.TCompareTableAdapter tCompareTableAdapter;
-        //private System.Windows.Forms.BindingSource tActionBindingSource;
         private SearchBaseDataSetTableAdapters.TActionTableAdapter tActionTableAdapter;
         private System.Windows.Forms.Button btnInsertXYZ;
         private System.Windows.Forms.GroupBox groupBox3;
