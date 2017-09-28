@@ -64,7 +64,6 @@
             this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tFileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBaseDataSetFileWithoutID = new CRUD_v2.SearchBaseDataSetFileWithoutID();
             this.btnSearchKeywords = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -96,7 +95,6 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet11)).BeginInit();
@@ -448,12 +446,7 @@
             // tFileBindingSource1
             // 
             this.tFileBindingSource1.DataMember = "TFile";
-            this.tFileBindingSource1.DataSource = this.searchBaseDataSetFileWithoutID;
-            // 
-            // searchBaseDataSetFileWithoutID
-            // 
-            this.searchBaseDataSetFileWithoutID.DataSetName = "SearchBaseDataSetFileWithoutID";
-            this.searchBaseDataSetFileWithoutID.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+          
             // 
             // btnSearchKeywords
             // 
@@ -645,7 +638,6 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFileWithoutID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet11)).EndInit();
@@ -701,7 +693,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contentDataGridViewTextBoxColumn;
-        private SearchBaseDataSetFileWithoutID searchBaseDataSetFileWithoutID;
         private System.Windows.Forms.BindingSource tFileBindingSource1;
         private SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter tFileTableAdapter1;
         private System.Windows.Forms.Button btnEnterLogin;
