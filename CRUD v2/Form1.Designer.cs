@@ -73,8 +73,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtKeywords = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.searchBaseDataSetFile = new CRUD_v2.SearchBaseDataSetFile();
-            this.tFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tFileTableAdapter = new CRUD_v2.SearchBaseDataSetFileTableAdapters.TFileTableAdapter();
             this.tFileTableAdapter1 = new CRUD_v2.SearchBaseDataSetFileWithoutIDTableAdapters.TFileTableAdapter();
             this.btnEnterLogin = new System.Windows.Forms.Button();
@@ -95,8 +93,6 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet12)).BeginInit();
@@ -545,16 +541,7 @@
             this.label7.Size = new System.Drawing.Size(118, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ключевые слова";
-            // 
-            // searchBaseDataSetFile
-            // 
-            this.searchBaseDataSetFile.DataSetName = "SearchBaseDataSetFile";
-            this.searchBaseDataSetFile.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tFileBindingSource
-            // 
-            this.tFileBindingSource.DataMember = "TFile";
-            this.tFileBindingSource.DataSource = this.searchBaseDataSetFile;
+
             // 
             // tFileTableAdapter
             // 
@@ -638,8 +625,6 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSetFile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tFileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBaseDataSet12)).EndInit();
@@ -685,7 +670,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSearchKeywords;
-        private SearchBaseDataSetFile searchBaseDataSetFile;
         private System.Windows.Forms.BindingSource tFileBindingSource;
         private SearchBaseDataSetFileTableAdapters.TFileTableAdapter tFileTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

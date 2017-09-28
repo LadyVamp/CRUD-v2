@@ -93,8 +93,6 @@ namespace CRUD_v2
             // TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetNewCompareCmb.TSearchPattern". При необходимости она может быть перемещена или удалена.
             this.tSearchPatternTableAdapter.Fill(this.searchBaseDataSetNewCompareCmb.TSearchPattern);
             
-            //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFileWithoutID.TFile". При необходимости она может быть перемещена или удалена.
-            //this.tFileTableAdapter1.Fill(this.searchBaseDataSetFileWithoutID.TFile);
             //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSetFile.TFile". При необходимости она может быть перемещена или удалена.
             //this.tFileTableAdapter.Fill(this.searchBaseDataSetFile.TFile);
             //// TODO: данная строка кода позволяет загрузить данные в таблицу "searchBaseDataSet.TAction". При необходимости она может быть перемещена или удалена.
